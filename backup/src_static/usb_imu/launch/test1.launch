@@ -1,0 +1,19 @@
+<launch>
+
+    <node pkg="usb_imu" type="usb_imu_node" name="imu0" output="screen">
+        <rosparam>
+            usb_device: "USB0"
+            name: IMU0
+        </rosparam>
+    </node>
+
+    <node pkg="usb_imu" type="usb_imu_node" name="imu1" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            name: IMU1
+        </rosparam>
+    </node>
+
+    <node pkg="usb_imu" type="test_imu_node" name="test_imu" output="screen" />
+
+</launch>

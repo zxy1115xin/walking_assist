@@ -1,0 +1,61 @@
+<!-- modified by lyy on 22/8/3 -->
+<!-- 每次只调一个电机！！！ -->
+<!-- 请只注释代码行！！！ -->
+
+<!-- 速度为正+是放线，拉力减小 -->
+<!-- 速度为负-是收线，拉力增大-->
+
+<launch>
+
+    <!-- 扰动 -->
+
+<!--    <node pkg="unitree_motor" type="motor_node" name="disturb" output="screen">-->
+<!--        <rosparam>-->
+<!--            usb_device: "USB1"-->
+<!--            enable: "100"-->
+<!--            motor0: "disturb"-->
+<!--            W00: 10-->
+<!--        </rosparam>-->
+<!--    </node>-->
+
+    <!-- 左腿 -->
+
+    <node pkg="unitree_motor" type="motor_node" name="left_lat" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            enable: "001"
+            motor2: "left_lat"
+            W02: -5
+        </rosparam>
+    </node>
+
+<!--    <node pkg="unitree_motor" type="motor_node" name="left_med" output="screen">-->
+<!--        <rosparam>-->
+<!--            usb_device: "USB0"-->
+<!--            enable: "010"-->
+<!--            motor1: "left_med"-->
+<!--            W01: 5-->
+<!--        </rosparam>-->
+<!--    </node>-->
+
+    <!-- 右腿 -->
+
+<!--    <node pkg="unitree_motor" type="motor_node" name="right_med" output="screen">-->
+<!--        <rosparam>-->
+<!--            usb_device: "USB0"-->
+<!--            enable: "100"-->
+<!--            motor0: "right_med"-->
+<!--            W00: 5-->
+<!--        </rosparam>-->
+<!--    </node>-->
+
+<!--    <node pkg="unitree_motor" type="motor_node" name="right_lat" output="screen">-->
+<!--        <rosparam>-->
+<!--            usb_device: "USB0"-->
+<!--            enable: "001"-->
+<!--            motor2: "right_lat"-->
+<!--            W02: 5-->
+<!--        </rosparam>-->
+<!--    </node>-->
+
+</launch>

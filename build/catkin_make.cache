@@ -1,0 +1,2 @@
+cable_force:control:emg_process:ground_reaction_force:stm32_emg:strategy:unitree_motor:usb_imu
+-DCATKIN_DEVEL_PREFIX=/home/c208/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/c208/catkin_ws/install -G Unix Makefiles

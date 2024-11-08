@@ -1,0 +1,8 @@
+prefix=/home/c208/catkin_ws/install
+
+Name: stm32_emg
+Description: Description of stm32_emg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

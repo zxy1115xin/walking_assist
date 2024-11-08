@@ -1,0 +1,12 @@
+<launch>
+
+    <node pkg="rosbag" type="record" name="record" args="-O /home/c208/test_process.bag -a" />
+    <node pkg="rosbag" type="play" name="play" args="/home/c208/test_emg.bag" />
+
+    <node pkg="emg_process" type="emg_process_node" name="emg_process" output="screen">
+        <rosparam>
+            EMG_name: "channel8"
+        </rosparam>
+    </node>
+
+</launch>

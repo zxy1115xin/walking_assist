@@ -1,0 +1,20 @@
+<launch>
+    <node pkg="rosbag" type="record" name="record" args="-O /home/c208/tune_step.bag -a" />
+
+    <!--    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" args="/motor_ctrl/Pos /motor_sensor/Pos">-->
+<!--    </node>-->
+    <node pkg="control" type="tune_node" name="tune_node" output="screen">
+        <param name="delay" type="double" value="5.0"/>
+        <param name="error" type="double" value="0.5236"/>
+        <param name="time" type="double" value="1.0"/>
+        <param name="kp" type="double" value="0.2"/>
+        <param name="kw" type="double" value="3.0"/>
+    </node>
+    <node pkg="unitree_motor" type="motor_node" name="motor_node" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            enable: "100"
+            "motor0": "motor"
+        </rosparam>
+    </node>
+</launch>

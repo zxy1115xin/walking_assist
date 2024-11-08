@@ -1,0 +1,24 @@
+<launch>
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
+        <remap from="received_messages" to="can0_rx"/>
+        <remap from="sent_messages" to="can0_tx"/>
+        <param name="can_device" type="string" value="can0"/>
+    </node>
+
+    <node pkg="cable_force" type="cable_force_node" name="cable_force0" output="screen">
+        <remap from="can_rx" to="can0_rx"/>
+        <remap from="cable_force" to="cable_force0"/>
+    </node>
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
+        <remap from="received_messages" to="can1_rx"/>
+        <remap from="sent_messages" to="can1_tx"/>
+        <param name="can_device" type="string" value="can1"/>
+    </node>
+
+    <node pkg="cable_force" type="cable_force_node" name="cable_force1" output="screen">
+        <remap from="can_rx" to="can1_rx"/>
+        <remap from="cable_force" to="cable_force1"/>
+    </node>
+
+</launch>

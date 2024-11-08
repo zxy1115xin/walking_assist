@@ -1,0 +1,54 @@
+<launch>
+
+
+<!--     <node pkg="unitree_motor" type="motor_node" name="left_lat" output="screen">-->
+<!--         <rosparam>-->
+<!--             usb_device: "USB0"-->
+<!--             enable: "001"-->
+<!--             motor2: "left_lat"-->
+<!--             W02: -5-->
+<!--         </rosparam>-->
+<!--     </node>-->
+
+
+<!--     <node pkg="unitree_motor" type="motor_node" name="left_med" output="screen">-->
+<!--         <rosparam>-->
+<!--             usb_device: "USB0"-->
+<!--             enable: "100"-->
+<!--             motor0: "left_med"-->
+<!--             W00: -5-->
+<!--         </rosparam>-->
+<!--     </node>-->
+
+
+<!--    <node pkg="unitree_motor" type="motor_node" name="right_med" output="screen">-->
+<!--        <rosparam>-->
+<!--            usb_device: "USB0"-->
+<!--            enable: "010"-->
+<!--            motor1: "right_med"-->
+<!--            W01: -5-->
+<!--        </rosparam>-->
+<!--    </node>-->
+
+
+      <node pkg="unitree_motor" type="motor_node" name="right_lat" output="screen">
+             <rosparam>
+                 usb_device: "USB0"
+                 enable: "001"
+                 motor2: "right_lat"
+                 W02: 5
+             </rosparam>
+         </node>
+
+
+<!--      <node pkg="unitree_motor" type="motor_node" name="disturb" output="screen">-->
+<!--         <rosparam>-->
+<!--             usb_device: "USB1"-->
+<!--             enable: "100"-->
+<!--             motor0: "disturb"-->
+<!--             W00: -10-->
+<!--         </rosparam>-->
+<!--       </node>-->
+
+
+</launch>

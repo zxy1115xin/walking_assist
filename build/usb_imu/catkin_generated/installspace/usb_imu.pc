@@ -1,0 +1,8 @@
+prefix=/home/c208/catkin_ws/install
+
+Name: usb_imu
+Description: Description of usb_imu
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

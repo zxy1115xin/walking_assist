@@ -1,0 +1,94 @@
+<launch>
+    <!--   外侧单绳助力： F=60N/m -->
+
+
+
+    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/static_med.bag -a" />
+    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
+
+
+    <param name = "name" type = "string" value = "static_med" />
+    <param name = "path" type = "string" value = "F:\zxy\mul_assist\ankle1125\liying"/>
+    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
+      <remap from="received_messages" to="can0_rx"/>
+      <remap from="sent_messages" to="can0_tx"/>
+      <rosparam>
+          can_device: "can0"
+      </rosparam>
+    </node>
+
+    <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
+        <remap from="can_rx" to="can0_rx"/>
+        <remap from="channel1" to="left_lat_force"/>
+        <remap from="channel2" to="left_med_force"/>
+        <remap from="channel3" to="right_med_force"/>
+        <remap from="channel4" to="right_lat_force"/>
+    </node>
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
+        <remap from="received_messages" to="can1_rx"/>
+        <remap from="sent_messages" to="can1_tx"/>
+        <rosparam>
+            can_device: "can1"
+        </rosparam>
+    </node>
+
+
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_R" output="screen">
+        <param name="Foot"  type="double"  value="0"/>
+        <remap from="can_rx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_R"/>
+	</node>
+
+
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_L" output="screen">
+        <param name="Foot"  type="double"  value="1"/>
+        <remap from="can_rx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_L"/>
+	</node>
+
+
+   <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">
+       <rosparam>
+           usb_device: "USB0"
+           motor0: "right_med"
+           motor1: "left_med"
+           motor2: "right_lat"
+           enable: "100"
+       </rosparam>
+   </node>
+
+    <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            enable: "000"
+            motor0: "disturb"
+            motor2: "left_lat"
+
+        </rosparam>
+    </node>
+
+
+    <node pkg="control" type="control_node" name="assist" output="screen">
+        <rosparam>
+            motor_num: 4
+            motor1: "left_lat"
+            motor2: "left_med"
+            motor3: "right_med"
+            motor4: "right_lat"
+        </rosparam>
+    </node>
+
+
+
+<!--     <node pkg="strategy" type="left_lat.py" name="left_lat" output="screen"/> -->
+<!--    <node pkg="strategy" type="left_med.py" name="left_med" output="screen"/>-->
+<!--    <node pkg="strategy" type="right_lat.py" name="right_lat" output="screen"/> -->
+<!--    <node pkg="strategy" type="right_med.py" name="right_med" output="screen"/>-->
+   <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
+         <param name = "force_pre" type = "double" value = "5.0" />
+    </node>
+</launch>

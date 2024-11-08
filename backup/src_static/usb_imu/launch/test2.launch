@@ -1,0 +1,45 @@
+<launch>
+    <node pkg="rosbag" type="record" name="record" args="-O /home/c208/test_emg_imu.bag -a" />
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
+        <remap from="received_messages" to="can1_rx"/>
+        <remap from="sent_messages" to="can1_tx"/>
+        <param name="can_device" type="string" value="can1"/>
+    </node>
+
+    <node pkg="stm32_emg" type="stm32_emg_node" name="emg1" output="screen">
+        <remap from="can_rx" to="can1_rx"/>
+        <!--        8通道EMG信号-->
+        <!--        <remap from="channel1" to="right_med_force"/>-->
+        <!--        <remap from="channel2" to="left_lat_force"/>-->
+        <!--        <remap from="channel3" to="right_lat_force"/>-->
+        <!--        <remap from="channel4" to="left_med_force"/>-->
+        <!--        <remap from="channel5" to="right_med_force"/>-->
+        <!--        <remap from="channel6" to="left_lat_force"/>-->
+        <!--        <remap from="channel7" to="right_lat_force"/>-->
+        <!--        <remap from="channel8" to="left_med_force"/>-->
+    </node>
+
+    <node pkg="emg_process" type="emg_process_node" name="emg_process" output="screen">
+        <rosparam>
+            EMG_name: "channel8"
+        </rosparam>
+    </node>
+
+    <node pkg="usb_imu" type="usb_imu_node" name="imu0" output="screen">
+        <rosparam>
+            usb_device: "USB0"
+            name: IMU0
+        </rosparam>
+    </node>
+
+    <node pkg="usb_imu" type="usb_imu_node" name="imu1" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            name: IMU1
+        </rosparam>
+    </node>
+
+    <node pkg="usb_imu" type="test_imu_node" name="test_imu" output="screen" />
+
+</launch>

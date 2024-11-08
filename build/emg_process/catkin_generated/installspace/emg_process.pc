@@ -1,0 +1,8 @@
+prefix=/home/c208/catkin_ws/install
+
+Name: emg_process
+Description: Description of emg_process
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

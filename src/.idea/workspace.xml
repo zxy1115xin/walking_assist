@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCATKIN_DEVEL_PREFIX:PATH=&lt;WORKSPACE_DIRECTORY&gt;/devel" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="690a5118-fe7e-4193-95b0-642386b4ebe3" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="2GobMwe4S6DILo7jM1wzcBpLC8G" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/c208/catkin_ws/src&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/strategy/launch" />
+      <recent name="$PROJECT_DIR$/strategy/launch/zxy-walk" />
+      <recent name="$PROJECT_DIR$/strategy/launch/zxy" />
+      <recent name="$PROJECT_DIR$/control/src" />
+      <recent name="$PROJECT_DIR$/ground_reaction_force/scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/strategy/launch/zxy" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="690a5118-fe7e-4193-95b0-642386b4ebe3" name="Changes" comment="" />
+      <created>1667057839773</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667057839773</updated>
+      <workItem from="1667057850326" duration="10641000" />
+      <workItem from="1667112828231" duration="14756000" />
+      <workItem from="1667180777155" duration="5940000" />
+      <workItem from="1667201315613" duration="1246000" />
+      <workItem from="1667203412255" duration="3560000" />
+      <workItem from="1667201516645" duration="4264000" />
+      <workItem from="1667219133388" duration="17862000" />
+      <workItem from="1667896953570" duration="12191000" />
+      <workItem from="1668313471173" duration="119000" />
+      <workItem from="1668428688727" duration="2857000" />
+      <workItem from="1669185667124" duration="2234000" />
+      <workItem from="1669214025445" duration="3087000" />
+      <workItem from="1669213701343" duration="3610000" />
+      <workItem from="1661959894051" duration="5546000" />
+      <workItem from="1670205762679" duration="18774000" />
+      <workItem from="1670248788193" duration="5388000" />
+      <workItem from="1670509888059" duration="5520000" />
+      <workItem from="1671197662640" duration="807000" />
+      <workItem from="1688998545824" duration="4736000" />
+      <workItem from="1688998549928" duration="749000" />
+      <workItem from="1689046360452" duration="8781000" />
+      <workItem from="1690334996403" duration="6048000" />
+      <workItem from="1690346954647" duration="1305000" />
+      <workItem from="1690464273316" duration="1888000" />
+      <workItem from="1690467871291" duration="2276000" />
+      <workItem from="1691824141337" duration="1021000" />
+      <workItem from="1698054810181" duration="8112000" />
+      <workItem from="1698109947585" duration="18191000" />
+      <workItem from="1698156638868" duration="981000" />
+      <workItem from="1698198653434" duration="14663000" />
+      <workItem from="1698283163367" duration="6883000" />
+      <workItem from="1698300234100" duration="19000" />
+      <workItem from="1698300259199" duration="12509000" />
+      <workItem from="1698580393649" duration="93000" />
+      <workItem from="1698991922905" duration="107000" />
+      <workItem from="1699279719226" duration="10149000" />
+      <workItem from="1709365933768" duration="9874000" />
+      <workItem from="1712479567679" duration="768000" />
+      <workItem from="1712477007328" duration="548000" />
+      <workItem from="1712477598156" duration="3556000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.launch" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

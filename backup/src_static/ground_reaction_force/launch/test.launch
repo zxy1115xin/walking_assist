@@ -1,0 +1,80 @@
+<launch>
+
+	<node pkg="rosbag" type="record" name="record" args="-o /media/c208/KINGSTON/ros_data/zxy.bag -a" />
+
+<!--	&lt;!&ndash; 右脚数据 can0 &ndash;&gt;-->
+	<node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_grf_node" output="screen">
+		<remap from="received_messages" to="can_rx"/>
+		<remap from="sent_messages" to="can_tx"/>
+		<param name="can_device" type="string" value="can1"/>
+	</node>
+<!--	<node pkg="ground_reaction_force" type="ground_reaction_force_node" name="grf_r" output="screen">-->
+<!--		&lt;!&ndash; 从上到下 top-middletop-middle-middlebottom -bottom &ndash;&gt;-->
+<!--		&lt;!&ndash; 从上到下 top-middletop-middle-middlebottom -bottom &ndash;&gt;-->
+<!--		&lt;!&ndash; 参数标定,参数赋值是开始在代码运行前，最好在调用前重新赋值 &ndash;&gt;-->
+<!--		<param name="K_grf"  type="int"  value="1"/>-->
+<!--		<param name="A_grf"  type="int"  value="0"/>-->
+<!--		<remap from="can_rx" to="can0_rx"/>-->
+<!--		<remap from="grf" to="grf_R"/>-->
+<!--	</node>-->
+
+<!--	<node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">-->
+<!--		<remap from="received_messages" to="can0_rx"/>-->
+<!--		<remap from="sent_messages" to="can0_tx"/>-->
+<!--		<rosparam>-->
+<!--			can_device: "can0"-->
+<!--		</rosparam>-->
+<!--	</node>-->
+
+<!--	&lt;!&ndash;can1 通信&ndash;&gt;-->
+<!--	<node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">-->
+<!--		<remap from="received_messages" to="can1_rx"/>-->
+<!--		<remap from="sent_messages" to="can1_tx"/>-->
+<!--		<rosparam>-->
+<!--			can_device: "can1"-->
+<!--		</rosparam>-->
+<!--	</node>-->
+	<!-- 左脚数据 can1 -->
+	<node pkg="ground_reaction_force" type="get_grf.py" name="grf_R" output="screen">
+		<param name="K_grf"  type="double"  value="1.75"/>
+		<param name="A_grf"  type="double"  value="1"/>
+		<remap from="can_tx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_R"/>
+		<remap from="pub_grf_fit" to="pub_grf_fit_R"/>
+	</node>
+
+	<node pkg="ground_reaction_force" type="get_grf_R.py" name="grf_L" output="screen">
+		<param name="K_grf"  type="double"  value="1"/>
+		<param name="A_grf"  type="double"  value="-80"/>
+		<remap from="can_tx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_L"/>
+		<remap from="pub_grf_fit" to="pub_grf_fit_L"/>
+	</node>
+<!--	<node pkg="ground_reaction_force" type="ground_reaction_force_node" name="grf_l" output="screen">-->
+<!--		&lt;!&ndash; 从上到下 top-middletop-middle-middlebottom -bottom &ndash;&gt;-->
+<!--		&lt;!&ndash; 从上到下 top-middletop-middle-middlebottom -bottom &ndash;&gt;-->
+<!--		&lt;!&ndash; 参数标定,参数赋值是开始在代码运行前，最好在调用前重新赋值 &ndash;&gt;-->
+<!--		<param name="K_grf" type="double" value="1"/>-->
+<!--		<param name="A_grf" type="double" value="0"/>-->
+<!--		<remap from="can_rx" to="can1_rx"/>-->
+<!--		<remap from="grf" to="grf_L"/>-->
+<!--	</node>-->
+
+<!--	 &lt;!&ndash;右脚数据 can0&ndash;&gt; -->
+<!--	<node pkg="ground_reaction_force" type="get_grf.py" name="grf_R" output="screen">-->
+<!--		<param name="K_grf"  type="int"  value="1"/>-->
+<!--		<param name="A_grf"  type="int"  value="0"/>-->
+<!--		<remap from="can_rx" to="can0_rx"/>-->
+<!--		<remap from="pub_grf" to="pub_grf_R"/>-->
+<!--		<remap from="pub_grf_fit" to="pub_grf_fit_R"/>-->
+<!--	</node>-->
+<!--	 &lt;!&ndash;左脚数据 can1&ndash;&gt;-->
+<!--	<node pkg="ground_reaction_force" type="get_grf.py" name="grf_L" output="screen">-->
+<!--		<param name="K_grf"  type="double"  value="10"/>-->
+<!--		<param name="A_grf"  type="double"  value="0"/>-->
+<!--		<remap from="can_rx" to="can1_rx"/>-->
+<!--		<remap from="pub_grf" to="pub_grf_L"/>-->
+<!--		<remap from="pub_grf_fit" to="pub_grf_fit_L"/>-->
+<!--	</node>-->
+
+</launch>

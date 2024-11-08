@@ -1,0 +1,147 @@
+<!-- modified by lyy on 22/8/3 -->
+<!-- 调试时，请只用‘Ctrl+/’注释和取消注释‘代码行’！！！ -->
+
+<!-- 直立盆骨前向扰动平衡实验, 受试者面向推车站立-->
+
+<!-- 辅助力从左到右对应的‘电机预设编号’为: USB1 motor2, USB0 motor1, USB0 motor0, USB0 motor2 -->
+<!-- 扰动力对应的‘电机预设编号’为: USB1 motor0 -->
+
+<!-- 辅助力从左到右对应的‘放大器通道编号’为: CAN0 channel1, CAN0 channel2, CAN0 channel3, CAN0 channel4 -->
+<!-- 扰动力对应的‘放大器通道编号’为: CAN1 channel1 -->
+
+<launch>
+
+    <!-- STEP 1.1: ros开始采集数据 -->
+        <!-- 存储名称不含采集日期时间-O -->
+        <!-- 存储名称含采集日期时间-o -->
+
+<!--    <node pkg="rosbag" type="record" name="record" args="-O /media/c208/3AD1-5638/bag/220810_krt/pre_test.bag -a" />-->
+
+    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/test_nature_5N_54N_001.bag" />
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/test_assist_5N_48N_001.bag" />-->
+
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/nature07_5N_48N.bag" />-->
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/adapt_assist02_5N_48N.bag" />-->
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/assist07_5N_48N.bag" />-->
+
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/byturn_nature13_5N_48N.bag" />-->
+<!--    <node pkg="rosbag" type="record" name="record" args="-e /clockdiff /.*cmd /.*force -o /media/c208/3AD1-5638/bag/220815_dlc/byturn_assist13_5N_48N.bag" />-->
+
+    <!-- STEP 1.2: 触发nexus的数据采集 -->
+        <!-- 在nexus中设置'auto capture' -->
+        <!-- receive, port=30, arm, lock -->
+        <!-- 启动节点后触发开始采集，Ctrl+C后触发终止采集 -->
+    <!-- STEP 1.3: 采集ros与nexus的系统时间差 -->
+        <!-- 每次采集前重新打开'VICON host PC'的server_win_lyy.exe程序,在桌面左下角 -->
+
+    <param name = "name" type = "string" value = "test_nature_5N_54N_001" />
+    <param name = "path" type = "string" value = "E:\lyy\balance\duanlince\0815_dlc" />
+    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+
+    <node pkg="strategy" type="system_time" name="ros_nexus_clockdiff" output="screen" />
+
+    <!-- 单元测试: 消息发布 -->
+
+<!--    <node pkg="learning_communication" type="talker" name="talker" />-->
+
+
+
+
+    <!-- STEP 2.1: 开启CAN1通信模块的数据收发 -->
+    <!-- STEP 2.2: 开启CAN0通信模块的数据收发 -->
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
+        <remap from="received_messages" to="can1_rx"/>
+        <remap from="sent_messages" to="can1_tx"/>
+        <rosparam>
+            can_device: "can1"
+        </rosparam>
+    </node>
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
+        <remap from="received_messages" to="can0_rx"/>
+        <remap from="sent_messages" to="can0_tx"/>
+        <rosparam>
+            can_device: "can0"
+        </rosparam>
+    </node>
+
+    <!-- STEP 2.3: 读取CAN1四个通道硬件连接的拉力传感器数据，并取‘拉力传感器别名’发布话题 -->
+    <!-- STEP 2.4: 读取CAN0四个通道硬件连接的拉力传感器数据，并取‘拉力传感器别名’发布话题 -->
+
+    <node pkg="cable_force" type="cable_force_node" name="disturb_force" output="screen">
+        <remap from="can_rx" to="can1_rx"/>
+        <remap from="channel1" to="disturb_force"/>
+    </node>
+
+    <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
+        <remap from="can_rx" to="can0_rx"/>
+        <remap from="channel1" to="left_lat_force"/>
+        <remap from="channel2" to="left_med_force"/>
+        <remap from="channel3" to="right_med_force"/>
+        <remap from="channel4" to="right_lat_force"/>
+    </node>
+
+
+
+
+    <!-- STEP 3.1: 开启USB1串口通信的数据收发；使能需要的电机预设编号，并取‘电机别名’发布话题 -->
+    <!-- STEP 3.2: 开启USB0串口通信的数据收发；使能需要的电机预设编号，并取‘电机别名’发布话题 -->
+
+    <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            motor0: "disturb"
+            motor2: "left_lat"
+            enable: "101"
+        </rosparam>
+    </node>
+
+    <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">
+        <rosparam>
+            usb_device: "USB0"
+            motor1: "left_med"
+            motor0: "right_med"
+            motor2: "right_lat"
+            enable: "001"
+        </rosparam>
+    </node>
+
+    <!-- STEP 3.3: 电机组‘disturb‘的循环控制，并为组内每个电机的控制器赋予‘电机别名’，先后顺序不重要 -->
+    <!-- STEP 3.4: 电机组’assist’ 的循环控制，并为组内每个电机的控制器赋予‘电机别名’，先后顺序不重要 -->
+
+    <node pkg="control" type="control_node" name="disturb" output="screen">
+        <rosparam>
+            motor_num: 1
+            motor1: "disturb"
+        </rosparam>
+    </node>
+
+    <node pkg="control" type="control_node" name="assist" output="screen">
+        <rosparam>
+            motor_num: 4
+            motor1: "left_lat"
+            motor2: "left_med"
+            motor3: "right_med"
+            motor4: "right_lat"
+        </rosparam>
+    </node>
+
+
+
+
+
+    <!-- STEP 4: 直立盆骨前向扰动平衡实验的电机控制策略 -->
+
+    <node pkg="strategy" type="yy_strategy_group.py" name="strategy_group" output="screen"/>
+
+    <!-- 单元测试: 电机控制测策略，利用‘py文件名’订阅相应的‘拉力传感器别名’和‘电机别名’消息 -->
+
+<!--    <node pkg="strategy" type="yy_disturb.py" name="disturb_cmd" output="screen"/>-->
+<!--    <node pkg="strategy" type="yy_left_lat.py" name="left_lat" output="screen"/>-->
+<!--    <node pkg="strategy" type="yy_left_med.py" name="left_med" output="screen"/>-->
+<!--    <node pkg="strategy" type="yy_right_med.py" name="right_med" output="screen"/>-->
+<!--    <node pkg="strategy" type="yy_right_lat.py" name="right_lat" output="screen"/>-->
+
+
+</launch>

@@ -1,0 +1,95 @@
+<!-- modified by lyy on 22/8/3 -->
+<!-- 调试时，请只用‘Ctrl+/’注释和取消注释‘代码行’！！！ -->
+
+<launch>
+
+    <!-- STEP 2.1: 开启CAN1通信模块的数据收发 -->
+    <!-- STEP 2.2: 开启CAN0通信模块的数据收发 -->
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
+        <remap from="received_messages" to="can1_rx"/>
+        <remap from="sent_messages" to="can1_tx"/>
+        <rosparam>
+            can_device: "can1"
+        </rosparam>
+    </node>
+
+    <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
+        <remap from="received_messages" to="can0_rx"/>
+        <remap from="sent_messages" to="can0_tx"/>
+        <rosparam>
+            can_device: "can0"
+        </rosparam>
+    </node>
+
+    <!-- STEP 2.3: 读取CAN1四个通道硬件连接的拉力传感器数据，并取‘拉力传感器别名’发布话题 -->
+    <!-- STEP 2.4: 读取CAN0四个通道硬件连接的拉力传感器数据，并取‘拉力传感器别名’发布话题 -->
+
+    <node pkg="cable_force" type="cable_force_node" name="disturb_force" output="screen">
+        <remap from="can_rx" to="can1_rx"/>
+        <remap from="channel1" to="disturb_force"/>
+    </node>
+
+    <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
+        <remap from="can_rx" to="can0_rx"/>
+        <remap from="channel1" to="left_lat_force"/>
+        <remap from="channel2" to="left_med_force"/>
+        <remap from="channel3" to="right_med_force"/>
+        <remap from="channel4" to="right_lat_force"/>
+    </node>
+
+
+
+
+
+    <!-- STEP 3.1: 开启USB1串口通信的数据收发；使能需要的电机预设编号，并取‘电机别名’发布话题 -->
+    <!-- STEP 3.2: 开启USB0串口通信的数据收发；使能需要的电机预设编号，并取‘电机别名’发布话题 -->
+
+    <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
+        <rosparam>
+            usb_device: "USB1"
+            motor0: "disturb"
+            motor2: "left_lat"
+            enable: "101"
+        </rosparam>
+    </node>
+
+    <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">
+        <rosparam>
+            usb_device: "USB0"
+            motor1: "left_med"
+            motor0: "right_med"
+            motor2: "right_lat"
+            enable: "111"
+        </rosparam>
+    </node>
+
+    <!-- STEP 3.3: 电机组‘disturb‘的循环控制，并为组内每个电机的控制器赋予‘电机别名’，先后顺序不重要 -->
+    <!-- STEP 3.4: 电机组’assist’ 的循环控制，并为组内每个电机的控制器赋予‘电机别名’，先后顺序不重要 -->
+
+    <node pkg="control" type="control_node" name="disturb" output="screen">
+        <rosparam>
+            motor_num: 1
+            motor1: "disturb"
+        </rosparam>
+    </node>
+
+    <node pkg="control" type="control_node" name="assist" output="screen">
+        <rosparam>
+            motor_num: 4
+            motor1: "left_lat"
+            motor2: "left_med"
+            motor3: "right_med"
+            motor4: "right_lat"
+        </rosparam>
+    </node>
+
+
+    <!-- STEP 4: 直立盆骨前向扰动平衡实验的电机控制策略 -->
+
+    <node pkg="strategy" type="v_strategy_group.py" name="strategy_group" output="screen"/>
+    <rosparam>
+        velocity: 1
+    </rosparam>
+
+</launch>
