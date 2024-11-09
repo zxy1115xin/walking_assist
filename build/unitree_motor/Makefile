@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles /home/c208/catkin_ws/build/unitree_motor/CMakeFiles/progress.marks
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles /home/c208/walking_assist/build/unitree_motor/CMakeFiles/progress.marks
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/clean
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/motor_node.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/motor_node.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/motor_node.dir/rule
 .PHONY : unitree_motor/CMakeFiles/motor_node.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ motor_node: unitree_motor/CMakeFiles/motor_node.dir/rule
 
 # fast build rule for target.
 motor_node/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/build
 .PHONY : motor_node/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ unitree_motor_generate_messages: unitree_motor/CMakeFiles/unitree_motor_generate
 
 # fast build rule for target.
 unitree_motor_generate_messages/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages.dir/build
 .PHONY : unitree_motor_generate_messages/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ unitree_motor_gennodejs: unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/ru
 
 # fast build rule for target.
 unitree_motor_gennodejs/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/build.make unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/build.make unitree_motor/CMakeFiles/unitree_motor_gennodejs.dir/build
 .PHONY : unitree_motor_gennodejs/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ unitree_motor_generate_messages_lisp: unitree_motor/CMakeFiles/unitree_motor_gen
 
 # fast build rule for target.
 unitree_motor_generate_messages_lisp/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_lisp.dir/build
 .PHONY : unitree_motor_generate_messages_lisp/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ unitree_motor_generate_messages_cpp: unitree_motor/CMakeFiles/unitree_motor_gene
 
 # fast build rule for target.
 unitree_motor_generate_messages_cpp/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_cpp.dir/build
 .PHONY : unitree_motor_generate_messages_cpp/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ unitree_motor_gencpp: unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/rule
 
 # fast build rule for target.
 unitree_motor_gencpp/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_gencpp.dir/build
 .PHONY : unitree_motor_gencpp/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ unitree_motor_generate_messages_eus: unitree_motor/CMakeFiles/unitree_motor_gene
 
 # fast build rule for target.
 unitree_motor_generate_messages_eus/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_eus.dir/build
 .PHONY : unitree_motor_generate_messages_eus/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_geneus.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_geneus.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_geneus.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_geneus.dir/rule
 
 # Convenience name for target.
@@ -284,12 +284,12 @@ unitree_motor_geneus: unitree_motor/CMakeFiles/unitree_motor_geneus.dir/rule
 
 # fast build rule for target.
 unitree_motor_geneus/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_geneus.dir/build.make unitree_motor/CMakeFiles/unitree_motor_geneus.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_geneus.dir/build.make unitree_motor/CMakeFiles/unitree_motor_geneus.dir/build
 .PHONY : unitree_motor_geneus/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_genpy.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_genpy.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_genpy.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_genpy.dir/rule
 
 # Convenience name for target.
@@ -299,12 +299,12 @@ unitree_motor_genpy: unitree_motor/CMakeFiles/unitree_motor_genpy.dir/rule
 
 # fast build rule for target.
 unitree_motor_genpy/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_genpy.dir/build.make unitree_motor/CMakeFiles/unitree_motor_genpy.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_genpy.dir/build.make unitree_motor/CMakeFiles/unitree_motor_genpy.dir/build
 .PHONY : unitree_motor_genpy/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/rule
 
 # Convenience name for target.
@@ -314,12 +314,12 @@ unitree_motor_genlisp: unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/rule
 
 # fast build rule for target.
 unitree_motor_genlisp/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/build.make unitree_motor/CMakeFiles/unitree_motor_genlisp.dir/build
 .PHONY : unitree_motor_genlisp/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/rule
 .PHONY : unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/rule
 
 # Convenience name for target.
@@ -329,12 +329,12 @@ _unitree_motor_generate_messages_check_deps_Sensor: unitree_motor/CMakeFiles/_un
 
 # fast build rule for target.
 _unitree_motor_generate_messages_check_deps_Sensor/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build.make unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build.make unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build
 .PHONY : _unitree_motor_generate_messages_check_deps_Sensor/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -344,12 +344,12 @@ unitree_motor_generate_messages_nodejs: unitree_motor/CMakeFiles/unitree_motor_g
 
 # fast build rule for target.
 unitree_motor_generate_messages_nodejs/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_nodejs.dir/build
 .PHONY : unitree_motor_generate_messages_nodejs/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/rule
 .PHONY : unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/rule
 
 # Convenience name for target.
@@ -359,12 +359,12 @@ _unitree_motor_generate_messages_check_deps_Ctrl: unitree_motor/CMakeFiles/_unit
 
 # fast build rule for target.
 _unitree_motor_generate_messages_check_deps_Ctrl/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/build.make unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/build.make unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Ctrl.dir/build
 .PHONY : _unitree_motor_generate_messages_check_deps_Ctrl/fast
 
 # Convenience name for target.
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/rule
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -374,7 +374,7 @@ unitree_motor_generate_messages_py: unitree_motor/CMakeFiles/unitree_motor_gener
 
 # fast build rule for target.
 unitree_motor_generate_messages_py/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build.make unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build
 .PHONY : unitree_motor_generate_messages_py/fast
 
 src/UnitreeMotor.o: src/UnitreeMotor.cpp.o
@@ -383,7 +383,7 @@ src/UnitreeMotor.o: src/UnitreeMotor.cpp.o
 
 # target to build an object file
 src/UnitreeMotor.cpp.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.o
 .PHONY : src/UnitreeMotor.cpp.o
 
 src/UnitreeMotor.i: src/UnitreeMotor.cpp.i
@@ -392,7 +392,7 @@ src/UnitreeMotor.i: src/UnitreeMotor.cpp.i
 
 # target to preprocess a source file
 src/UnitreeMotor.cpp.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.i
 .PHONY : src/UnitreeMotor.cpp.i
 
 src/UnitreeMotor.s: src/UnitreeMotor.cpp.s
@@ -401,7 +401,7 @@ src/UnitreeMotor.s: src/UnitreeMotor.cpp.s
 
 # target to generate assembly for a file
 src/UnitreeMotor.cpp.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.s
 .PHONY : src/UnitreeMotor.cpp.s
 
 src/motor.o: src/motor.cpp.o
@@ -410,7 +410,7 @@ src/motor.o: src/motor.cpp.o
 
 # target to build an object file
 src/motor.cpp.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.o
 .PHONY : src/motor.cpp.o
 
 src/motor.i: src/motor.cpp.i
@@ -419,7 +419,7 @@ src/motor.i: src/motor.cpp.i
 
 # target to preprocess a source file
 src/motor.cpp.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.i
 .PHONY : src/motor.cpp.i
 
 src/motor.s: src/motor.cpp.s
@@ -428,7 +428,7 @@ src/motor.s: src/motor.cpp.s
 
 # target to generate assembly for a file
 src/motor.cpp.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f unitree_motor/CMakeFiles/motor_node.dir/build.make unitree_motor/CMakeFiles/motor_node.dir/src/motor.cpp.s
 .PHONY : src/motor.cpp.s
 
 # Help Target
@@ -475,6 +475,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

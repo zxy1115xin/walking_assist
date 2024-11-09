@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for can_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/build: can_msgs_gener
 .PHONY : cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/build
 
 cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/clean:
-	cd /home/c208/catkin_ws/build/cable_force && $(CMAKE_COMMAND) -P CMakeFiles/can_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/cable_force && $(CMAKE_COMMAND) -P CMakeFiles/can_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/clean
 
 cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/cable_force /home/c208/catkin_ws/build /home/c208/catkin_ws/build/cable_force /home/c208/catkin_ws/build/cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/cable_force /home/c208/walking_assist/build /home/c208/walking_assist/build/cable_force /home/c208/walking_assist/build/cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cable_force/CMakeFiles/can_msgs_generate_messages_lisp.dir/depend
 

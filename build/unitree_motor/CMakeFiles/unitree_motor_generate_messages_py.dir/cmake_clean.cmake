@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py"
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py"
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py"
   "CMakeFiles/unitree_motor_generate_messages_py"
 )
 

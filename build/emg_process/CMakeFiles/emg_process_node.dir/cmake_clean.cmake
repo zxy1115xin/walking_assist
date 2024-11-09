@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/emg_process/emg_process_node"
-  "/home/c208/catkin_ws/devel/lib/emg_process/emg_process_node.pdb"
+  "/home/c208/walking_assist/devel/lib/emg_process/emg_process_node"
+  "/home/c208/walking_assist/devel/lib/emg_process/emg_process_node.pdb"
   "CMakeFiles/emg_process_node.dir/lib/iirFilter.c.o"
   "CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.o"
   "CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.o"

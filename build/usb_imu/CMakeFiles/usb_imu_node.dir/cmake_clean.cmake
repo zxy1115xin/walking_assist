@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/usb_imu/usb_imu_node"
-  "/home/c208/catkin_ws/devel/lib/usb_imu/usb_imu_node.pdb"
+  "/home/c208/walking_assist/devel/lib/usb_imu/usb_imu_node"
+  "/home/c208/walking_assist/devel/lib/usb_imu/usb_imu_node.pdb"
   "CMakeFiles/usb_imu_node.dir/src/imu.cpp.o"
 )
 

@@ -1,4 +1,4 @@
-prefix=/home/c208/catkin_ws/devel
+prefix=/home/c208/walking_assist/devel
 
 Name: stm32_emg
 Description: Description of stm32_emg

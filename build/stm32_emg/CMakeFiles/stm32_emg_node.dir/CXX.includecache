@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/c208/catkin_ws/src/stm32_emg/src/emg.cpp
+/home/c208/walking_assist/src/stm32_emg/src/emg.cpp
 emg.h
-/home/c208/catkin_ws/src/stm32_emg/src/emg.h
+/home/c208/walking_assist/src/stm32_emg/src/emg.h
 
-/home/c208/catkin_ws/src/stm32_emg/src/emg.h
+/home/c208/walking_assist/src/stm32_emg/src/emg.h
 ros/ros.h
 -
 std_msgs/String.h
@@ -311,8 +311,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -357,7 +355,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -
@@ -434,6 +432,8 @@ ros/datatypes.h
 vector
 -
 map
+-
+memory
 -
 boost/array.hpp
 -

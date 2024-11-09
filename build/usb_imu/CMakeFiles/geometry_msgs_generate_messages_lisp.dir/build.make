@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for geometry_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build: geometry_msgs
 .PHONY : usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 
 usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	cd /home/c208/catkin_ws/build/usb_imu && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/usb_imu && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/usb_imu /home/c208/catkin_ws/build /home/c208/catkin_ws/build/usb_imu /home/c208/catkin_ws/build/usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/usb_imu /home/c208/walking_assist/build /home/c208/walking_assist/build/usb_imu /home/c208/walking_assist/build/usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : usb_imu/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
 

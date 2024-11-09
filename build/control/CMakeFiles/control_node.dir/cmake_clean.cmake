@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/control/control_node"
-  "/home/c208/catkin_ws/devel/lib/control/control_node.pdb"
+  "/home/c208/walking_assist/devel/lib/control/control_node"
+  "/home/c208/walking_assist/devel/lib/control/control_node.pdb"
   "CMakeFiles/control_node.dir/src/Adapt.cpp.o"
   "CMakeFiles/control_node.dir/src/FD_PID.cpp.o"
   "CMakeFiles/control_node.dir/src/Feedforward.cpp.o"

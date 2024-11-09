@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/ground_reaction_force/msg/GRF_Data.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/ground_reaction_force/msg/GRF_Data.js"
   "CMakeFiles/ground_reaction_force_generate_messages_nodejs"
 )
 

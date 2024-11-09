@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/strategy/Fgrf.h"
+  "/home/c208/walking_assist/devel/include/strategy/Fgrf.h"
   "CMakeFiles/strategy_generate_messages_cpp"
 )
 

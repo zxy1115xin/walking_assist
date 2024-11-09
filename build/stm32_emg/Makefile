@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles /home/c208/catkin_ws/build/stm32_emg/CMakeFiles/progress.marks
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles /home/c208/walking_assist/build/stm32_emg/CMakeFiles/progress.marks
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/clean
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 stm32_emg/CMakeFiles/stm32_emg_node.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/CMakeFiles/stm32_emg_node.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 stm32_emg/CMakeFiles/stm32_emg_node.dir/rule
 .PHONY : stm32_emg/CMakeFiles/stm32_emg_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ stm32_emg_node: stm32_emg/CMakeFiles/stm32_emg_node.dir/rule
 
 # fast build rule for target.
 stm32_emg_node/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/build
 .PHONY : stm32_emg_node/fast
 
 src/emg.o: src/emg.cpp.o
@@ -188,7 +188,7 @@ src/emg.o: src/emg.cpp.o
 
 # target to build an object file
 src/emg.cpp.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.o
 .PHONY : src/emg.cpp.o
 
 src/emg.i: src/emg.cpp.i
@@ -197,7 +197,7 @@ src/emg.i: src/emg.cpp.i
 
 # target to preprocess a source file
 src/emg.cpp.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.i
 .PHONY : src/emg.cpp.i
 
 src/emg.s: src/emg.cpp.s
@@ -206,7 +206,7 @@ src/emg.s: src/emg.cpp.s
 
 # target to generate assembly for a file
 src/emg.cpp.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f stm32_emg/CMakeFiles/stm32_emg_node.dir/build.make stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.s
 .PHONY : src/emg.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

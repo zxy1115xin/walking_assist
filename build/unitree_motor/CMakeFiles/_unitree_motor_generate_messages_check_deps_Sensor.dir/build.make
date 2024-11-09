@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for _unitree_motor_generate_messages_check_deps_Sensor.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
 include unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/progress.make
 
 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor:
-	cd /home/c208/catkin_ws/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py unitree_motor /home/c208/catkin_ws/src/unitree_motor/msg/Sensor.msg 
+	cd /home/c208/walking_assist/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py unitree_motor /home/c208/walking_assist/src/unitree_motor/msg/Sensor.msg 
 
 _unitree_motor_generate_messages_check_deps_Sensor: unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor
 _unitree_motor_generate_messages_check_deps_Sensor: unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build.make
@@ -67,10 +67,10 @@ unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/
 .PHONY : unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/build
 
 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/clean:
-	cd /home/c208/catkin_ws/build/unitree_motor && $(CMAKE_COMMAND) -P CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/unitree_motor && $(CMAKE_COMMAND) -P CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/cmake_clean.cmake
 .PHONY : unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/clean
 
 unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/unitree_motor /home/c208/catkin_ws/build /home/c208/catkin_ws/build/unitree_motor /home/c208/catkin_ws/build/unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/unitree_motor /home/c208/walking_assist/build /home/c208/walking_assist/build/unitree_motor /home/c208/walking_assist/build/unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : unitree_motor/CMakeFiles/_unitree_motor_generate_messages_check_deps_Sensor.dir/depend
 

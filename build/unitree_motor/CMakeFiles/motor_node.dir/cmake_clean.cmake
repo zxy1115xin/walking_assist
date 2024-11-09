@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/unitree_motor/motor_node"
-  "/home/c208/catkin_ws/devel/lib/unitree_motor/motor_node.pdb"
+  "/home/c208/walking_assist/devel/lib/unitree_motor/motor_node"
+  "/home/c208/walking_assist/devel/lib/unitree_motor/motor_node.pdb"
   "CMakeFiles/motor_node.dir/src/UnitreeMotor.cpp.o"
   "CMakeFiles/motor_node.dir/src/motor.cpp.o"
 )

@@ -1,8 +1,8 @@
-# Install script for directory: /home/c208/catkin_ws/src/strategy
+# Install script for directory: /home/c208/walking_assist/src/strategy
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c208/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/c208/walking_assist/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,69 +38,69 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/msg" TYPE FILE FILES "/home/c208/catkin_ws/src/strategy/msg/Fgrf.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/msg" TYPE FILE FILES "/home/c208/walking_assist/src/strategy/msg/Fgrf.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/cmake" TYPE FILE FILES "/home/c208/catkin_ws/build/strategy/catkin_generated/installspace/strategy-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/cmake" TYPE FILE FILES "/home/c208/walking_assist/build/strategy/catkin_generated/installspace/strategy-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/include/strategy")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/include/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/roseus/ros/strategy")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/roseus/ros/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/common-lisp/ros/strategy")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/common-lisp/ros/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/gennodejs/ros/strategy")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/gennodejs/ros/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/strategy" TYPE FILE FILES "/home/c208/catkin_ws/devel/include/strategy/DynamicParamConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/strategy" TYPE FILE FILES "/home/c208/walking_assist/devel/include/strategy/DynamicParamConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/strategy" TYPE FILE FILES "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/strategy" TYPE FILE FILES "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy/__init__.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy/cfg")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/strategy" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/strategy" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/catkin_ws/build/strategy/catkin_generated/installspace/strategy.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/walking_assist/build/strategy/catkin_generated/installspace/strategy.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/cmake" TYPE FILE FILES "/home/c208/catkin_ws/build/strategy/catkin_generated/installspace/strategy-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/cmake" TYPE FILE FILES "/home/c208/walking_assist/build/strategy/catkin_generated/installspace/strategy-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy/cmake" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/strategy/catkin_generated/installspace/strategyConfig.cmake"
-    "/home/c208/catkin_ws/build/strategy/catkin_generated/installspace/strategyConfig-version.cmake"
+    "/home/c208/walking_assist/build/strategy/catkin_generated/installspace/strategyConfig.cmake"
+    "/home/c208/walking_assist/build/strategy/catkin_generated/installspace/strategyConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy" TYPE FILE FILES "/home/c208/catkin_ws/src/strategy/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/strategy" TYPE FILE FILES "/home/c208/walking_assist/src/strategy/package.xml")
 endif()
 

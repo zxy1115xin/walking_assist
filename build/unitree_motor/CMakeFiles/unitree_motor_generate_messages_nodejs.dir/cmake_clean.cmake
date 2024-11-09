@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/unitree_motor/msg/Ctrl.js"
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/unitree_motor/msg/Sensor.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/unitree_motor/msg/Ctrl.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/unitree_motor/msg/Sensor.js"
   "CMakeFiles/unitree_motor_generate_messages_nodejs"
 )
 

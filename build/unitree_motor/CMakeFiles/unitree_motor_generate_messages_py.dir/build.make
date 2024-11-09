@@ -43,41 +43,41 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for unitree_motor_generate_messages_py.
 
 # Include the progress variables for this target.
 include unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/progress.make
 
-unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
-unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
-unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py
+unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
+unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
+unitree_motor/CMakeFiles/unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py
 
 
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py: /home/c208/catkin_ws/src/unitree_motor/msg/Ctrl.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG unitree_motor/Ctrl"
-	cd /home/c208/catkin_ws/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/c208/catkin_ws/src/unitree_motor/msg/Ctrl.msg -Iunitree_motor:/home/c208/catkin_ws/src/unitree_motor/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p unitree_motor -o /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py: /home/c208/walking_assist/src/unitree_motor/msg/Ctrl.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG unitree_motor/Ctrl"
+	cd /home/c208/walking_assist/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/c208/walking_assist/src/unitree_motor/msg/Ctrl.msg -Iunitree_motor:/home/c208/walking_assist/src/unitree_motor/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p unitree_motor -o /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg
 
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py: /home/c208/catkin_ws/src/unitree_motor/msg/Sensor.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG unitree_motor/Sensor"
-	cd /home/c208/catkin_ws/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/c208/catkin_ws/src/unitree_motor/msg/Sensor.msg -Iunitree_motor:/home/c208/catkin_ws/src/unitree_motor/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p unitree_motor -o /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py: /home/c208/walking_assist/src/unitree_motor/msg/Sensor.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG unitree_motor/Sensor"
+	cd /home/c208/walking_assist/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/c208/walking_assist/src/unitree_motor/msg/Sensor.msg -Iunitree_motor:/home/c208/walking_assist/src/unitree_motor/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p unitree_motor -o /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg
 
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
-/home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for unitree_motor"
-	cd /home/c208/catkin_ws/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg --initpy
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
+/home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for unitree_motor"
+	cd /home/c208/walking_assist/build/unitree_motor && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg --initpy
 
 unitree_motor_generate_messages_py: unitree_motor/CMakeFiles/unitree_motor_generate_messages_py
-unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
-unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
-unitree_motor_generate_messages_py: /home/c208/catkin_ws/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py
+unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Ctrl.py
+unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/_Sensor.py
+unitree_motor_generate_messages_py: /home/c208/walking_assist/devel/lib/python3/dist-packages/unitree_motor/msg/__init__.py
 unitree_motor_generate_messages_py: unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build.make
 
 .PHONY : unitree_motor_generate_messages_py
@@ -88,10 +88,10 @@ unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build: unitree_m
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/build
 
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/clean:
-	cd /home/c208/catkin_ws/build/unitree_motor && $(CMAKE_COMMAND) -P CMakeFiles/unitree_motor_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/unitree_motor && $(CMAKE_COMMAND) -P CMakeFiles/unitree_motor_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/clean
 
 unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/unitree_motor /home/c208/catkin_ws/build /home/c208/catkin_ws/build/unitree_motor /home/c208/catkin_ws/build/unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/unitree_motor /home/c208/walking_assist/build /home/c208/walking_assist/build/unitree_motor /home/c208/walking_assist/build/unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : unitree_motor/CMakeFiles/unitree_motor_generate_messages_py.dir/depend
 

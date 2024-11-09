@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/control/msg/Command.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/control/msg/Command.js"
   "CMakeFiles/control_generate_messages_nodejs"
 )
 

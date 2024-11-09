@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Ctrl.h
+/home/c208/walking_assist/devel/include/unitree_motor/Ctrl.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Sensor.h
+/home/c208/walking_assist/devel/include/unitree_motor/Sensor.h
 string
 -
 vector
@@ -38,11 +38,11 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/src/unitree_motor/include/CRC/crc32.h
+/home/c208/walking_assist/src/unitree_motor/include/CRC/crc32.h
 stdint.h
 -
 
-/home/c208/catkin_ws/src/unitree_motor/include/IOPort/IOPort.h
+/home/c208/walking_assist/src/unitree_motor/include/IOPort/IOPort.h
 stdint.h
 -
 unistd.h
@@ -50,11 +50,11 @@ unistd.h
 vector
 -
 unitreeMotor/unitreeMotor.h
-/home/c208/catkin_ws/src/unitree_motor/include/IOPort/unitreeMotor/unitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/include/IOPort/unitreeMotor/unitreeMotor.h
 string
 -
 
-/home/c208/catkin_ws/src/unitree_motor/include/serialPort/SerialPort.h
+/home/c208/walking_assist/src/unitree_motor/include/serialPort/SerialPort.h
 termios.h
 -
 sys/select.h
@@ -76,13 +76,13 @@ unistd.h
 iostream
 -
 serialPort/include/errorClass.h
-/home/c208/catkin_ws/src/unitree_motor/include/serialPort/serialPort/include/errorClass.h
+/home/c208/walking_assist/src/unitree_motor/include/serialPort/serialPort/include/errorClass.h
 unitreeMotor/unitreeMotor.h
-/home/c208/catkin_ws/src/unitree_motor/include/serialPort/unitreeMotor/unitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/include/serialPort/unitreeMotor/unitreeMotor.h
 IOPort/IOPort.h
-/home/c208/catkin_ws/src/unitree_motor/include/serialPort/IOPort/IOPort.h
+/home/c208/walking_assist/src/unitree_motor/include/serialPort/IOPort/IOPort.h
 
-/home/c208/catkin_ws/src/unitree_motor/include/serialPort/include/errorClass.h
+/home/c208/walking_assist/src/unitree_motor/include/serialPort/include/errorClass.h
 string
 -
 exception
@@ -94,47 +94,47 @@ sstream
 cstring
 -
 
-/home/c208/catkin_ws/src/unitree_motor/include/unitreeMotor/include/motor_msg.h
+/home/c208/walking_assist/src/unitree_motor/include/unitreeMotor/include/motor_msg.h
 stdint.h
 -
 
-/home/c208/catkin_ws/src/unitree_motor/include/unitreeMotor/unitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/include/unitreeMotor/unitreeMotor.h
 unitreeMotor/include/motor_msg.h
-/home/c208/catkin_ws/src/unitree_motor/include/unitreeMotor/unitreeMotor/include/motor_msg.h
+/home/c208/walking_assist/src/unitree_motor/include/unitreeMotor/unitreeMotor/include/motor_msg.h
 CRC/crc32.h
-/home/c208/catkin_ws/src/unitree_motor/include/unitreeMotor/CRC/crc32.h
+/home/c208/walking_assist/src/unitree_motor/include/unitreeMotor/CRC/crc32.h
 stdint.h
 -
 iostream
 -
 
-/home/c208/catkin_ws/src/unitree_motor/src/UnitreeMotor.cpp
+/home/c208/walking_assist/src/unitree_motor/src/UnitreeMotor.cpp
 UnitreeMotor.h
-/home/c208/catkin_ws/src/unitree_motor/src/UnitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/src/UnitreeMotor.h
 
-/home/c208/catkin_ws/src/unitree_motor/src/UnitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/src/UnitreeMotor.h
 ros/ros.h
 -
 unitree_motor/Ctrl.h
-/home/c208/catkin_ws/src/unitree_motor/src/unitree_motor/Ctrl.h
+/home/c208/walking_assist/src/unitree_motor/src/unitree_motor/Ctrl.h
 unitree_motor/Sensor.h
-/home/c208/catkin_ws/src/unitree_motor/src/unitree_motor/Sensor.h
+/home/c208/walking_assist/src/unitree_motor/src/unitree_motor/Sensor.h
 string
 -
 serialPort/SerialPort.h
-/home/c208/catkin_ws/src/unitree_motor/src/serialPort/SerialPort.h
+/home/c208/walking_assist/src/unitree_motor/src/serialPort/SerialPort.h
 csignal
 -
 iostream
 -
 
-/home/c208/catkin_ws/src/unitree_motor/src/motor.cpp
+/home/c208/walking_assist/src/unitree_motor/src/motor.cpp
 motor.h
-/home/c208/catkin_ws/src/unitree_motor/src/motor.h
+/home/c208/walking_assist/src/unitree_motor/src/motor.h
 
-/home/c208/catkin_ws/src/unitree_motor/src/motor.h
+/home/c208/walking_assist/src/unitree_motor/src/motor.h
 UnitreeMotor.h
-/home/c208/catkin_ws/src/unitree_motor/src/UnitreeMotor.h
+/home/c208/walking_assist/src/unitree_motor/src/UnitreeMotor.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -407,8 +407,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -453,7 +451,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -
@@ -530,6 +528,8 @@ ros/datatypes.h
 vector
 -
 map
+-
+memory
 -
 boost/array.hpp
 -

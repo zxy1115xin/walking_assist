@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/ground_reaction_force/GRF_Data.h"
+  "/home/c208/walking_assist/devel/include/ground_reaction_force/GRF_Data.h"
   "CMakeFiles/ground_reaction_force_generate_messages_cpp"
 )
 

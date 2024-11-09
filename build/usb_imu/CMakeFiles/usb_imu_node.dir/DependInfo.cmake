@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/c208/catkin_ws/src/usb_imu/src/imu.cpp" "/home/c208/catkin_ws/build/usb_imu/CMakeFiles/usb_imu_node.dir/src/imu.cpp.o"
+  "/home/c208/walking_assist/src/usb_imu/src/imu.cpp" "/home/c208/walking_assist/build/usb_imu/CMakeFiles/usb_imu_node.dir/src/imu.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

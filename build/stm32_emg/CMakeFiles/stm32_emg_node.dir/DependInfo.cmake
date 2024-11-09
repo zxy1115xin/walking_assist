@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/c208/catkin_ws/src/stm32_emg/src/emg.cpp" "/home/c208/catkin_ws/build/stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.o"
+  "/home/c208/walking_assist/src/stm32_emg/src/emg.cpp" "/home/c208/walking_assist/build/stm32_emg/CMakeFiles/stm32_emg_node.dir/src/emg.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

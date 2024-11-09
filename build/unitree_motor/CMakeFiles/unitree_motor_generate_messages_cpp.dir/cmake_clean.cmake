@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/unitree_motor/Ctrl.h"
-  "/home/c208/catkin_ws/devel/include/unitree_motor/Sensor.h"
+  "/home/c208/walking_assist/devel/include/unitree_motor/Ctrl.h"
+  "/home/c208/walking_assist/devel/include/unitree_motor/Sensor.h"
   "CMakeFiles/unitree_motor_generate_messages_cpp"
 )
 

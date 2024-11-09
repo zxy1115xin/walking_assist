@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/common-lisp/ros/cable_force/msg/Config.lisp"
+  "/home/c208/walking_assist/devel/share/common-lisp/ros/cable_force/msg/Config.lisp"
   "CMakeFiles/cable_force_generate_messages_lisp"
 )
 

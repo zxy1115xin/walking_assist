@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for control_gencpp.
 
@@ -63,10 +63,10 @@ control/CMakeFiles/control_gencpp.dir/build: control_gencpp
 .PHONY : control/CMakeFiles/control_gencpp.dir/build
 
 control/CMakeFiles/control_gencpp.dir/clean:
-	cd /home/c208/catkin_ws/build/control && $(CMAKE_COMMAND) -P CMakeFiles/control_gencpp.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/control && $(CMAKE_COMMAND) -P CMakeFiles/control_gencpp.dir/cmake_clean.cmake
 .PHONY : control/CMakeFiles/control_gencpp.dir/clean
 
 control/CMakeFiles/control_gencpp.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/control /home/c208/catkin_ws/build /home/c208/catkin_ws/build/control /home/c208/catkin_ws/build/control/CMakeFiles/control_gencpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/control /home/c208/walking_assist/build /home/c208/walking_assist/build/control /home/c208/walking_assist/build/control/CMakeFiles/control_gencpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : control/CMakeFiles/control_gencpp.dir/depend
 

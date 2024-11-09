@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/roseus/ros/strategy/manifest.l"
-  "/home/c208/catkin_ws/devel/share/roseus/ros/strategy/msg/Fgrf.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/strategy/manifest.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/strategy/msg/Fgrf.l"
   "CMakeFiles/strategy_generate_messages_eus"
 )
 

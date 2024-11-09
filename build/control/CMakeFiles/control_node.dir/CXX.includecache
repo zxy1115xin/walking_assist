@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/c208/catkin_ws/devel/include/control/Command.h
+/home/c208/walking_assist/devel/include/control/Command.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Ctrl.h
+/home/c208/walking_assist/devel/include/unitree_motor/Ctrl.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Sensor.h
+/home/c208/walking_assist/devel/include/unitree_motor/Sensor.h
 string
 -
 vector
@@ -54,11 +54,19 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/src/control/src/Adapt.h
+/home/c208/walking_assist/src/control/src/Adapt.cpp
+Adapt.h
+/home/c208/walking_assist/src/control/src/Adapt.h
+
+/home/c208/walking_assist/src/control/src/Adapt.h
 math.h
 -
 
-/home/c208/catkin_ws/src/control/src/FD_PID.h
+/home/c208/walking_assist/src/control/src/FD_PID.cpp
+FD_PID.h
+/home/c208/walking_assist/src/control/src/FD_PID.h
+
+/home/c208/walking_assist/src/control/src/FD_PID.h
 algorithm
 -
 math.h
@@ -66,29 +74,41 @@ math.h
 ros/ros.h
 -
 
-/home/c208/catkin_ws/src/control/src/Feedforward.h
+/home/c208/walking_assist/src/control/src/Feedforward.cpp
+Feedforward.h
+/home/c208/walking_assist/src/control/src/Feedforward.h
+
+/home/c208/walking_assist/src/control/src/Feedforward.h
 math.h
 -
 ros/ros.h
 -
 
-/home/c208/catkin_ws/src/control/src/ForwardPID.h
+/home/c208/walking_assist/src/control/src/ForwardPID.cpp
+ForwardPID.h
+/home/c208/walking_assist/src/control/src/ForwardPID.h
+
+/home/c208/walking_assist/src/control/src/ForwardPID.h
 math.h
 -
 ros/ros.h
 -
 
-/home/c208/catkin_ws/src/control/src/LRN.cpp
+/home/c208/walking_assist/src/control/src/LRN.cpp
 LRN.h
-/home/c208/catkin_ws/src/control/src/LRN.h
+/home/c208/walking_assist/src/control/src/LRN.h
 
-/home/c208/catkin_ws/src/control/src/LRN.h
+/home/c208/walking_assist/src/control/src/LRN.h
 math.h
 -
 ros/ros.h
 -
 
-/home/c208/catkin_ws/src/control/src/MFAC.h
+/home/c208/walking_assist/src/control/src/MFAC.cpp
+MFAC.h
+/home/c208/walking_assist/src/control/src/MFAC.h
+
+/home/c208/walking_assist/src/control/src/MFAC.h
 math.h
 -
 iostream
@@ -96,11 +116,11 @@ iostream
 ros/ros.h
 -
 
-/home/c208/catkin_ws/src/control/src/MotorControl.cpp
+/home/c208/walking_assist/src/control/src/MotorControl.cpp
 MotorControl.h
-/home/c208/catkin_ws/src/control/src/MotorControl.h
+/home/c208/walking_assist/src/control/src/MotorControl.h
 
-/home/c208/catkin_ws/src/control/src/MotorControl.h
+/home/c208/walking_assist/src/control/src/MotorControl.h
 ros/ros.h
 -
 string
@@ -116,21 +136,25 @@ control/Command.h
 math.h
 -
 PID.h
-/home/c208/catkin_ws/src/control/src/PID.h
+/home/c208/walking_assist/src/control/src/PID.h
 Adapt.h
-/home/c208/catkin_ws/src/control/src/Adapt.h
+/home/c208/walking_assist/src/control/src/Adapt.h
 LRN.h
-/home/c208/catkin_ws/src/control/src/LRN.h
+/home/c208/walking_assist/src/control/src/LRN.h
 MFAC.h
-/home/c208/catkin_ws/src/control/src/MFAC.h
+/home/c208/walking_assist/src/control/src/MFAC.h
 FD_PID.h
-/home/c208/catkin_ws/src/control/src/FD_PID.h
+/home/c208/walking_assist/src/control/src/FD_PID.h
 Feedforward.h
-/home/c208/catkin_ws/src/control/src/Feedforward.h
+/home/c208/walking_assist/src/control/src/Feedforward.h
 ForwardPID.h
-/home/c208/catkin_ws/src/control/src/ForwardPID.h
+/home/c208/walking_assist/src/control/src/ForwardPID.h
 
-/home/c208/catkin_ws/src/control/src/PID.h
+/home/c208/walking_assist/src/control/src/PID.cpp
+PID.h
+/home/c208/walking_assist/src/control/src/PID.h
+
+/home/c208/walking_assist/src/control/src/PID.h
 cstdint
 -
 algorithm
@@ -139,6 +163,14 @@ math.h
 -
 ros/ros.h
 -
+
+/home/c208/walking_assist/src/control/src/control.cpp
+control.h
+/home/c208/walking_assist/src/control/src/control.h
+
+/home/c208/walking_assist/src/control/src/control.h
+MotorControl.h
+/home/c208/walking_assist/src/control/src/MotorControl.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -411,8 +443,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -457,7 +487,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -
@@ -534,6 +564,8 @@ ros/datatypes.h
 vector
 -
 map
+-
+memory
 -
 boost/array.hpp
 -

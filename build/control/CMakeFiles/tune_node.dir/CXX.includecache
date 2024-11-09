@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Ctrl.h
+/home/c208/walking_assist/devel/include/unitree_motor/Ctrl.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/devel/include/unitree_motor/Sensor.h
+/home/c208/walking_assist/devel/include/unitree_motor/Sensor.h
 string
 -
 vector
@@ -38,15 +38,15 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/c208/catkin_ws/src/control/src/tune.cpp
+/home/c208/walking_assist/src/control/src/tune.cpp
 unitree_motor/Ctrl.h
 -
 unitree_motor/Sensor.h
 -
 tune.h
-/home/c208/catkin_ws/src/control/src/tune.h
+/home/c208/walking_assist/src/control/src/tune.h
 
-/home/c208/catkin_ws/src/control/src/tune.h
+/home/c208/walking_assist/src/control/src/tune.h
 ros/ros.h
 -
 unitree_motor/Sensor.h
@@ -325,8 +325,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -371,7 +369,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -
@@ -448,6 +446,8 @@ ros/datatypes.h
 vector
 -
 map
+-
+memory
 -
 boost/array.hpp
 -

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for ground_reaction_force_genlisp.
 
@@ -63,10 +63,10 @@ ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/build: ground
 .PHONY : ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/build
 
 ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/clean:
-	cd /home/c208/catkin_ws/build/ground_reaction_force && $(CMAKE_COMMAND) -P CMakeFiles/ground_reaction_force_genlisp.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/ground_reaction_force && $(CMAKE_COMMAND) -P CMakeFiles/ground_reaction_force_genlisp.dir/cmake_clean.cmake
 .PHONY : ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/clean
 
 ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/ground_reaction_force /home/c208/catkin_ws/build /home/c208/catkin_ws/build/ground_reaction_force /home/c208/catkin_ws/build/ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/ground_reaction_force /home/c208/walking_assist/build /home/c208/walking_assist/build/ground_reaction_force /home/c208/walking_assist/build/ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ground_reaction_force/CMakeFiles/ground_reaction_force_genlisp.dir/depend
 

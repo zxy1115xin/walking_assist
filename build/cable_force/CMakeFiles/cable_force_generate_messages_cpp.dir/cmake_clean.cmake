@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/cable_force/Config.h"
+  "/home/c208/walking_assist/devel/include/cable_force/Config.h"
   "CMakeFiles/cable_force_generate_messages_cpp"
 )
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/c208/catkin_ws/src
+# Install script for directory: /home/c208/walking_assist/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c208/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/c208/walking_assist/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,96 +49,96 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/_setup_util.py")
+   "/home/c208/walking_assist/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE PROGRAM FILES "/home/c208/catkin_ws/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE PROGRAM FILES "/home/c208/walking_assist/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/env.sh")
+   "/home/c208/walking_assist/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE PROGRAM FILES "/home/c208/catkin_ws/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE PROGRAM FILES "/home/c208/walking_assist/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/setup.bash;/home/c208/catkin_ws/install/local_setup.bash")
+   "/home/c208/walking_assist/install/setup.bash;/home/c208/walking_assist/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/setup.bash"
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE FILE FILES
+    "/home/c208/walking_assist/build/catkin_generated/installspace/setup.bash"
+    "/home/c208/walking_assist/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/setup.sh;/home/c208/catkin_ws/install/local_setup.sh")
+   "/home/c208/walking_assist/install/setup.sh;/home/c208/walking_assist/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/setup.sh"
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE FILE FILES
+    "/home/c208/walking_assist/build/catkin_generated/installspace/setup.sh"
+    "/home/c208/walking_assist/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/setup.zsh;/home/c208/catkin_ws/install/local_setup.zsh")
+   "/home/c208/walking_assist/install/setup.zsh;/home/c208/walking_assist/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/setup.zsh"
-    "/home/c208/catkin_ws/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE FILE FILES
+    "/home/c208/walking_assist/build/catkin_generated/installspace/setup.zsh"
+    "/home/c208/walking_assist/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/c208/catkin_ws/install/.rosinstall")
+   "/home/c208/walking_assist/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/c208/catkin_ws/install" TYPE FILE FILES "/home/c208/catkin_ws/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/c208/walking_assist/install" TYPE FILE FILES "/home/c208/walking_assist/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/c208/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/cable_force/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/emg_process/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/ground_reaction_force/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/stm32_emg/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/unitree_motor/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/control/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/strategy/cmake_install.cmake")
-  include("/home/c208/catkin_ws/build/usb_imu/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/gtest/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/cable_force/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/emg_process/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/ground_reaction_force/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/stm32_emg/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/unitree_motor/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/control/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/strategy/cmake_install.cmake")
+  include("/home/c208/walking_assist/build/usb_imu/cmake_install.cmake")
 
 endif()
 
@@ -150,5 +150,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/c208/catkin_ws/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/c208/walking_assist/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

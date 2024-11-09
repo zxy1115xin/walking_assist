@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles /home/c208/catkin_ws/build/emg_process/CMakeFiles/progress.marks
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/catkin_ws/build/CMakeFiles 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles /home/c208/walking_assist/build/emg_process/CMakeFiles/progress.marks
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/c208/walking_assist/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/clean
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/preinstall
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 emg_process/CMakeFiles/emg_process_node.dir/rule:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/CMakeFiles/emg_process_node.dir/rule
+	cd /home/c208/walking_assist/build && $(MAKE) -f CMakeFiles/Makefile2 emg_process/CMakeFiles/emg_process_node.dir/rule
 .PHONY : emg_process/CMakeFiles/emg_process_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ emg_process_node: emg_process/CMakeFiles/emg_process_node.dir/rule
 
 # fast build rule for target.
 emg_process_node/fast:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/build
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/build
 .PHONY : emg_process_node/fast
 
 lib/iirFilter.o: lib/iirFilter.c.o
@@ -188,7 +188,7 @@ lib/iirFilter.o: lib/iirFilter.c.o
 
 # target to build an object file
 lib/iirFilter.c.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.o
 .PHONY : lib/iirFilter.c.o
 
 lib/iirFilter.i: lib/iirFilter.c.i
@@ -197,7 +197,7 @@ lib/iirFilter.i: lib/iirFilter.c.i
 
 # target to preprocess a source file
 lib/iirFilter.c.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.i
 .PHONY : lib/iirFilter.c.i
 
 lib/iirFilter.s: lib/iirFilter.c.s
@@ -206,7 +206,7 @@ lib/iirFilter.s: lib/iirFilter.c.s
 
 # target to generate assembly for a file
 lib/iirFilter.c.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter.c.s
 .PHONY : lib/iirFilter.c.s
 
 lib/iirFilter_data.o: lib/iirFilter_data.c.o
@@ -215,7 +215,7 @@ lib/iirFilter_data.o: lib/iirFilter_data.c.o
 
 # target to build an object file
 lib/iirFilter_data.c.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.o
 .PHONY : lib/iirFilter_data.c.o
 
 lib/iirFilter_data.i: lib/iirFilter_data.c.i
@@ -224,7 +224,7 @@ lib/iirFilter_data.i: lib/iirFilter_data.c.i
 
 # target to preprocess a source file
 lib/iirFilter_data.c.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.i
 .PHONY : lib/iirFilter_data.c.i
 
 lib/iirFilter_data.s: lib/iirFilter_data.c.s
@@ -233,7 +233,7 @@ lib/iirFilter_data.s: lib/iirFilter_data.c.s
 
 # target to generate assembly for a file
 lib/iirFilter_data.c.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_data.c.s
 .PHONY : lib/iirFilter_data.c.s
 
 lib/iirFilter_initialize.o: lib/iirFilter_initialize.c.o
@@ -242,7 +242,7 @@ lib/iirFilter_initialize.o: lib/iirFilter_initialize.c.o
 
 # target to build an object file
 lib/iirFilter_initialize.c.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.o
 .PHONY : lib/iirFilter_initialize.c.o
 
 lib/iirFilter_initialize.i: lib/iirFilter_initialize.c.i
@@ -251,7 +251,7 @@ lib/iirFilter_initialize.i: lib/iirFilter_initialize.c.i
 
 # target to preprocess a source file
 lib/iirFilter_initialize.c.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.i
 .PHONY : lib/iirFilter_initialize.c.i
 
 lib/iirFilter_initialize.s: lib/iirFilter_initialize.c.s
@@ -260,7 +260,7 @@ lib/iirFilter_initialize.s: lib/iirFilter_initialize.c.s
 
 # target to generate assembly for a file
 lib/iirFilter_initialize.c.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_initialize.c.s
 .PHONY : lib/iirFilter_initialize.c.s
 
 lib/iirFilter_terminate.o: lib/iirFilter_terminate.c.o
@@ -269,7 +269,7 @@ lib/iirFilter_terminate.o: lib/iirFilter_terminate.c.o
 
 # target to build an object file
 lib/iirFilter_terminate.c.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.o
 .PHONY : lib/iirFilter_terminate.c.o
 
 lib/iirFilter_terminate.i: lib/iirFilter_terminate.c.i
@@ -278,7 +278,7 @@ lib/iirFilter_terminate.i: lib/iirFilter_terminate.c.i
 
 # target to preprocess a source file
 lib/iirFilter_terminate.c.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.i
 .PHONY : lib/iirFilter_terminate.c.i
 
 lib/iirFilter_terminate.s: lib/iirFilter_terminate.c.s
@@ -287,7 +287,7 @@ lib/iirFilter_terminate.s: lib/iirFilter_terminate.c.s
 
 # target to generate assembly for a file
 lib/iirFilter_terminate.c.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/lib/iirFilter_terminate.c.s
 .PHONY : lib/iirFilter_terminate.c.s
 
 src/process.o: src/process.cpp.o
@@ -296,7 +296,7 @@ src/process.o: src/process.cpp.o
 
 # target to build an object file
 src/process.cpp.o:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.o
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.o
 .PHONY : src/process.cpp.o
 
 src/process.i: src/process.cpp.i
@@ -305,7 +305,7 @@ src/process.i: src/process.cpp.i
 
 # target to preprocess a source file
 src/process.cpp.i:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.i
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.i
 .PHONY : src/process.cpp.i
 
 src/process.s: src/process.cpp.s
@@ -314,7 +314,7 @@ src/process.s: src/process.cpp.s
 
 # target to generate assembly for a file
 src/process.cpp.s:
-	cd /home/c208/catkin_ws/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.s
+	cd /home/c208/walking_assist/build && $(MAKE) -f emg_process/CMakeFiles/emg_process_node.dir/build.make emg_process/CMakeFiles/emg_process_node.dir/src/process.cpp.s
 .PHONY : src/process.cpp.s
 
 # Help Target
@@ -357,6 +357,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

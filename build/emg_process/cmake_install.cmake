@@ -1,8 +1,8 @@
-# Install script for directory: /home/c208/catkin_ws/src/emg_process
+# Install script for directory: /home/c208/walking_assist/src/emg_process
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c208/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/c208/walking_assist/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/catkin_ws/build/emg_process/catkin_generated/installspace/emg_process.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/walking_assist/build/emg_process/catkin_generated/installspace/emg_process.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emg_process/cmake" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/emg_process/catkin_generated/installspace/emg_processConfig.cmake"
-    "/home/c208/catkin_ws/build/emg_process/catkin_generated/installspace/emg_processConfig-version.cmake"
+    "/home/c208/walking_assist/build/emg_process/catkin_generated/installspace/emg_processConfig.cmake"
+    "/home/c208/walking_assist/build/emg_process/catkin_generated/installspace/emg_processConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emg_process" TYPE FILE FILES "/home/c208/catkin_ws/src/emg_process/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emg_process" TYPE FILE FILES "/home/c208/walking_assist/src/emg_process/package.xml")
 endif()
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/stm32_emg/stm32_emg_node"
-  "/home/c208/catkin_ws/devel/lib/stm32_emg/stm32_emg_node.pdb"
+  "/home/c208/walking_assist/devel/lib/stm32_emg/stm32_emg_node"
+  "/home/c208/walking_assist/devel/lib/stm32_emg/stm32_emg_node.pdb"
   "CMakeFiles/stm32_emg_node.dir/src/emg.cpp.o"
 )
 

@@ -1,4 +1,4 @@
-prefix=/home/c208/catkin_ws/install
+prefix=/home/c208/walking_assist/install
 
 Name: control
 Description: Description of control

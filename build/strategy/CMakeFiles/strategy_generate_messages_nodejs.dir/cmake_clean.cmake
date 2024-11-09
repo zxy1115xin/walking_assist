@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/strategy/msg/Fgrf.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/strategy/msg/Fgrf.js"
   "CMakeFiles/strategy_generate_messages_nodejs"
 )
 

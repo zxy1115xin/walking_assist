@@ -460,59 +460,59 @@ int Mode_stance_left_Med;
 
 
 
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       bool show;
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double F_max;
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double F_rise;
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double F_fall;
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double F_start_r;
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double F_start_l;
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double gain_GRFL;
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double offset_GRFL;
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double gain_GRFR;
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double offset_GRFR;
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       bool update_Mode;
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       bool Mode0;
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       std::string StrDyParam;
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_All;
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_right_lat;
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_right_Med;
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_left_lat;
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_left_Med;
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double fight_pos_right_lat;
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double fight_pos_right_Med;
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double fight_pos_left_lat;
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double fight_pos_left_Med;
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_All;
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_right_lat;
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_right_Med;
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_left_lat;
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_left_Med;
 //#line 231 "/opt/ros/noetic/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
@@ -653,65 +653,65 @@ int Mode_stance_left_Med;
     {
 drConfig::GroupDescription<drConfig::DEFAULT, drConfig> Default("Default", "", 0, 0, true, &drConfig::groups);
 drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFAULT> Assist_force_Group("Assist_force_Group", "hide", 0, 1, true, &drConfig::DEFAULT::assist_force_group);
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.show = 0;
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.show = 1;
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.show = 0;
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("show", "bool", 1, "显示步态参数", "", &drConfig::show)));
-//#line 10 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 10 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("show", "bool", 1, "显示步态参数", "", &drConfig::show)));
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.F_max = 0.0;
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.F_max = 180.0;
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.F_max = 40.0;
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_max", "double", 0, "A Double Parameter,", "", &drConfig::F_max)));
-//#line 11 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 11 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_max", "double", 0, "A Double Parameter,", "", &drConfig::F_max)));
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.F_rise = 0.0;
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.F_rise = 0.5;
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.F_rise = 0.3;
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_rise", "double", 0, "A Double Parameter", "", &drConfig::F_rise)));
-//#line 12 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_rise", "double", 0, "A Double Parameter", "", &drConfig::F_rise)));
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.F_fall = 0.0;
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.F_fall = 0.5;
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.F_fall = 0.1;
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_fall", "double", 0, "A Double Parameter", "", &drConfig::F_fall)));
-//#line 13 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_fall", "double", 0, "A Double Parameter", "", &drConfig::F_fall)));
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.F_start_r = 0.0;
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.F_start_r = 0.7;
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.F_start_r = 0.195;
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_start_r", "double", 0, "A Double Parameter", "", &drConfig::F_start_r)));
-//#line 14 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_start_r", "double", 0, "A Double Parameter", "", &drConfig::F_start_r)));
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.F_start_l = 0.0;
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.F_start_l = 0.7;
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.F_start_l = 0.2;
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_start_l", "double", 0, "A Double Parameter", "", &drConfig::F_start_l)));
-//#line 15 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("F_start_l", "double", 0, "A Double Parameter", "", &drConfig::F_start_l)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Assist_force_Group.convertParams();
@@ -720,45 +720,45 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFAULT>(Assist_force_Group)));
 drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT> GRF_Group("GRF_Group", "hide", 0, 2, true, &drConfig::DEFAULT::grf_group);
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.gain_GRFL = 0.0;
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.gain_GRFL = 5.0;
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.gain_GRFL = 1.5;
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFL", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFL)));
-//#line 19 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFL", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFL)));
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.offset_GRFL = -1000.0;
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.offset_GRFL = 500.0;
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.offset_GRFL = -200.0;
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFL", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFL)));
-//#line 20 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFL", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFL)));
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.gain_GRFR = 0.0;
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.gain_GRFR = 5.0;
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.gain_GRFR = 1.0;
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFR", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFR)));
-//#line 21 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFR", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFR)));
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.offset_GRFR = -1000.0;
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.offset_GRFR = 500.0;
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.offset_GRFR = -200.0;
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFR", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFR)));
-//#line 22 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFR", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFR)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       GRF_Group.convertParams();
@@ -767,127 +767,127 @@ drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT> GRF_
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT>(GRF_Group)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP, drConfig::DEFAULT> Mode_Group("Mode_Group", "hide", 0, 3, true, &drConfig::DEFAULT::mode_group);
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.update_Mode = 0;
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.update_Mode = 1;
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.update_Mode = 0;
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("update_Mode", "bool", 0, "A Bool Parameter", "", &drConfig::update_Mode)));
-//#line 27 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("update_Mode", "bool", 0, "A Bool Parameter", "", &drConfig::update_Mode)));
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode0 = 0;
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode0 = 1;
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode0 = 0;
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Mode0", "bool", 0, "快速放松", "", &drConfig::Mode0)));
-//#line 28 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Mode0", "bool", 0, "快速放松", "", &drConfig::Mode0)));
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.StrDyParam = "";
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.StrDyParam = "";
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.StrDyParam = "Mode=8 支撑学习；Mode=9支撑停止学习 ；Mode=10 摆动学习；Mode=11摆动停止学习";
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<std::string>("StrDyParam", "str", 0, "备注", "", &drConfig::StrDyParam)));
-//#line 29 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<std::string>("StrDyParam", "str", 0, "备注", "", &drConfig::StrDyParam)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE, drConfig::DEFAULT::MODE_GROUP> fight_phase("fight_phase", "hide", 3, 4, true, &drConfig::DEFAULT::MODE_GROUP::fight_phase);
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_All = 0;
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_All = 20;
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_All = 1;
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_All", "int", 1, "摆动相，请 Mode =10 or 11", "", &drConfig::Mode_fight_All)));
-//#line 33 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_All", "int", 1, "摆动相，请 Mode =10 or 11", "", &drConfig::Mode_fight_All)));
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_right_lat = 0;
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_right_lat = 20;
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_right_lat = 1;
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_lat)));
-//#line 34 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_lat)));
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_right_Med = 0;
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_right_Med = 20;
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_right_Med = 1;
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_Med)));
-//#line 35 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_Med)));
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_left_lat = 0;
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_left_lat = 20;
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_left_lat = 1;
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_lat)));
-//#line 36 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_lat)));
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_left_Med = 0;
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_left_Med = 20;
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_left_Med = 1;
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_Med)));
-//#line 37 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 37 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_Med)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::RELEASE, drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE> release("release", "hide", 4, 5, false, &drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::release);
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_right_lat = -0.1;
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_right_lat = 1.5;
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_right_lat = 1.0;
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_lat)));
-//#line 41 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_lat)));
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_right_Med = -0.1;
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_right_Med = 1.5;
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_right_Med = 1.0;
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_Med)));
-//#line 42 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_Med)));
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_left_lat = -0.1;
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_left_lat = 1.5;
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_left_lat = 1.0;
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_lat)));
-//#line 43 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_lat)));
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_left_Med = -0.1;
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_left_Med = 1.5;
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_left_Med = 1.0;
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_Med)));
-//#line 44 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 44 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_Med)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       release.convertParams();
@@ -902,55 +902,55 @@ drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::RELEASE, 
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE, drConfig::DEFAULT::MODE_GROUP>(fight_phase)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::STANCE_PHASE, drConfig::DEFAULT::MODE_GROUP> stance_phase("stance_phase", "hide", 3, 6, true, &drConfig::DEFAULT::MODE_GROUP::stance_phase);
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_All = 0;
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_All = 20;
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_All = 8;
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_All", "int", 1, "支撑相，请 Mode =8 or 9", "", &drConfig::Mode_stance_All)));
-//#line 47 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_All", "int", 1, "支撑相，请 Mode =8 or 9", "", &drConfig::Mode_stance_All)));
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_right_lat = 0;
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_right_lat = 20;
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_right_lat = 8;
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_lat)));
-//#line 48 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_lat)));
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_right_Med = 0;
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_right_Med = 20;
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_right_Med = 8;
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_Med)));
-//#line 49 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_Med)));
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_left_lat = 0;
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_left_lat = 20;
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_left_lat = 8;
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_lat)));
-//#line 50 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 50 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_lat)));
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_left_Med = 0;
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_left_Med = 20;
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_left_Med = 8;
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_Med)));
-//#line 51 "/home/c208/catkin_ws/src/strategy/cfg/DynamicParam.cfg"
+//#line 51 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_Med)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       stance_phase.convertParams();

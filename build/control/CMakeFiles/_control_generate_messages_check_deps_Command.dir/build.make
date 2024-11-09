@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Utility rule file for _control_generate_messages_check_deps_Command.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
 include control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/progress.make
 
 control/CMakeFiles/_control_generate_messages_check_deps_Command:
-	cd /home/c208/catkin_ws/build/control && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py control /home/c208/catkin_ws/src/control/msg/Command.msg 
+	cd /home/c208/walking_assist/build/control && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py control /home/c208/walking_assist/src/control/msg/Command.msg 
 
 _control_generate_messages_check_deps_Command: control/CMakeFiles/_control_generate_messages_check_deps_Command
 _control_generate_messages_check_deps_Command: control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/build.make
@@ -67,10 +67,10 @@ control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/build: _con
 .PHONY : control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/build
 
 control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/clean:
-	cd /home/c208/catkin_ws/build/control && $(CMAKE_COMMAND) -P CMakeFiles/_control_generate_messages_check_deps_Command.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/control && $(CMAKE_COMMAND) -P CMakeFiles/_control_generate_messages_check_deps_Command.dir/cmake_clean.cmake
 .PHONY : control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/clean
 
 control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/control /home/c208/catkin_ws/build /home/c208/catkin_ws/build/control /home/c208/catkin_ws/build/control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/control /home/c208/walking_assist/build /home/c208/walking_assist/build/control /home/c208/walking_assist/build/control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : control/CMakeFiles/_control_generate_messages_check_deps_Command.dir/depend
 

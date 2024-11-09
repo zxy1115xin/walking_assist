@@ -7,11 +7,11 @@ C_FLAGS =
 
 C_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"emg_process\"
 
-C_INCLUDES = -I/home/c208/catkin_ws/src/emg_process/include -I/home/c208/catkin_ws/src/emg_process/lib -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+C_INCLUDES = -I/home/c208/walking_assist/src/emg_process/include -I/home/c208/walking_assist/src/emg_process/lib -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 
 CXX_FLAGS =  
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"emg_process\"
 
-CXX_INCLUDES = -I/home/c208/catkin_ws/src/emg_process/include -I/home/c208/catkin_ws/src/emg_process/lib -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/c208/walking_assist/src/emg_process/include -I/home/c208/walking_assist/src/emg_process/lib -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

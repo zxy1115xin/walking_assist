@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/c208/catkin_ws/src/cable_force/src/cable_force.cpp" "/home/c208/catkin_ws/build/cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o"
+  "/home/c208/walking_assist/src/cable_force/src/cable_force.cpp" "/home/c208/walking_assist/build/cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/c208/catkin_ws/devel/include"
+  "/home/c208/walking_assist/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

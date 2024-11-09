@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Include any dependencies generated for this target.
 include cable_force/CMakeFiles/cable_force_node.dir/depend.make
@@ -58,17 +58,17 @@ include cable_force/CMakeFiles/cable_force_node.dir/progress.make
 include cable_force/CMakeFiles/cable_force_node.dir/flags.make
 
 cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o: cable_force/CMakeFiles/cable_force_node.dir/flags.make
-cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o: /home/c208/catkin_ws/src/cable_force/src/cable_force.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o"
-	cd /home/c208/catkin_ws/build/cable_force && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o -c /home/c208/catkin_ws/src/cable_force/src/cable_force.cpp
+cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o: /home/c208/walking_assist/src/cable_force/src/cable_force.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o"
+	cd /home/c208/walking_assist/build/cable_force && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o -c /home/c208/walking_assist/src/cable_force/src/cable_force.cpp
 
 cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cable_force_node.dir/src/cable_force.cpp.i"
-	cd /home/c208/catkin_ws/build/cable_force && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/cable_force/src/cable_force.cpp > CMakeFiles/cable_force_node.dir/src/cable_force.cpp.i
+	cd /home/c208/walking_assist/build/cable_force && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/cable_force/src/cable_force.cpp > CMakeFiles/cable_force_node.dir/src/cable_force.cpp.i
 
 cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cable_force_node.dir/src/cable_force.cpp.s"
-	cd /home/c208/catkin_ws/build/cable_force && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/cable_force/src/cable_force.cpp -o CMakeFiles/cable_force_node.dir/src/cable_force.cpp.s
+	cd /home/c208/walking_assist/build/cable_force && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/cable_force/src/cable_force.cpp -o CMakeFiles/cable_force_node.dir/src/cable_force.cpp.s
 
 # Object files for target cable_force_node
 cable_force_node_OBJECTS = \
@@ -77,39 +77,39 @@ cable_force_node_OBJECTS = \
 # External object files for target cable_force_node
 cable_force_node_EXTERNAL_OBJECTS =
 
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/build.make
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libroscpp.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libpthread.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librostime.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libcpp_common.so
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
-/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/c208/catkin_ws/devel/lib/cable_force/cable_force_node"
-	cd /home/c208/catkin_ws/build/cable_force && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cable_force_node.dir/link.txt --verbose=$(VERBOSE)
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/build.make
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libroscpp.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libpthread.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libxmlrpcpp.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libroscpp_serialization.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/librostime.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /opt/ros/noetic/lib/libcpp_common.so
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
+/home/c208/walking_assist/devel/lib/cable_force/cable_force_node: cable_force/CMakeFiles/cable_force_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/c208/walking_assist/devel/lib/cable_force/cable_force_node"
+	cd /home/c208/walking_assist/build/cable_force && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cable_force_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-cable_force/CMakeFiles/cable_force_node.dir/build: /home/c208/catkin_ws/devel/lib/cable_force/cable_force_node
+cable_force/CMakeFiles/cable_force_node.dir/build: /home/c208/walking_assist/devel/lib/cable_force/cable_force_node
 
 .PHONY : cable_force/CMakeFiles/cable_force_node.dir/build
 
 cable_force/CMakeFiles/cable_force_node.dir/clean:
-	cd /home/c208/catkin_ws/build/cable_force && $(CMAKE_COMMAND) -P CMakeFiles/cable_force_node.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/cable_force && $(CMAKE_COMMAND) -P CMakeFiles/cable_force_node.dir/cmake_clean.cmake
 .PHONY : cable_force/CMakeFiles/cable_force_node.dir/clean
 
 cable_force/CMakeFiles/cable_force_node.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/cable_force /home/c208/catkin_ws/build /home/c208/catkin_ws/build/cable_force /home/c208/catkin_ws/build/cable_force/CMakeFiles/cable_force_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/cable_force /home/c208/walking_assist/build /home/c208/walking_assist/build/cable_force /home/c208/walking_assist/build/cable_force/CMakeFiles/cable_force_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cable_force/CMakeFiles/cable_force_node.dir/depend
 

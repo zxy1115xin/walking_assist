@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/control/Command.h"
+  "/home/c208/walking_assist/devel/include/control/Command.h"
   "CMakeFiles/control_generate_messages_cpp"
 )
 

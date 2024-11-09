@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/cable_force/msg/_Config.py"
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/cable_force/msg/__init__.py"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/cable_force/msg/_Config.py"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/cable_force/msg/__init__.py"
   "CMakeFiles/cable_force_generate_messages_py"
 )
 

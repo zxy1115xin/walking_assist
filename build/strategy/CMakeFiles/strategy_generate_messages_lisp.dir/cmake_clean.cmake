@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/common-lisp/ros/strategy/msg/Fgrf.lisp"
+  "/home/c208/walking_assist/devel/share/common-lisp/ros/strategy/msg/Fgrf.lisp"
   "CMakeFiles/strategy_generate_messages_lisp"
 )
 

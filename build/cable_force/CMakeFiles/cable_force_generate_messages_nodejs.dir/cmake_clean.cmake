@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/gennodejs/ros/cable_force/msg/Config.js"
+  "/home/c208/walking_assist/devel/share/gennodejs/ros/cable_force/msg/Config.js"
   "CMakeFiles/cable_force_generate_messages_nodejs"
 )
 

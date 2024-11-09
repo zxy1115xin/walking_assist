@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/control/tune_node"
-  "/home/c208/catkin_ws/devel/lib/control/tune_node.pdb"
+  "/home/c208/walking_assist/devel/lib/control/tune_node"
+  "/home/c208/walking_assist/devel/lib/control/tune_node.pdb"
   "CMakeFiles/tune_node.dir/src/tune.cpp.o"
 )
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/c208/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/c208/walking_assist/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/c208/catkin_ws/build
+CMAKE_BINARY_DIR = /home/c208/walking_assist/build
 
 # Include any dependencies generated for this target.
 include control/CMakeFiles/control_node.dir/depend.make
@@ -58,121 +58,121 @@ include control/CMakeFiles/control_node.dir/progress.make
 include control/CMakeFiles/control_node.dir/flags.make
 
 control/CMakeFiles/control_node.dir/src/control.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/control.cpp.o: /home/c208/catkin_ws/src/control/src/control.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object control/CMakeFiles/control_node.dir/src/control.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/control.cpp.o -c /home/c208/catkin_ws/src/control/src/control.cpp
+control/CMakeFiles/control_node.dir/src/control.cpp.o: /home/c208/walking_assist/src/control/src/control.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object control/CMakeFiles/control_node.dir/src/control.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/control.cpp.o -c /home/c208/walking_assist/src/control/src/control.cpp
 
 control/CMakeFiles/control_node.dir/src/control.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/control.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/control.cpp > CMakeFiles/control_node.dir/src/control.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/control.cpp > CMakeFiles/control_node.dir/src/control.cpp.i
 
 control/CMakeFiles/control_node.dir/src/control.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/control.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/control.cpp -o CMakeFiles/control_node.dir/src/control.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/control.cpp -o CMakeFiles/control_node.dir/src/control.cpp.s
 
 control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o: /home/c208/catkin_ws/src/control/src/MotorControl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/MotorControl.cpp.o -c /home/c208/catkin_ws/src/control/src/MotorControl.cpp
+control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o: /home/c208/walking_assist/src/control/src/MotorControl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/MotorControl.cpp.o -c /home/c208/walking_assist/src/control/src/MotorControl.cpp
 
 control/CMakeFiles/control_node.dir/src/MotorControl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/MotorControl.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/MotorControl.cpp > CMakeFiles/control_node.dir/src/MotorControl.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/MotorControl.cpp > CMakeFiles/control_node.dir/src/MotorControl.cpp.i
 
 control/CMakeFiles/control_node.dir/src/MotorControl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/MotorControl.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/MotorControl.cpp -o CMakeFiles/control_node.dir/src/MotorControl.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/MotorControl.cpp -o CMakeFiles/control_node.dir/src/MotorControl.cpp.s
 
 control/CMakeFiles/control_node.dir/src/PID.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/PID.cpp.o: /home/c208/catkin_ws/src/control/src/PID.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object control/CMakeFiles/control_node.dir/src/PID.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/PID.cpp.o -c /home/c208/catkin_ws/src/control/src/PID.cpp
+control/CMakeFiles/control_node.dir/src/PID.cpp.o: /home/c208/walking_assist/src/control/src/PID.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object control/CMakeFiles/control_node.dir/src/PID.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/PID.cpp.o -c /home/c208/walking_assist/src/control/src/PID.cpp
 
 control/CMakeFiles/control_node.dir/src/PID.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/PID.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/PID.cpp > CMakeFiles/control_node.dir/src/PID.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/PID.cpp > CMakeFiles/control_node.dir/src/PID.cpp.i
 
 control/CMakeFiles/control_node.dir/src/PID.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/PID.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/PID.cpp -o CMakeFiles/control_node.dir/src/PID.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/PID.cpp -o CMakeFiles/control_node.dir/src/PID.cpp.s
 
 control/CMakeFiles/control_node.dir/src/LRN.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/LRN.cpp.o: /home/c208/catkin_ws/src/control/src/LRN.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object control/CMakeFiles/control_node.dir/src/LRN.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/LRN.cpp.o -c /home/c208/catkin_ws/src/control/src/LRN.cpp
+control/CMakeFiles/control_node.dir/src/LRN.cpp.o: /home/c208/walking_assist/src/control/src/LRN.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object control/CMakeFiles/control_node.dir/src/LRN.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/LRN.cpp.o -c /home/c208/walking_assist/src/control/src/LRN.cpp
 
 control/CMakeFiles/control_node.dir/src/LRN.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/LRN.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/LRN.cpp > CMakeFiles/control_node.dir/src/LRN.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/LRN.cpp > CMakeFiles/control_node.dir/src/LRN.cpp.i
 
 control/CMakeFiles/control_node.dir/src/LRN.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/LRN.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/LRN.cpp -o CMakeFiles/control_node.dir/src/LRN.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/LRN.cpp -o CMakeFiles/control_node.dir/src/LRN.cpp.s
 
 control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o: /home/c208/catkin_ws/src/control/src/ForwardPID.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/ForwardPID.cpp.o -c /home/c208/catkin_ws/src/control/src/ForwardPID.cpp
+control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o: /home/c208/walking_assist/src/control/src/ForwardPID.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/ForwardPID.cpp.o -c /home/c208/walking_assist/src/control/src/ForwardPID.cpp
 
 control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/ForwardPID.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/ForwardPID.cpp > CMakeFiles/control_node.dir/src/ForwardPID.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/ForwardPID.cpp > CMakeFiles/control_node.dir/src/ForwardPID.cpp.i
 
 control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/ForwardPID.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/ForwardPID.cpp -o CMakeFiles/control_node.dir/src/ForwardPID.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/ForwardPID.cpp -o CMakeFiles/control_node.dir/src/ForwardPID.cpp.s
 
 control/CMakeFiles/control_node.dir/src/Adapt.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/Adapt.cpp.o: /home/c208/catkin_ws/src/control/src/Adapt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object control/CMakeFiles/control_node.dir/src/Adapt.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/Adapt.cpp.o -c /home/c208/catkin_ws/src/control/src/Adapt.cpp
+control/CMakeFiles/control_node.dir/src/Adapt.cpp.o: /home/c208/walking_assist/src/control/src/Adapt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object control/CMakeFiles/control_node.dir/src/Adapt.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/Adapt.cpp.o -c /home/c208/walking_assist/src/control/src/Adapt.cpp
 
 control/CMakeFiles/control_node.dir/src/Adapt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/Adapt.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/Adapt.cpp > CMakeFiles/control_node.dir/src/Adapt.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/Adapt.cpp > CMakeFiles/control_node.dir/src/Adapt.cpp.i
 
 control/CMakeFiles/control_node.dir/src/Adapt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/Adapt.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/Adapt.cpp -o CMakeFiles/control_node.dir/src/Adapt.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/Adapt.cpp -o CMakeFiles/control_node.dir/src/Adapt.cpp.s
 
 control/CMakeFiles/control_node.dir/src/MFAC.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/MFAC.cpp.o: /home/c208/catkin_ws/src/control/src/MFAC.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object control/CMakeFiles/control_node.dir/src/MFAC.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/MFAC.cpp.o -c /home/c208/catkin_ws/src/control/src/MFAC.cpp
+control/CMakeFiles/control_node.dir/src/MFAC.cpp.o: /home/c208/walking_assist/src/control/src/MFAC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object control/CMakeFiles/control_node.dir/src/MFAC.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/MFAC.cpp.o -c /home/c208/walking_assist/src/control/src/MFAC.cpp
 
 control/CMakeFiles/control_node.dir/src/MFAC.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/MFAC.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/MFAC.cpp > CMakeFiles/control_node.dir/src/MFAC.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/MFAC.cpp > CMakeFiles/control_node.dir/src/MFAC.cpp.i
 
 control/CMakeFiles/control_node.dir/src/MFAC.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/MFAC.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/MFAC.cpp -o CMakeFiles/control_node.dir/src/MFAC.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/MFAC.cpp -o CMakeFiles/control_node.dir/src/MFAC.cpp.s
 
 control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o: /home/c208/catkin_ws/src/control/src/FD_PID.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/FD_PID.cpp.o -c /home/c208/catkin_ws/src/control/src/FD_PID.cpp
+control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o: /home/c208/walking_assist/src/control/src/FD_PID.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/FD_PID.cpp.o -c /home/c208/walking_assist/src/control/src/FD_PID.cpp
 
 control/CMakeFiles/control_node.dir/src/FD_PID.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/FD_PID.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/FD_PID.cpp > CMakeFiles/control_node.dir/src/FD_PID.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/FD_PID.cpp > CMakeFiles/control_node.dir/src/FD_PID.cpp.i
 
 control/CMakeFiles/control_node.dir/src/FD_PID.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/FD_PID.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/FD_PID.cpp -o CMakeFiles/control_node.dir/src/FD_PID.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/FD_PID.cpp -o CMakeFiles/control_node.dir/src/FD_PID.cpp.s
 
 control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o: control/CMakeFiles/control_node.dir/flags.make
-control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o: /home/c208/catkin_ws/src/control/src/Feedforward.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/Feedforward.cpp.o -c /home/c208/catkin_ws/src/control/src/Feedforward.cpp
+control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o: /home/c208/walking_assist/src/control/src/Feedforward.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o"
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node.dir/src/Feedforward.cpp.o -c /home/c208/walking_assist/src/control/src/Feedforward.cpp
 
 control/CMakeFiles/control_node.dir/src/Feedforward.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node.dir/src/Feedforward.cpp.i"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/catkin_ws/src/control/src/Feedforward.cpp > CMakeFiles/control_node.dir/src/Feedforward.cpp.i
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/c208/walking_assist/src/control/src/Feedforward.cpp > CMakeFiles/control_node.dir/src/Feedforward.cpp.i
 
 control/CMakeFiles/control_node.dir/src/Feedforward.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node.dir/src/Feedforward.cpp.s"
-	cd /home/c208/catkin_ws/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/catkin_ws/src/control/src/Feedforward.cpp -o CMakeFiles/control_node.dir/src/Feedforward.cpp.s
+	cd /home/c208/walking_assist/build/control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/c208/walking_assist/src/control/src/Feedforward.cpp -o CMakeFiles/control_node.dir/src/Feedforward.cpp.s
 
 # Object files for target control_node
 control_node_OBJECTS = \
@@ -189,47 +189,47 @@ control_node_OBJECTS = \
 # External object files for target control_node
 control_node_EXTERNAL_OBJECTS =
 
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/control.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/PID.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/LRN.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/Adapt.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/MFAC.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/build.make
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/libroscpp.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libpthread.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/librostime.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /opt/ros/noetic/lib/libcpp_common.so
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
-/home/c208/catkin_ws/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
-/home/c208/catkin_ws/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/c208/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable /home/c208/catkin_ws/devel/lib/control/control_node"
-	cd /home/c208/catkin_ws/build/control && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_node.dir/link.txt --verbose=$(VERBOSE)
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/control.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/MotorControl.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/PID.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/LRN.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/ForwardPID.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/Adapt.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/MFAC.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/FD_PID.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/src/Feedforward.cpp.o
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/build.make
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/libroscpp.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libpthread.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole.so
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/libxmlrpcpp.so
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/libroscpp_serialization.so
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/librostime.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /opt/ros/noetic/lib/libcpp_common.so
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
+/home/c208/walking_assist/devel/lib/control/control_node: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
+/home/c208/walking_assist/devel/lib/control/control_node: control/CMakeFiles/control_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/c208/walking_assist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable /home/c208/walking_assist/devel/lib/control/control_node"
+	cd /home/c208/walking_assist/build/control && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-control/CMakeFiles/control_node.dir/build: /home/c208/catkin_ws/devel/lib/control/control_node
+control/CMakeFiles/control_node.dir/build: /home/c208/walking_assist/devel/lib/control/control_node
 
 .PHONY : control/CMakeFiles/control_node.dir/build
 
 control/CMakeFiles/control_node.dir/clean:
-	cd /home/c208/catkin_ws/build/control && $(CMAKE_COMMAND) -P CMakeFiles/control_node.dir/cmake_clean.cmake
+	cd /home/c208/walking_assist/build/control && $(CMAKE_COMMAND) -P CMakeFiles/control_node.dir/cmake_clean.cmake
 .PHONY : control/CMakeFiles/control_node.dir/clean
 
 control/CMakeFiles/control_node.dir/depend:
-	cd /home/c208/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/catkin_ws/src /home/c208/catkin_ws/src/control /home/c208/catkin_ws/build /home/c208/catkin_ws/build/control /home/c208/catkin_ws/build/control/CMakeFiles/control_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/c208/walking_assist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/c208/walking_assist/src /home/c208/walking_assist/src/control /home/c208/walking_assist/build /home/c208/walking_assist/build/control /home/c208/walking_assist/build/control/CMakeFiles/control_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : control/CMakeFiles/control_node.dir/depend
 

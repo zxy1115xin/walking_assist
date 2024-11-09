@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/include/strategy/DynamicParamConfig.h"
-  "/home/c208/catkin_ws/devel/lib/python3/dist-packages/strategy/cfg/DynamicParamConfig.py"
-  "/home/c208/catkin_ws/devel/share/strategy/docs/DynamicParamConfig-usage.dox"
-  "/home/c208/catkin_ws/devel/share/strategy/docs/DynamicParamConfig.dox"
-  "/home/c208/catkin_ws/devel/share/strategy/docs/DynamicParamConfig.wikidoc"
+  "/home/c208/walking_assist/devel/include/strategy/DynamicParamConfig.h"
+  "/home/c208/walking_assist/devel/lib/python3/dist-packages/strategy/cfg/DynamicParamConfig.py"
+  "/home/c208/walking_assist/devel/share/strategy/docs/DynamicParamConfig-usage.dox"
+  "/home/c208/walking_assist/devel/share/strategy/docs/DynamicParamConfig.dox"
+  "/home/c208/walking_assist/devel/share/strategy/docs/DynamicParamConfig.wikidoc"
   "CMakeFiles/strategy_gencfg"
 )
 

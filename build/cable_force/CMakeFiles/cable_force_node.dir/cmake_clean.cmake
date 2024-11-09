@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node"
-  "/home/c208/catkin_ws/devel/lib/cable_force/cable_force_node.pdb"
+  "/home/c208/walking_assist/devel/lib/cable_force/cable_force_node"
+  "/home/c208/walking_assist/devel/lib/cable_force/cable_force_node.pdb"
   "CMakeFiles/cable_force_node.dir/src/cable_force.cpp.o"
 )
 

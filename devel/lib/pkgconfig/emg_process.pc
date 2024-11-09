@@ -1,4 +1,4 @@
-prefix=/home/c208/catkin_ws/devel
+prefix=/home/c208/walking_assist/devel
 
 Name: emg_process
 Description: Description of emg_process

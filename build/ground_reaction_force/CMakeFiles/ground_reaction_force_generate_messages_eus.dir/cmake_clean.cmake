@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/roseus/ros/ground_reaction_force/manifest.l"
-  "/home/c208/catkin_ws/devel/share/roseus/ros/ground_reaction_force/msg/GRF_Data.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/ground_reaction_force/manifest.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/ground_reaction_force/msg/GRF_Data.l"
   "CMakeFiles/ground_reaction_force_generate_messages_eus"
 )
 

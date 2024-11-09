@@ -1,8 +1,8 @@
-# Install script for directory: /home/c208/catkin_ws/src/ground_reaction_force
+# Install script for directory: /home/c208/walking_assist/src/ground_reaction_force
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c208/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/c208/walking_assist/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,53 +38,53 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/msg" TYPE FILE FILES "/home/c208/catkin_ws/src/ground_reaction_force/msg/GRF_Data.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/msg" TYPE FILE FILES "/home/c208/walking_assist/src/ground_reaction_force/msg/GRF_Data.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/cmake" TYPE FILE FILES "/home/c208/catkin_ws/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/cmake" TYPE FILE FILES "/home/c208/walking_assist/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/include/ground_reaction_force")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/include/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/roseus/ros/ground_reaction_force")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/roseus/ros/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/common-lisp/ros/ground_reaction_force")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/common-lisp/ros/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/share/gennodejs/ros/ground_reaction_force")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/share/gennodejs/ros/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/catkin_ws/devel/lib/python3/dist-packages/ground_reaction_force")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/c208/walking_assist/devel/lib/python3/dist-packages/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/c208/catkin_ws/devel/lib/python3/dist-packages/ground_reaction_force")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/c208/walking_assist/devel/lib/python3/dist-packages/ground_reaction_force")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/catkin_ws/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/walking_assist/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/cmake" TYPE FILE FILES "/home/c208/catkin_ws/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/cmake" TYPE FILE FILES "/home/c208/walking_assist/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_force-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force/cmake" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_forceConfig.cmake"
-    "/home/c208/catkin_ws/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_forceConfig-version.cmake"
+    "/home/c208/walking_assist/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_forceConfig.cmake"
+    "/home/c208/walking_assist/build/ground_reaction_force/catkin_generated/installspace/ground_reaction_forceConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force" TYPE FILE FILES "/home/c208/catkin_ws/src/ground_reaction_force/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ground_reaction_force" TYPE FILE FILES "/home/c208/walking_assist/src/ground_reaction_force/package.xml")
 endif()
 

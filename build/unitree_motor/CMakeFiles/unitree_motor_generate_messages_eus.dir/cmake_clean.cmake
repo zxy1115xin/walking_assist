@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/c208/catkin_ws/devel/share/roseus/ros/unitree_motor/manifest.l"
-  "/home/c208/catkin_ws/devel/share/roseus/ros/unitree_motor/msg/Ctrl.l"
-  "/home/c208/catkin_ws/devel/share/roseus/ros/unitree_motor/msg/Sensor.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/unitree_motor/manifest.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/unitree_motor/msg/Ctrl.l"
+  "/home/c208/walking_assist/devel/share/roseus/ros/unitree_motor/msg/Sensor.l"
   "CMakeFiles/unitree_motor_generate_messages_eus"
 )
 

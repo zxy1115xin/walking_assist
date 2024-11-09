@@ -1,8 +1,8 @@
-# Install script for directory: /home/c208/catkin_ws/src/stm32_emg
+# Install script for directory: /home/c208/walking_assist/src/stm32_emg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c208/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/c208/walking_assist/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/catkin_ws/build/stm32_emg/catkin_generated/installspace/stm32_emg.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c208/walking_assist/build/stm32_emg/catkin_generated/installspace/stm32_emg.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_emg/cmake" TYPE FILE FILES
-    "/home/c208/catkin_ws/build/stm32_emg/catkin_generated/installspace/stm32_emgConfig.cmake"
-    "/home/c208/catkin_ws/build/stm32_emg/catkin_generated/installspace/stm32_emgConfig-version.cmake"
+    "/home/c208/walking_assist/build/stm32_emg/catkin_generated/installspace/stm32_emgConfig.cmake"
+    "/home/c208/walking_assist/build/stm32_emg/catkin_generated/installspace/stm32_emgConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_emg" TYPE FILE FILES "/home/c208/catkin_ws/src/stm32_emg/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/stm32_emg" TYPE FILE FILES "/home/c208/walking_assist/src/stm32_emg/package.xml")
 endif()
 
