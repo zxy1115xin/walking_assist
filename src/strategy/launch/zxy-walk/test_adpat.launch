@@ -1,7 +1,14 @@
 <launch>
+    <!--   单绳助力： F=50N/m  -->
+    <!--   检查钢丝绳松紧，连接处是否牢固  -->
+    <!--   询问受试者基本信息： 身高/体重等 ，并完成表格填写  -->
 
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/xinyue/test.bag -a" />
+    <!-- 不含采集日期-O -->  <!-- 含采集日期-o -->
+    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_adapt.bag -a" />
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
+
+    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
       <remap from="received_messages" to="can0_rx"/>
@@ -14,9 +21,9 @@
     <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
         <remap from="can_rx" to="can0_rx"/>
         <remap from="channel1" to="left_lat_force"/>
-<!--        <remap from="channel2" to="left_med_force"/>-->
-<!--        <remap from="channel3" to="right_med_force"/>-->
-<!--        <remap from="channel4" to="right_lat_force"/>-->
+        <remap from="channel2" to="left_med_force"/>
+        <remap from="channel3" to="right_med_force"/>
+        <remap from="channel4" to="right_lat_force"/>
     </node>
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
@@ -27,28 +34,30 @@
         </rosparam>
     </node>
 
-<!--    <node pkg="cable_force" type="cable_force_node" name="disturb_force" output="screen">-->
-<!--        <remap from="can_rx" to="can1_rx"/>-->
-<!--        <remap from="channel1" to="disturb_force"/>-->
-<!--    </node>-->
 
-    <node pkg="ground_reaction_force" type="get_grf.py" name="grf_R" output="screen">
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_R" output="screen">
+        <param name="Foot"  type="double"  value="0"/>
+        <remap from="can_rx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_R"/>
+	</node>
+
+
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_L" output="screen">
         <param name="Foot"  type="double"  value="1"/>
-        <!--   FOOT_R=0 // FOOT_L=1-->
-		<remap from="can1_tx" to="can_rx"/>
+        <remap from="can_rx" to="can1_rx"/>
 		<remap from="pub_grf" to="pub_grf_L"/>
 	</node>
 
 
-<!--    <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">-->
-<!--        <rosparam>-->
-<!--            usb_device: "USB0"-->
-<!--            motor0: "right_med"-->
-<!--            motor1: "left_med"-->
-<!--            motor2: "right_lat"-->
-<!--            enable: "010"-->
-<!--        </rosparam>-->
-<!--    </node>-->
+   <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">
+       <rosparam>
+           usb_device: "USB0"
+           motor0: "right_med"
+           motor1: "left_med"
+           motor2: "right_lat"
+           enable: "111"
+       </rosparam>
+   </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
@@ -72,24 +81,13 @@
     </node>
 
 
-<!--    <node pkg="control" type="control_node" name="disturb" output="screen">-->
-<!--        <rosparam>-->
-<!--            force_desire: 20 &ndash;&gt;-->
-<!--            cable_stiff: 20 &ndash;&gt;-->
-<!--            motor_num: 1-->
-<!--            motor1: "disturb"-->
 
-<!--        </rosparam>-->
-<!--    </node>-->
-
-
-<!--    <node pkg="strategy" type="example.py" name="strategy" output="screen"/>-->
-<!--   <node pkg="strategy" type="disturb.py" name="disturb_cmd" output="screen"/>-->
-<!--    <node pkg="strategy" type="left_lat.py" name="left_lat" output="screen"/>-->
+<!--    <node pkg="strategy" type="left_lat.py" name="left_lat" output="screen"/> -->
 <!--    <node pkg="strategy" type="left_med.py" name="left_med" output="screen"/>-->
 <!--    <node pkg="strategy" type="right_lat.py" name="right_lat" output="screen"/> -->
 <!--    <node pkg="strategy" type="right_med.py" name="right_med" output="screen"/>-->
-<!--    <node pkg="strategy" type="try_force.py" name="right" output="screen"/>-->
-    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen"/>
-<!---->
+   <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
+         <param name = "force_pre" type = "double" value = "2.0" />
+   </node>
+
 </launch>

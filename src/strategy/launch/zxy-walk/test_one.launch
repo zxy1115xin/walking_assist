@@ -6,9 +6,6 @@
     <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_one.bag -a" />
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
-
-    <param name = "name" type = "string" value = "walk_one" />
-    <param name = "path" type = "string" value = "F:\zxy\mul_assist\ankle1125\liying"/>
     <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
 
 

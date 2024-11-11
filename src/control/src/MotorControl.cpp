@@ -8,6 +8,7 @@ MotorControl::MotorControl(ros::NodeHandle& nh, std::string name):
         nh_(nh), name_(name)
 {
     ros::param::param<float>("~force_desire", cmd_msg_.force, 4.0);
+    ros::param::param<float>("~art_index", art_index_, 0);
     force_sub_flag_ = false;
     sensor_sub_flag_ = false;
     cmd_sub_flag_ = false;
@@ -26,7 +27,11 @@ MotorControl::MotorControl(ros::NodeHandle& nh, std::string name):
     //订阅sensor，初始化
     sensor_sub = nh_.subscribe<unitree_motor::Sensor>(name_ + "_sensor", 1000, &MotorControl::sensorCallback, this);
     //订阅command，初始化
-    cmd_sub = nh_.subscribe<control::Command>(name_ + "_cmd", 1000, &MotorControl::cmdCallback, this);
+    if (art_index_ == 1)
+        cmd_sub = nh_.subscribe<control::Command>(name_ + "_art_cmd", 1000, &MotorControl::cmdCallback, this);
+    else
+        cmd_sub = nh_.subscribe<control::Command>(name_ + "_cmd", 1000, &MotorControl::cmdCallback, this);
+
     //发布control，初始化
     ctrl_pub = nh_.advertise<unitree_motor::Ctrl>(name_ + "_ctrl", 1000);
 
@@ -62,7 +67,6 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Trise = cmd_msg->Trise;
     cmd_msg_.Tfall = cmd_msg->Tfall;
     cmd_msg_.Fmax = cmd_msg->Fmax;
-
 
     if( cmd_msg_.mode == 11 && mode_last_!= 11 )
     {
@@ -221,11 +225,9 @@ void MotorControl::update()
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
-//                // pid M
                 float cmd_T_last;
 //                float Kp_m = 0.5;
 //                ctrl_msg_.T = ctrl_msg_.T + Kp_m*(sensor_msg_.T- cmd_T_last);
-
 
                 // 根据反馈的保护
                 if (force_msg_.data > 220)

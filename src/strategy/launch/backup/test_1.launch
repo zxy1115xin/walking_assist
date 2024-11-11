@@ -3,8 +3,9 @@
 
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/force/test.bag -a" />
-    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
+<!--    <node pkg="rosbag" type="record" name="record" args="-o /media/c208/NanoDisk/Adata_xy/241109/test.bag -a" />-->
+<!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/data_xy/241109/test.bag -a" />-->
+<!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
 
 
 <!--     <param name = "name" type = "string" value = "walk_test" /> -->
@@ -22,10 +23,16 @@
 
     <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
         <remap from="can_rx" to="can0_rx"/>
-        <remap from="channel1" to="left_lat_force"/>
-        <remap from="channel2" to="left_med_force"/>
-        <remap from="channel3" to="right_med_force"/>
-        <remap from="channel4" to="right_lat_force"/>
+<!--        <remap from="channel1" to="left_lat_force"/>-->
+<!--        <remap from="channel2" to="left_med_force"/>-->
+<!--        <remap from="channel3" to="right_med_force"/>-->
+<!--        <remap from="channel4" to="right_lat_force"/>-->
+
+        <remap from="channel1" to="left_med_force"/>
+        <remap from="channel2" to="left_lat_force"/>
+        <remap from="channel3" to="right_lat_force"/>
+        <remap from="channel4" to="right_med_force"/>
+
     </node>
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">
@@ -37,18 +44,19 @@
     </node>
 
 
-<!--    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_R" output="screen">-->
-<!--        <param name="Foot"  type="double"  value="0"/>-->
-<!--        <remap from="can_rx" to="can1_rx"/>-->
-<!--		<remap from="pub_grf" to="pub_grf_R"/>-->
-<!--	</node>-->
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_R" output="screen">
+        <param name="Foot"  type="double"  value="0"/>
+        <remap from="can_rx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_R"/>
+	</node>
 
 
-<!--    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_L" output="screen">-->
-<!--        <param name="Foot"  type="double"  value="1"/>-->
-<!--        <remap from="can_rx" to="can1_rx"/>-->
-<!--		<remap from="pub_grf" to="pub_grf_L"/>-->
-<!--	</node>-->
+    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_L" output="screen">
+        <param name="Foot"  type="double"  value="1"/>
+        <remap from="can_rx" to="can1_rx"/>
+		<remap from="pub_grf" to="pub_grf_L"/>
+
+	</node>
 
 
    <node pkg="unitree_motor" type="motor_node" name="USB0_group" output="screen">
@@ -57,7 +65,7 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "010"
+           enable: "000"
        </rosparam>
    </node>
 
@@ -71,6 +79,12 @@
         </rosparam>
     </node>
 
+    <node pkg="control" type="control_node" name="disturb" output="screen">
+        <rosparam>
+            motor_num: 1
+            motor1: "disturb"
+        </rosparam>
+    </node>
 
     <node pkg="control" type="control_node" name="assist" output="screen">
         <rosparam>
@@ -83,12 +97,15 @@
     </node>
 
 
+
+
  <!--     <node pkg="strategy" type="left_lat.py" name="left_lat" output="screen"/> -->
 <!--    <node pkg="strategy" type="left_med.py" name="left_med" output="screen"/>-->
 <!--    <node pkg="strategy" type="right_lat.py" name="right_lat" output="screen"/> -->
 <!--    <node pkg="strategy" type="right_med.py" name="right_med" output="screen"/>-->
-   <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
+    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
          <param name = "force_pre" type = "double" value = "2.0" />
+         <param name = "PMode" type = "double" value = "1" />
    </node>
 
 </launch>

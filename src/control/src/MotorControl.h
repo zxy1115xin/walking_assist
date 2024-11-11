@@ -52,6 +52,7 @@ private:
     bool sensor_sub_flag_;
     bool cmd_sub_flag_;
 
+    float art_index_;
     float pos_fight_;
     float pos_now;
     float flag_fight_;

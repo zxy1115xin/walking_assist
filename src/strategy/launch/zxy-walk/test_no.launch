@@ -3,8 +3,8 @@
 
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_med.bag -a" />
-    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
+    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_no.bag -a" />
+<!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
 
     <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
 
@@ -54,14 +54,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "110"
+           enable: "111"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "000"
+            enable: "001"
             motor0: "disturb"
             motor2: "left_lat"
 
@@ -85,8 +85,6 @@
 <!--    <node pkg="strategy" type="left_med.py" name="left_med" output="screen"/>-->
 <!--    <node pkg="strategy" type="right_lat.py" name="right_lat" output="screen"/> -->
 <!--    <node pkg="strategy" type="right_med.py" name="right_med" output="screen"/>-->
-   <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
-         <param name = "force_pre" type = "double" value = "4.0" />
-   </node>
+   <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen"/>
 
 </launch>

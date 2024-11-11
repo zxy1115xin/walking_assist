@@ -25,6 +25,8 @@ ros/message_operations.h
 /home/c208/walking_assist/src/cable_force/src/cable_force.cpp
 cable_force.h
 /home/c208/walking_assist/src/cable_force/src/cable_force.h
+numeric
+-
 
 /home/c208/walking_assist/src/cable_force/src/cable_force.h
 ros/ros.h
@@ -38,6 +40,8 @@ std_msgs/Float32.h
 can_msgs/Frame.h
 -
 string
+-
+deque
 -
 
 /opt/ros/noetic/include/can_msgs/Frame.h
