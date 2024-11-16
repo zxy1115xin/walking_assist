@@ -26,6 +26,7 @@ class GRF_fit:
             rospy.loginfo('get_grf_L')
 
 
+
         # 订阅“GRF”
         rospy.Subscriber("can_rx", Frame, self.canGrfCallback)
         self.can_grf = Frame()
@@ -43,15 +44,10 @@ class GRF_fit:
         if self.can_grf.dlc == 8 and not self.can_grf.is_error:
 
             if self.can_grf.id == self.GRF_CAN_ID1:
-                self.grf.fore = float(((self.can_grf.data[0] << 8 | self.can_grf.data[1])/ 1))
-                self.grf.mid = float(((self.can_grf.data[2] << 8 | self.can_grf.data[3]) / 1 ))
-                self.grf.hind = float(((self.can_grf.data[4] << 8 | self.can_grf.data[5]) / 1 ))
+                self.grf.midtop_mid = float(((self.can_grf.data[0] << 8 | self.can_grf.data[1])/ 1))
+                self.grf.bot_Med = float(((self.can_grf.data[2] << 8 | self.can_grf.data[3]) / 1 ))
+                self.grf.bot_lat = float(((self.can_grf.data[4] << 8 | self.can_grf.data[5]) / 1 ))
                 self.grf.all_force = float(((self.can_grf.data[6] << 8 | self.can_grf.data[7])/ 1))
-
-                # self.grf.midtop_mid = float(((self.can_grf.data[0] << 8 | self.can_grf.data[1])/ 1))
-                # self.grf.bot_Med = float(((self.can_grf.data[2] << 8 | self.can_grf.data[3]) / 1 ))
-                # self.grf.bot_lat = float(((self.can_grf.data[4] << 8 | self.can_grf.data[5]) / 1 ))
-                # self.grf.all_force = float(((self.can_grf.data[6] << 8 | self.can_grf.data[7])/ 1))
 
 
         self.grf.stance_flg = 0
