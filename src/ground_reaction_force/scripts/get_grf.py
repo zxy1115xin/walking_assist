@@ -16,21 +16,6 @@ class GRF_fit:
     def __init__(self):
         self.grf_msg = GRF_Data()
 
-        # foot_index = rospy.get_param('~Foot')
-        # if foot_index==0:
-        #     self.GRF_CAN_ID1 = 0x100
-        #     self.GRF_CAN_ID2 = 0x200
-        #     self.GRF_CAN_ID3 = 0x300
-        #     self.GRF_CAN_ID4 = 0x400
-        #     rospy.loginfo('get_grf_R')
-
-        # if foot_index==1:
-        #     self.GRF_CAN_ID1 = 0x10
-        #     self.GRF_CAN_ID2 = 0x20
-        #     self.GRF_CAN_ID3 = 0x30
-        #     self.GRF_CAN_ID4 = 0x40
-        #     rospy.loginfo('get_grf_L')
-
         self.GRF_CAN_ID1 = 0x10
         self.GRF_CAN_ID2 = 0x20
         self.GRF_CAN_ID3 = 0x30

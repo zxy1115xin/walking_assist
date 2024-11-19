@@ -16,7 +16,6 @@ class GRF_fit:
     def __init__(self):
         self.grf_msg = GRF_Data()
 
-
         self.GRF_CAN_ID1 = 0x50
         self.GRF_CAN_ID2 = 0x60
         self.GRF_CAN_ID3 = 0x70

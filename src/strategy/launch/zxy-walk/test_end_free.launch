@@ -54,17 +54,16 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "111"
+           enable: "000"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "001"
+            enable: "000"
             motor0: "disturb"
             motor2: "left_lat"
-
         </rosparam>
     </node>
 
@@ -76,6 +75,7 @@
             motor2: "left_med"
             motor3: "right_med"
             motor4: "right_lat"
+            art_index: 0
         </rosparam>
     </node>
 

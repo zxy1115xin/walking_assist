@@ -2,6 +2,9 @@
 // Created by c208 on 6/24/22.
 //
 
+
+// ！！！！！ 在本系统中，力矩为负，收线，拉力增加
+
 #include "MotorControl.h"
 
 MotorControl::MotorControl(ros::NodeHandle& nh, std::string name):
@@ -225,38 +228,35 @@ void MotorControl::update()
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
-                float cmd_T_last;
-//                float Kp_m = 0.5;
-//                ctrl_msg_.T = ctrl_msg_.T + Kp_m*(sensor_msg_.T- cmd_T_last);
-
                 // 根据反馈的保护
-                if (force_msg_.data > 220)
+                if (force_msg_.data > 180)
                     ctrl_msg_.T = 0;
-                // 力矩限制保护
-                const float T_max = 50;
-                if (ctrl_msg_.T > 24)
-                    ctrl_msg_.T = 24;
-                else if (ctrl_msg_.T < -T_max)
-                    ctrl_msg_.T = -T_max;
-                break;
+                if (force_msg_.data <= 2 && ctrl_msg_.T > 0)  //防止过渡放线
+                    ctrl_msg_.T = 0;
+                float cmd_T_last=ctrl_msg_.T;
 
-                cmd_T_last=ctrl_msg_.T;
+                const float T_max = 50;
+                if (ctrl_msg_.T > 24) // 力矩限制保护
+                        ctrl_msg_.T = 24;
+                if (ctrl_msg_.T < -T_max)
+                        ctrl_msg_.T = -T_max;
 
                 // 记录当前时刻电机位置，--一般只在迭代学习中更新
                 Pos_cmd[cmd_msg_.flag]= sensor_msg_.Pos;
 
+                break;
+
             }
 
 
-
-            case 9:{  //前馈（迭代学习结果+前馈2/闭环3/无模型自适应4）
+            case 9:{  //利用迭代学习的结果作为前馈（迭代学习结果+前馈2/闭环3/无模型自适应4）
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 int Mode_=2;  //开环模式
-//                int Mode_=3;  //闭环模式
+//              int Mode_=3;  //闭环模式
                 //int Mode_=4;  //无模型自适应
 
-                if (Mode_==4){  //
+                if (Mode_==4){  //无模型自适应4，但是实用范围不行，延迟
                     static int flag_mfac;
                     if (flag_mfac==0) //初始化只执行一次
                     {
@@ -275,14 +275,17 @@ void MotorControl::update()
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
                 // 根据反馈的保护
-                if (force_msg_.data > 220)
+                if (force_msg_.data > 180)
                     ctrl_msg_.T = 0;
-                // 力矩限制保护
+                if (force_msg_.data <= 2 && ctrl_msg_.T > 0)  //防止过渡放线
+                    ctrl_msg_.T = 0;
+
                 const float T_max = 50;
-                if (ctrl_msg_.T > 2)
-                    ctrl_msg_.T = 2;
-                else if (ctrl_msg_.T < -T_max)
-                    ctrl_msg_.T = -T_max;
+                if (ctrl_msg_.T > 24) // 力矩限制保护
+                        ctrl_msg_.T = 24;
+                if (ctrl_msg_.T < -T_max)
+                        ctrl_msg_.T = -T_max;
+
                 break;
             }
 
@@ -291,7 +294,6 @@ void MotorControl::update()
                 ctrl_msg_.T = 0;
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
-
 
 
                 static float force_err_max_ = -10;
@@ -345,9 +347,6 @@ void MotorControl::update()
                 //电机力矩控制模式
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
-
-                // 自适应参数设计
-                // if(cmd_msg_.flag==1)ROS_INFO_STREAM("enable:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " );
 
                 //float force_ctrl =Feedforward_.update(cmd_msg_.flag,F_cmd);  // F_cmd 是前馈量
                 FD_PID_.setParam(0.8,0,0.01);
@@ -407,7 +406,6 @@ void MotorControl::update()
 
             case 16:  // 力矩模式
             {
-
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 ctrl_msg_.T = -cmd_msg_.force;

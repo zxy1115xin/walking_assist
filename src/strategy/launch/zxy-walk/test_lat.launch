@@ -54,7 +54,7 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "000"
+           enable: "001"
        </rosparam>
    </node>
 
@@ -64,7 +64,6 @@
             enable: "001"
             motor0: "disturb"
             motor2: "left_lat"
-
         </rosparam>
     </node>
 
@@ -76,6 +75,7 @@
             motor2: "left_med"
             motor3: "right_med"
             motor4: "right_lat"
+            art_index: 0
         </rosparam>
     </node>
 

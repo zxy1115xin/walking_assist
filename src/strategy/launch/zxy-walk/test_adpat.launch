@@ -1,10 +1,11 @@
 <launch>
-    <!--   单绳助力： F=50N/m  -->
+
     <!--   检查钢丝绳松紧，连接处是否牢固  -->
     <!--   询问受试者基本信息： 身高/体重等 ，并完成表格填写  -->
 
     <!-- 不含采集日期-O -->  <!-- 含采集日期-o -->
     <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_adapt.bag -a" />
+    <!--    <node pkg="rosbag" type="record" name="record" args="-o /media/c208/NanoDisk/Adata_xy/241109/test.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
     <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
@@ -77,6 +78,7 @@
             motor2: "left_med"
             motor3: "right_med"
             motor4: "right_lat"
+            art_index: 0
         </rosparam>
     </node>
 
