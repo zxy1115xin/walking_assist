@@ -88,7 +88,8 @@
 
     <node pkg="strategy" type="strategy_group_artificial.py" name="strategy_group" output="screen">
          <param name = "force_pre" type = "double" value = "2.0" />
-         <param name = "PMode" type = "double" value = "1" />
+         <param name = "lat" type = "double" value = "0.5" />
+         <param name = "med" type = "double" value = "0.5" />
    </node>
 
 </launch>

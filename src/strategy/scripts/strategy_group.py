@@ -22,160 +22,54 @@ class StrategyGroup:
         self.footR_down = 0
         self.Last_mode_fight = 0
         self.Last_mode_stance = 0
-        self.index_R_off = 0
-        self.index_R_on = 0
-        self.index_L_off = 0
-        self.index_L_on = 0
-        self.grf_r_on = 0
-        self.grf_l_on = 0
 
-
-        # 参数服务器标志位
-        self.param_flag = 0
-
-        # 参数服务器
+       
+    
+        # 参数服务器，ParamCallback 的执行时机是 当参数服务器中的参数被修改时，它会被立即触发。在rqt中执行一次
+        self.param_flag = 0 # 参数服务器标志位
         self.server = Server(drConfig, self.ParamCallback)
-
-        # 订阅“地反力反馈RL”
+        # 订阅“地反力反馈RL”，任何时候只要相应主题发布了新的数据，回调函数都会被执行一次
         rospy.Subscriber('pub_grf_L', GRF_Data, self.GRFL_Callback)
         self.GRF_L = GRF_Data()
         rospy.Subscriber('pub_grf_R', GRF_Data, self.GRFR_Callback)
         self.GRF_R = GRF_Data()
-        # 定义发布 更新后“GRF”3
+        # 定义发布 更新后“GRF”
         self.GRFR_pub = rospy.Publisher('GRF_R', Fgrf, queue_size=1000)
         self.GRFL_pub = rospy.Publisher('GRF_L', Fgrf, queue_size=1000)
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
-    # def GRFL_Callback(self, msg):
-    #     if self.param_flag == 1:
-    #         self.GRF_L = msg
-    #         self.GRF_L.all_force = self.GRF_L.all_force * self.gain_GRFL + self.offset_GRFL
-    #         grf_bot = self.GRF_L.bot_Med + self.GRF_L.bot_lat-200
-    #         grf_up = self.GRF_L.midtop_mid
-    #         self.GRF_L.stance_flg = 1
-    #
-    #
-    #         # 判断触地
-    #         if grf_bot > 200 and self.Last_flagL == 0:
-    #             self.grf_l_on = self.grf_l_on + 1
-    #         else:
-    #             self.grf_l_on = 0
-    #         if self.grf_l_on > 2:
-    #             self.index_L_on = 1
-    #
-    #
-    #         # 判断蹬地
-    #         # 登地
-    #         if grf_up > 200 and self.index_L_on == 1:
-    #             self.footL_up = self.footL_up + 1
-    #         else:
-    #             self.footL_up = 0
-    #         if self.footL_up > 2:
-    #             self.index_L_off = 1
-    #
-    #         # rospy.loginfo("grf_bot :%d\n\t", grf_bot )
-    #         # rospy.loginfo("grf_bot :%d\n\t", grf_bot)
-    #
-    #
-    #         # 离地
-    #         if grf_up < 200 and self.index_L_on == 1 and self.index_L_off == 1:
-    #             self.footL_down = self.footL_down + 1
-    #         else:
-    #             self.footL_down = 0
-    #         if self.footL_down == 3:
-    #             self.index_L_off = 0
-    #             self.index_L_on = 0
-    #
-    #         if self.index_L_off == 0 and self.index_L_on == 0:
-    #             self.GRF_L.stance_flg = 0
-    #
-    #         self.Last_flagL = self.GRF_L.stance_flg
-    #
-    #         # 发布数据
-    #         self.GRF_Ls.all_force = self.GRF_L.all_force
-    #         self.GRF_Ls.stance_flg = self.GRF_L.stance_flg
-    #         self.GRFL_pub.publish(self.GRF_Ls)
-    #         for strategy in self.strategy_list:
-    #             strategy.GRFL_Callback(self.GRF_Ls)
-    #
-    #     return
-
-    # def GRFR_Callback(self, msg):
-    #     if self.param_flag == 1:
-    #
-    #         self.GRF_R = msg
-    #         self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
-    #         grf_bot = (self.GRF_R.bot_Med + self.GRF_R.bot_lat-1000) * self.gain_GRFR + self.offset_GRFR
-    #         self.GRF_R.stance_flg = 1
-    #
-    #         # 判断触地
-    #         if grf_bot > 400 and self.Last_flagR == 0:
-    #             self.grf_r_on = self.grf_r_on + 1
-    #         else:
-    #             self.grf_r_on = 0
-    #         if self.grf_r_on == 3:
-    #             self.index_R_on = 1
-    #
-    #         # 判断蹬地
-    #         # 登地
-    #         if self.GRF_R.all_force > 400 and self.index_R_on == 1:
-    #             self.footR_up = self.footR_up + 1
-    #         else:
-    #             self.footR_up = 0
-    #         if self.footR_up == 5:
-    #             self.index_R_off = 1
-    #         # 离地
-    #         if self.GRF_R.all_force < 400 and self.index_R_on == 1 and self.index_R_off == 1:
-    #             self.footR_down = self.footR_down + 1
-    #         else:
-    #             self.footR_down = 0
-    #         if self.footR_down == 5:
-    #             self.index_R_off = 0
-    #             self.index_R_on = 0
-    #
-    #         if self.index_R_off == 0 and self.index_R_on == 0:
-    #             self.GRF_R.stance_flg = 0
-    #
-    #         self.Last_flagR = self.GRF_R.stance_flg
-    #
-    #
-    #         # 发布数据
-    #         self.GRF_Rs.all_force = self.GRF_R.all_force
-    #         self.GRF_Rs.stance_flg = self.GRF_R.stance_flg
-    #         self.GRFR_pub.publish(self.GRF_Rs)
-    #         for strategy in self.strategy_list:
-    #             strategy.GRFR_Callback(self.GRF_Rs)
-    #     return
 
     def GRFL_Callback(self, msg):
         if self.param_flag == 1:
             self.GRF_L = msg
-            self.GRF_L.all_force = self.GRF_L.all_force * self.gain_GRFL + self.offset_GRFL
+            self.GRF_L.all_force = self.GRF_L.all_force * self.gain_GRFL + self.offset_GRFL  # 地反力修正
             self.GRF_L.stance_flg = 0
 
-            # 判断触地，条件：a.连续n次 b.>300 c.脚后跟力大于前侧力
+            # 1. 判断触地，条件：a.连续n次 b.>300 c.脚后跟力大于前侧力
             backupl = 1  # 脚后跟力大于前侧力v
-            if self.GRF_L.bot_Med + self.GRF_L.bot_lat - self.GRF_L.midtop_mid > 10:
+            if self.GRF_L.hind - self.GRF_L.mid > 10:
                 backupl = 1
 
-            if self.GRF_L.all_force > 200 and self.Last_flagL == 0 and backupl == 1:
+            if self.GRF_L.all_force > 200 and self.Last_flagL == 0 and backupl == 1:  # 脚后跟力大于前侧力v 且 地反力大于阈值
                 self.footL_up = self.footL_up + 1
             else:
                 self.footL_up = 0
-            if self.Last_flagL == 0 and self.footL_up == 12:
+
+            if self.Last_flagL == 0 and self.footL_up == 12:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
                 self.GRF_L.stance_flg = 1
 
-            # 判断支撑相阶段
-            if self.GRF_L.all_force > 200 and self.Last_flagL == 1:
+            # 2. 判断支撑相阶段，保持处触地
+            if self.GRF_L.all_force > 200 and self.Last_flagL == 1:  
                 self.GRF_L.stance_flg = 1
 
-            # 判断蹬地
+            # 3. 判断离地
             if self.GRF_L.all_force < 200 and self.Last_flagL == 1:
                 self.footL_down = self.footL_down + 1
             else:
                 self.footL_down = 0
-            if self.Last_flagL == 1 and self.footL_down == 40:
+
+            if self.Last_flagL == 1 and self.footL_down == 30:
                 self.GRF_L.stance_flg = 0
 
             self.Last_flagL = self.GRF_L.stance_flg
@@ -196,10 +90,10 @@ class StrategyGroup:
             self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
 
             backupr = 1   # 脚后跟力大于前侧力v
-            if self.GRF_R.bot_Med + self.GRF_R.bot_lat - self.GRF_R.midtop_mid > 10:
+            if self.GRF_R.hind - self.GRF_R.mid > 10:
                 backupr = 1
 
-            if self.GRF_R.all_force > 200 and self.Last_flagR == 0:
+            if self.GRF_R.all_force > 200 and self.Last_flagR == 0 and backupr == 1:
                 self.footR_up = self.footR_up + 1
             else:
                 self.footR_up = 0
@@ -216,7 +110,8 @@ class StrategyGroup:
                 self.footR_down = self.footR_down + 1
             else:
                 self.footR_down = 0
-            if self.Last_flagR == 1 and self.footR_down == 40:
+
+            if self.Last_flagR == 1 and self.footR_down == 30:
                 self.GRF_R.stance_flg = 0
 
             self.Last_flagR = self.GRF_R.stance_flg
@@ -236,13 +131,13 @@ class StrategyGroup:
         # 更新提示
         # rospy.loginfo("which parameter is changed::%d\n\t", level + 1)
 
-        # 地反力参数更新
+        # 1.地反力参数更新
         self.gain_GRFL = config.gain_GRFL
         self.offset_GRFL = config.offset_GRFL
         self.gain_GRFR = config.gain_GRFR
         self.offset_GRFR = config.offset_GRFR
 
-        # 助力更新
+        # 2.助力更新
         # Left
         strategy_list[0].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
         strategy_list[1].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
@@ -252,13 +147,14 @@ class StrategyGroup:
         # 扰动
         strategy_list[4].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
 
-        #是否显示参数
+        # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
         for strategy in self.strategy_list:
-            strategy.show_index = config.show
+            strategy.show_index = config.show 
 
 
-        # mode处理
-        if config.Mode0 == 1:
+        # 4.mode处理与更新
+
+        if config.Mode0 == 1:  # Mode0 是bool 选择是否快速防线
             config.Mode_fight_All = 0
             config.Mode_stance_All = 0
 
@@ -280,6 +176,7 @@ class StrategyGroup:
         mode_pos = 11
         if config.Mode_fight_left_lat == mode_pos or config.Mode_fight_left_Med == mode_pos or \
                 config.Mode_fight_right_lat == mode_pos or config.Mode_fight_right_Med == mode_pos:
+            # 四个策略模式中的任何一个是否处于 mode_pos 状态 ，就展开 Group_Mode_pos 可选项
             config.groups.groups.Mode_Group.groups.fight_phase.groups.release.state = True
         else:
             config.groups.groups.Mode_Group.groups.fight_phase.groups.release.state = False
@@ -289,7 +186,8 @@ class StrategyGroup:
         if config.update_Mode == 1 or config.Mode0 == 1:
             mode_other = 1
             # LeftLat
-            mode_stance = config.Mode_stance_left_lat
+            # 即可以统一改变参数，可以单独调节一个绳子的变化
+            mode_stance = config.Mode_stance_left_lat  
             mode_fight = config.Mode_fight_left_lat
             pos_fight = config.fight_pos_left_lat
             strategy_list[0].Mode_Callback( mode_stance,mode_fight,mode_other,pos_fight)
@@ -318,11 +216,11 @@ class StrategyGroup:
 
     def update(self, t):
         for strategy in self.strategy_list:
-            strategy.update(t)
+            strategy.update(t)  # 更新辅助力曲线
             pass
         return
 
-    def timeCallback(self, event):
+    def timeCallback(self, event): # 是一个基于 ROS 定时器触发的回调函数，定时器可以按照设定的时间间隔周期性地触发回调函数执行
         t = (event.current_real - self.time0).to_sec()
         self.update(t)
         return

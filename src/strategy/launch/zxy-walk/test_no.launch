@@ -81,10 +81,6 @@
 
 
 
-<!--     <node pkg="strategy" type="left_lat.py" name="left_lat" output="screen"/> -->
-<!--    <node pkg="strategy" type="left_med.py" name="left_med" output="screen"/>-->
-<!--    <node pkg="strategy" type="right_lat.py" name="right_lat" output="screen"/> -->
-<!--    <node pkg="strategy" type="right_med.py" name="right_med" output="screen"/>-->
    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen"/>
 
 </launch>
