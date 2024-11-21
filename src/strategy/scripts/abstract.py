@@ -19,7 +19,7 @@ class Strategy:
 
         # 参数设计
         self.pre_force = rospy.get_param("~force_pre")  # 获取参数
-        self.PMode = rospy.get_param('~PMode')
+        # self.PMode = rospy.get_param('~PMode')
 
         self.show_index = 1
         # 定义发布 “指令” command

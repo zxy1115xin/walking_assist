@@ -24,7 +24,11 @@ class GRF_fit:
         rospy.loginfo('get_grf_R')
 
         # 订阅“GRF”
-        rospy.Subscriber("can1_rx", Frame, self.canGrfCallback)
+        rospy.Subscriber("can_rx", Frame, self.canGrfCallback)
+
+        # rospy.Subscriber("can1_rx", Frame, self.canGrfCallback)
+
+
         self.can_grf = Frame()
         # 定义发布 “grf的数据"
         self.grf_pub = rospy.Publisher("pub_grf", GRF_Data, queue_size=1000)

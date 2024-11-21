@@ -5,5 +5,7 @@
    "GRF_DATA"
    "<GRF_DATA1>"
    "GRF_DATA1"
+   "<GRF_DATA2>"
+   "GRF_DATA2"
   ))
 

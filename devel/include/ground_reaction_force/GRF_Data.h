@@ -24,34 +24,34 @@ struct GRF_Data_
   typedef GRF_Data_<ContainerAllocator> Type;
 
   GRF_Data_()
-    : midtop_mid(0.0)
+    : fore(0.0)
+    , mid(0.0)
+    , hind(0.0)
     , all_force(0.0)
-    , bot_Med(0.0)
-    , bot_lat(0.0)
     , stance_flg(false)  {
     }
   GRF_Data_(const ContainerAllocator& _alloc)
-    : midtop_mid(0.0)
+    : fore(0.0)
+    , mid(0.0)
+    , hind(0.0)
     , all_force(0.0)
-    , bot_Med(0.0)
-    , bot_lat(0.0)
     , stance_flg(false)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _midtop_mid_type;
-  _midtop_mid_type midtop_mid;
+   typedef float _fore_type;
+  _fore_type fore;
+
+   typedef float _mid_type;
+  _mid_type mid;
+
+   typedef float _hind_type;
+  _hind_type hind;
 
    typedef float _all_force_type;
   _all_force_type all_force;
-
-   typedef float _bot_Med_type;
-  _bot_Med_type bot_Med;
-
-   typedef float _bot_lat_type;
-  _bot_lat_type bot_lat;
 
    typedef uint8_t _stance_flg_type;
   _stance_flg_type stance_flg;
@@ -85,10 +85,10 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::ground_reaction_force::GRF_Data_<ContainerAllocator1> & lhs, const ::ground_reaction_force::GRF_Data_<ContainerAllocator2> & rhs)
 {
-  return lhs.midtop_mid == rhs.midtop_mid &&
+  return lhs.fore == rhs.fore &&
+    lhs.mid == rhs.mid &&
+    lhs.hind == rhs.hind &&
     lhs.all_force == rhs.all_force &&
-    lhs.bot_Med == rhs.bot_Med &&
-    lhs.bot_lat == rhs.bot_lat &&
     lhs.stance_flg == rhs.stance_flg;
 }
 
@@ -146,12 +146,12 @@ struct MD5Sum< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "7f6bc012a85df06ce5797caa5e247628";
+    return "5b6c0986b39b00f008d103a1a1b557b8";
   }
 
   static const char* value(const ::ground_reaction_force::GRF_Data_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x7f6bc012a85df06cULL;
-  static const uint64_t static_value2 = 0xe5797caa5e247628ULL;
+  static const uint64_t static_value1 = 0x5b6c0986b39b00f0ULL;
+  static const uint64_t static_value2 = 0x08d103a1a1b557b8ULL;
 };
 
 template<class ContainerAllocator>
@@ -170,10 +170,10 @@ struct Definition< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float32 midtop_mid\n"
+    return "float32 fore\n"
+"float32 mid\n"
+"float32 hind\n"
 "float32 all_force\n"
-"float32 bot_Med\n"
-"float32 bot_lat\n"
 "bool stance_flg\n"
 ;
   }
@@ -193,10 +193,10 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.midtop_mid);
+      stream.next(m.fore);
+      stream.next(m.mid);
+      stream.next(m.hind);
       stream.next(m.all_force);
-      stream.next(m.bot_Med);
-      stream.next(m.bot_lat);
       stream.next(m.stance_flg);
     }
 
@@ -216,14 +216,14 @@ struct Printer< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::ground_reaction_force::GRF_Data_<ContainerAllocator>& v)
   {
-    s << indent << "midtop_mid: ";
-    Printer<float>::stream(s, indent + "  ", v.midtop_mid);
+    s << indent << "fore: ";
+    Printer<float>::stream(s, indent + "  ", v.fore);
+    s << indent << "mid: ";
+    Printer<float>::stream(s, indent + "  ", v.mid);
+    s << indent << "hind: ";
+    Printer<float>::stream(s, indent + "  ", v.hind);
     s << indent << "all_force: ";
     Printer<float>::stream(s, indent + "  ", v.all_force);
-    s << indent << "bot_Med: ";
-    Printer<float>::stream(s, indent + "  ", v.bot_Med);
-    s << indent << "bot_lat: ";
-    Printer<float>::stream(s, indent + "  ", v.bot_lat);
     s << indent << "stance_flg: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.stance_flg);
   }

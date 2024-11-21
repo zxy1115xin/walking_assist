@@ -8,15 +8,15 @@ import struct
 
 
 class GRF_Data(genpy.Message):
-  _md5sum = "7f6bc012a85df06ce5797caa5e247628"
+  _md5sum = "5b6c0986b39b00f008d103a1a1b557b8"
   _type = "ground_reaction_force/GRF_Data"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float32 midtop_mid
+  _full_text = """float32 fore
+float32 mid
+float32 hind
 float32 all_force
-float32 bot_Med
-float32 bot_lat
 bool stance_flg"""
-  __slots__ = ['midtop_mid','all_force','bot_Med','bot_lat','stance_flg']
+  __slots__ = ['fore','mid','hind','all_force','stance_flg']
   _slot_types = ['float32','float32','float32','float32','bool']
 
   def __init__(self, *args, **kwds):
@@ -27,7 +27,7 @@ bool stance_flg"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       midtop_mid,all_force,bot_Med,bot_lat,stance_flg
+       fore,mid,hind,all_force,stance_flg
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -36,21 +36,21 @@ bool stance_flg"""
     if args or kwds:
       super(GRF_Data, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.midtop_mid is None:
-        self.midtop_mid = 0.
+      if self.fore is None:
+        self.fore = 0.
+      if self.mid is None:
+        self.mid = 0.
+      if self.hind is None:
+        self.hind = 0.
       if self.all_force is None:
         self.all_force = 0.
-      if self.bot_Med is None:
-        self.bot_Med = 0.
-      if self.bot_lat is None:
-        self.bot_lat = 0.
       if self.stance_flg is None:
         self.stance_flg = False
     else:
-      self.midtop_mid = 0.
+      self.fore = 0.
+      self.mid = 0.
+      self.hind = 0.
       self.all_force = 0.
-      self.bot_Med = 0.
-      self.bot_lat = 0.
       self.stance_flg = False
 
   def _get_types(self):
@@ -66,7 +66,7 @@ bool stance_flg"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4fB().pack(_x.midtop_mid, _x.all_force, _x.bot_Med, _x.bot_lat, _x.stance_flg))
+      buff.write(_get_struct_4fB().pack(_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -82,7 +82,7 @@ bool stance_flg"""
       _x = self
       start = end
       end += 17
-      (_x.midtop_mid, _x.all_force, _x.bot_Med, _x.bot_lat, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
+      (_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
       self.stance_flg = bool(self.stance_flg)
       return self
     except struct.error as e:
@@ -97,7 +97,7 @@ bool stance_flg"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4fB().pack(_x.midtop_mid, _x.all_force, _x.bot_Med, _x.bot_lat, _x.stance_flg))
+      buff.write(_get_struct_4fB().pack(_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -114,7 +114,7 @@ bool stance_flg"""
       _x = self
       start = end
       end += 17
-      (_x.midtop_mid, _x.all_force, _x.bot_Med, _x.bot_lat, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
+      (_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
       self.stance_flg = bool(self.stance_flg)
       return self
     except struct.error as e:

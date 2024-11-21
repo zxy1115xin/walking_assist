@@ -18,36 +18,36 @@ class GRF_Data {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.midtop_mid = null;
+      this.fore = null;
+      this.mid = null;
+      this.hind = null;
       this.all_force = null;
-      this.bot_Med = null;
-      this.bot_lat = null;
       this.stance_flg = null;
     }
     else {
-      if (initObj.hasOwnProperty('midtop_mid')) {
-        this.midtop_mid = initObj.midtop_mid
+      if (initObj.hasOwnProperty('fore')) {
+        this.fore = initObj.fore
       }
       else {
-        this.midtop_mid = 0.0;
+        this.fore = 0.0;
+      }
+      if (initObj.hasOwnProperty('mid')) {
+        this.mid = initObj.mid
+      }
+      else {
+        this.mid = 0.0;
+      }
+      if (initObj.hasOwnProperty('hind')) {
+        this.hind = initObj.hind
+      }
+      else {
+        this.hind = 0.0;
       }
       if (initObj.hasOwnProperty('all_force')) {
         this.all_force = initObj.all_force
       }
       else {
         this.all_force = 0.0;
-      }
-      if (initObj.hasOwnProperty('bot_Med')) {
-        this.bot_Med = initObj.bot_Med
-      }
-      else {
-        this.bot_Med = 0.0;
-      }
-      if (initObj.hasOwnProperty('bot_lat')) {
-        this.bot_lat = initObj.bot_lat
-      }
-      else {
-        this.bot_lat = 0.0;
       }
       if (initObj.hasOwnProperty('stance_flg')) {
         this.stance_flg = initObj.stance_flg
@@ -60,14 +60,14 @@ class GRF_Data {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type GRF_Data
-    // Serialize message field [midtop_mid]
-    bufferOffset = _serializer.float32(obj.midtop_mid, buffer, bufferOffset);
+    // Serialize message field [fore]
+    bufferOffset = _serializer.float32(obj.fore, buffer, bufferOffset);
+    // Serialize message field [mid]
+    bufferOffset = _serializer.float32(obj.mid, buffer, bufferOffset);
+    // Serialize message field [hind]
+    bufferOffset = _serializer.float32(obj.hind, buffer, bufferOffset);
     // Serialize message field [all_force]
     bufferOffset = _serializer.float32(obj.all_force, buffer, bufferOffset);
-    // Serialize message field [bot_Med]
-    bufferOffset = _serializer.float32(obj.bot_Med, buffer, bufferOffset);
-    // Serialize message field [bot_lat]
-    bufferOffset = _serializer.float32(obj.bot_lat, buffer, bufferOffset);
     // Serialize message field [stance_flg]
     bufferOffset = _serializer.bool(obj.stance_flg, buffer, bufferOffset);
     return bufferOffset;
@@ -77,14 +77,14 @@ class GRF_Data {
     //deserializes a message object of type GRF_Data
     let len;
     let data = new GRF_Data(null);
-    // Deserialize message field [midtop_mid]
-    data.midtop_mid = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [fore]
+    data.fore = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [mid]
+    data.mid = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [hind]
+    data.hind = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [all_force]
     data.all_force = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [bot_Med]
-    data.bot_Med = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [bot_lat]
-    data.bot_lat = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [stance_flg]
     data.stance_flg = _deserializer.bool(buffer, bufferOffset);
     return data;
@@ -101,16 +101,16 @@ class GRF_Data {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '7f6bc012a85df06ce5797caa5e247628';
+    return '5b6c0986b39b00f008d103a1a1b557b8';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 midtop_mid
+    float32 fore
+    float32 mid
+    float32 hind
     float32 all_force
-    float32 bot_Med
-    float32 bot_lat
     bool stance_flg
     `;
   }
@@ -121,11 +121,25 @@ class GRF_Data {
       msg = {};
     }
     const resolved = new GRF_Data(null);
-    if (msg.midtop_mid !== undefined) {
-      resolved.midtop_mid = msg.midtop_mid;
+    if (msg.fore !== undefined) {
+      resolved.fore = msg.fore;
     }
     else {
-      resolved.midtop_mid = 0.0
+      resolved.fore = 0.0
+    }
+
+    if (msg.mid !== undefined) {
+      resolved.mid = msg.mid;
+    }
+    else {
+      resolved.mid = 0.0
+    }
+
+    if (msg.hind !== undefined) {
+      resolved.hind = msg.hind;
+    }
+    else {
+      resolved.hind = 0.0
     }
 
     if (msg.all_force !== undefined) {
@@ -133,20 +147,6 @@ class GRF_Data {
     }
     else {
       resolved.all_force = 0.0
-    }
-
-    if (msg.bot_Med !== undefined) {
-      resolved.bot_Med = msg.bot_Med;
-    }
-    else {
-      resolved.bot_Med = 0.0
-    }
-
-    if (msg.bot_lat !== undefined) {
-      resolved.bot_lat = msg.bot_lat;
-    }
-    else {
-      resolved.bot_lat = 0.0
     }
 
     if (msg.stance_flg !== undefined) {
