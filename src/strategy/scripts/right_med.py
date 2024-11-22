@@ -32,7 +32,6 @@ class RightMed(Strategy):
         self.gait_num_last = 0
         self.gait_num = 0
         self.F_start1 = 0
-        return
 
     def Mode_Callback(self, mode_stance, mode_fight, mode_other,pos_fight):
         self.mode_stance = mode_stance

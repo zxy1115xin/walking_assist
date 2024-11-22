@@ -39,11 +39,11 @@
 	<!-- 左脚数据 can1 -->
 
 
-    <node pkg="ground_reaction_force" type="get_grf_all.py" name="grf_L" output="screen">
-        <param name="Foot"  type="double"  value="1"/>
+	<node pkg="ground_reaction_force" type="get_grf.py" name="grf_L" output="screen">
+		<param name="K_grf"  type="double"  value="1.75"/>
+		<param name="A_grf"  type="double"  value="1"/>
         <remap from="can_rx" to="can1_rx"/>
 		<remap from="pub_grf" to="pub_grf_L"/>
-
 	</node>
 
 

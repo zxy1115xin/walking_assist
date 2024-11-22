@@ -57,23 +57,26 @@ class LeftLat(Strategy):
             # 参数在触地阶段更新： 模式+力曲线+其他参数
             #更新模式
             self.touch_time = t  # 触地时刻
-            self.Mode_stance = self.mode_stance  # 在这里更新mode是由于中间突变模式会出现不受控现象，尤其在迭代学习支撑相期间
-            self.Mode_fight = self.mode_fight
-            self.Mode_other = self.mode_other
-            self.Pos = self.pos  # 这里把参数传给KP传出
-            # 更新力曲线，异常步态则保持不变
+            # if self.Flag > 70:
+            # self.upfall_time = self.F_fall
+            # self.upforce_max = self.F_max
+            # # 其他
+            # self.stance_finsh = 0
+            # self.Flag = 1  # 计数更新
+
+
+            # 更新力曲线
             if self.Flag > 70:
                 self.gait_num_last2 = self.gait_num_last
                 self.gait_num_last = self.gait_num
                 self.gait_num = self.Flag  # 记录支撑相时间
                 self.gait_T = 1 / 3 * (self.gait_num_last2 + self.gait_num_last +  self.gait_num)
             if self.gait_num_last2 > 0:  # 助力开始时间确定
-                self.F_start1 = self.F_rise * self.gait_T / 100 - self.F_start  # 辅助力开始相位
+                self.F_start1 = self.F_rise * self.gait_T / 100 - self.F_start # 辅助力开始相位
             else:
                 self.F_start1 = self.F_start
-
             self.upstart_time = self.F_start1  #开始时刻
-            self.uprise_time = self.F_rise
+            self.uprise_time = self.F_start
             self.upfall_time = self.F_fall
             self.upforce_max = self.F_max
             # 其他

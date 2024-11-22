@@ -23,8 +23,7 @@ class StrategyGroup:
         self.Last_mode_fight = 0
         self.Last_mode_stance = 0
 
-       
-    
+
         # 参数服务器，ParamCallback 的执行时机是 当参数服务器中的参数被修改时，它会被立即触发。在rqt中执行一次
         self.param_flag = 0 # 参数服务器标志位
         self.server = Server(drConfig, self.ParamCallback)
@@ -139,13 +138,12 @@ class StrategyGroup:
 
         # 2.助力更新
         # Left
-        strategy_list[0].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
-        strategy_list[1].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
+        self.strategy_list[0].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
+        self.strategy_list[1].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
         # Right
-        strategy_list[2].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
-        strategy_list[3].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
-        # 扰动
-        strategy_list[4].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
+        self.strategy_list[2].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
+        self.strategy_list[3].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
+
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
         for strategy in self.strategy_list:
@@ -190,27 +188,23 @@ class StrategyGroup:
             mode_stance = config.Mode_stance_left_lat  
             mode_fight = config.Mode_fight_left_lat
             pos_fight = config.fight_pos_left_lat
-            strategy_list[0].Mode_Callback( mode_stance,mode_fight,mode_other,pos_fight)
+            self.strategy_list[0].Mode_Callback( mode_stance,mode_fight,mode_other,pos_fight)
             # LeftMed
             mode_stance = config.Mode_stance_left_Med
             mode_fight = config.Mode_fight_left_Med
             pos_fight = config.fight_pos_left_Med
-            strategy_list[1].Mode_Callback( mode_stance,mode_fight,mode_other,pos_fight)
+            self.strategy_list[1].Mode_Callback( mode_stance,mode_fight,mode_other,pos_fight)
             # RightLat
             mode_stance = config.Mode_stance_right_lat
             mode_fight = config.Mode_fight_right_lat
             pos_fight = config.fight_pos_right_lat
-            strategy_list[3].Mode_Callback(mode_stance,mode_fight,mode_other,pos_fight)
+            self.strategy_list[3].Mode_Callback(mode_stance,mode_fight,mode_other,pos_fight)
             # RightMed
             mode_stance = config.Mode_stance_right_Med
             mode_fight = config.Mode_fight_right_Med
             pos_fight = config.fight_pos_right_Med
-            strategy_list[2].Mode_Callback(mode_stance,mode_fight,mode_other,pos_fight)
-            # Disturb
-            mode_stance = config.Mode_stance_right_Med
-            mode_fight = config.Mode_fight_right_Med
-            pos_fight = config.fight_pos_right_Med
-            strategy_list[4].Mode_Callback(mode_stance, mode_fight, mode_other, pos_fight)
+            self.strategy_list[2].Mode_Callback(mode_stance,mode_fight,mode_other,pos_fight)
+
 
         return config
 

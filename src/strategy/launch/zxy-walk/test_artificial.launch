@@ -3,7 +3,7 @@
 
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /media/c208/NanoDisk/Adata_xy/241109/artificial.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/artificial.bag -a" />
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
@@ -54,7 +54,7 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "001"
+           enable: "101"
        </rosparam>
    </node>
 
