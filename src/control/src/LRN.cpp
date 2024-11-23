@@ -199,7 +199,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             case 2:{
                 // 开环模式，始终沿用以及学好的控制
                 output_force=f_cmd_last[SNum_];
-                //ROS_INFO_STREAM("SNum_" <<SNum_<<"force"<<f_cmd_last[SNum_]<<"cmd"<<f_cmd[SNum_]);
                 break;
             }
 
@@ -217,9 +216,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 istep_index++;
                 if (istep_index==5) istep_index=1;  // 每5步修正一次
 
-                // 约束控制的下界，防止反转过多 ，但注意造成力下降速度不足
-                float f_min = -1*1000/30;
-                if(output_force < f_min)output_force = f_min;
 
                 break;
             }
@@ -236,4 +232,3 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
     return output_force;
 }
-
