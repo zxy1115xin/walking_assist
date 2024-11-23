@@ -222,7 +222,7 @@ void MotorControl::update()
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 // LRN 迭代学习 更新参数
-                LRN_.setParam(20,8,0);
+                LRN_.setParam(0.5,0.8,0);
                 int Mode_=1;  // LRN 迭代学习进行模式 mode == 1
                 if (cmd_msg_.flag>400) cmd_msg_.flag=400;  // 防止超出数组大小
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);

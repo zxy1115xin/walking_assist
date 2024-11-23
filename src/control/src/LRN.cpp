@@ -116,7 +116,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
             case 1:  {
 
-                int t1=4;  //提前激活时间
+                int t1=6;  //提前激活时间
                 int t2=2;
                 int t3=0;
 
@@ -138,7 +138,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 {
 
                     float f_min = -0*1000/30;
-                    float fmax = ( 6*Fmax+errFmax)*0.03*1000/30;
+                    float fmax = ( 4*Fmax+errFmax)*0.03*1000/30;
                     output_force= force_pre + sin(3.1415926/2*(SNum_-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
                     if(output_force < f_min)output_force = f_min;
                     //ROS_INFO_STREAM("Trise: " << SNum_<<"force"<<output_force<<"real"<<force_real);
@@ -170,7 +170,8 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 // 稳定阶段
                 else if (SNum_>Trise-t3 && force_des<=10)
                 {
-                    output_force= 0.3*1000/30;
+                    output_force= 0.5*1000/30;
+
                 }
 
                 //记录周期内力的最大值
@@ -180,15 +181,16 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 // 记录放绳阶段力误差
                 if (SNum_==Tfall-2)
                 {
-                    if (force_real==0) force_real=-6;
+                    if (force_real==0) force_real=-10;
                     F1err=force_real-force_des;
                 }
-                if (SNum_==Tfall+2)
+                if (SNum_==Tfall+5)
                 {
                     if (force_real==0) force_real=-6;
                     F2err=force_real-force_des;
-                    //ROS_INFO_STREAM("F2err: " <<F2err<<"force_real"<<force_real<<"force_des"<<force_des);
                 }
+
+
                 //只覆盖这次，保留未经历的上次结果，防止误判
                 f_cmd[SNum_]=output_force;
 

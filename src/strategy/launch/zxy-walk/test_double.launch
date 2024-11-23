@@ -23,10 +23,10 @@
 
     <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
         <remap from="can_rx" to="can0_rx"/>
-        <remap from="channel1" to="left_lat_force"/>
-        <remap from="channel2" to="left_med_force"/>
-        <remap from="channel3" to="right_med_force"/>
-        <remap from="channel4" to="right_lat_force"/>
+        <remap from="channel1" to="left_med_force"/>
+        <remap from="channel2" to="left_lat_force"/>
+        <remap from="channel3" to="right_lat_force"/>
+        <remap from="channel4" to="right_med_force"/>
     </node>
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can1_node" output="screen">

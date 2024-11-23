@@ -90,9 +90,6 @@ class LeftMed(Strategy):
                 force =force_max - (4 * force_max * pow(x, 3)) / pow(t1, 3) + (3 * force_max * pow(x, 4)) / pow(t1, 4) + force_pre
 
 
-                # print('x=',x)
-                #
-                # print(force-force_pre)
 
             elif (t >= self.touch_time + start_time + rise_time + fall_time) and (
                     t < self.touch_time + start_time + rise_time + fall_time + T_v):  # 刚刚助力结束预紧

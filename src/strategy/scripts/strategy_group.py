@@ -239,14 +239,14 @@ if __name__ == '__main__':
     from left_med import LeftMed
     from right_med import RightMed
     from right_lat import RightLat
-    from disturb import Disturb
+
 
     strategy_list = [
         LeftLat(),
         LeftMed(),
         RightMed(),
         RightLat(),
-        Disturb(),
+
     ]
     StrategyGroup(strategy_list).start_loop(100.0)
     pass
