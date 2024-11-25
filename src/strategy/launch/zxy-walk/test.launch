@@ -80,7 +80,6 @@
     </node>
 
 
-
     <node pkg="control" type="control_node" name="assist" output="screen">
         <rosparam>
             motor_num: 4

@@ -71,18 +71,13 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Tfall = cmd_msg->Tfall;
     cmd_msg_.Fmax = cmd_msg->Fmax;
 
-    if( cmd_msg_.mode == 11 && mode_last_!= 11 )
-    {
-        pos_fight_=sensor_msg_.Pos ;
-        flag_fight_=cmd_msg_.flag;
-    }
-
 
     if( cmd_msg_.mode == 11 && mode_last_!= 11 )
     {
-        pos_fight_=sensor_msg_.Pos ;
-        flag_fight_=cmd_msg_.flag;
+        cmd_msg_.pos_fight=sensor_msg_.Pos ;
+        cmd_msg_.flag_fight=cmd_msg_.flag;
     }
+
 
     if( cmd_msg_.mode == 15 && mode_last_!= 15 )
     {
@@ -289,14 +284,13 @@ void MotorControl::update()
                 break;
             }
 
-            case 10:  // 学习放线
+            case 10:  // 学习放线,位置控制
             {
                 ctrl_msg_.T = 0;
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
 
-
-                static float force_err_max_ = -10;
+               static float force_err_max_ = -10;
                 float err_force_ = force_msg_.data-cmd_msg_.force;
                 if (force_err_max_< err_force_) force_err_max_=err_force_;
 
@@ -308,11 +302,9 @@ void MotorControl::update()
                     force_err_max_  = -10;  //误差重装
                 }
 
-                float numf=cmd_msg_.flag-flag_fight_;
+                float numf=cmd_msg_.flag-cmd_msg_.flag_fight;
                 if (numf>15) numf=15;
-                ctrl_msg_.Pos = pos_fight_ + pos_change_ *(numf)/15;
-                break;
-
+                ctrl_msg_.Pos = cmd_msg_.pos_fight + pos_change_ *(numf)/15;
 
                 break;
             }
@@ -325,9 +317,9 @@ void MotorControl::update()
 
                 float pos_change2_ = cmd_msg_.kp;
 
-                float numf = cmd_msg_.flag-flag_fight_;
+                float numf = cmd_msg_.flag-cmd_msg_.flag_fight;
                 if (numf>15) numf=15;
-                ctrl_msg_.Pos = pos_fight_ + pos_change2_ *(numf)/15;
+                ctrl_msg_.Pos = cmd_msg_.pos_fight + pos_change2_ *(numf)/15;
                 break;
             }
 
