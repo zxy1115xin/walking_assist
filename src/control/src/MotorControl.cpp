@@ -72,11 +72,7 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Fmax = cmd_msg->Fmax;
 
 
-    if( cmd_msg_.mode == 11 && mode_last_!= 11 )
-    {
-        cmd_msg_.pos_fight=sensor_msg_.Pos ;
-        cmd_msg_.flag_fight=cmd_msg_.flag;
-    }
+
 
 
     if( cmd_msg_.mode == 15 && mode_last_!= 15 )
@@ -92,6 +88,13 @@ void MotorControl::update()
 {
     if (force_sub_flag_ && sensor_sub_flag_ && cmd_sub_flag_)
     {
+
+        if( cmd_msg_.mode == 11 && mode_last_!= 11 )
+        {
+            cmd_msg_.pos_fight=sensor_msg_.Pos ;
+            cmd_msg_.flag_fight=cmd_msg_.flag;
+        }        
+        
         switch (cmd_msg_.mode)
         {
              case 0:  //起始状态,位置控制：Kp=8，Fdes=2
