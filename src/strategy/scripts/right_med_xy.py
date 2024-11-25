@@ -46,7 +46,7 @@ class RightMed(Strategy):
     def force_curve(self, t):
 
         # 判断触地，任务：参数更新
-        if self.GRF_R.stance_flg == 1 and self.Last_flag == 0:
+        if self.GRF.stance_flg == 1 and self.Last_flag == 0:
 
             # 助力曲线时间判定
             if self.show_index == 1:  # 是否展示参数指令，评价力曲线是否达到期望步态百分比
@@ -79,7 +79,7 @@ class RightMed(Strategy):
             self.Flag = 1  # 计数更新
 
             # 判断离地时刻
-        if self.GRF_R.stance_flg == 0 and self.Last_flag == 1:
+        if self.GRF.stance_flg == 0 and self.Last_flag == 1:
             self.off_time = t  # 记录支撑相结束时刻
             # self.stance_num_last2 = self.stance_num_last
             # self.stance_num_last = self.stance_num
@@ -87,7 +87,7 @@ class RightMed(Strategy):
             # self.stance_TT = 1/3 * (self.stance_num_last2 + self.stance_num_last + self.stance_num)
 
         # 辅助力预备预备
-        self.Last_flag = self.GRF_R.stance_flg
+        self.Last_flag = self.GRF.stance_flg
         kp = 10
         mode = 0
         force = 0.0
@@ -106,7 +106,7 @@ class RightMed(Strategy):
         # 助力曲线设计
 
         #  正常步态下，支撑相和摆动相助力
-        if self.GRF_R.stance_flg == 1:  # 支撑相
+        if self.GRF.stance_flg == 1:  # 支撑相
             mode = self.Mode_stance
             # 支撑相
             if (t <= self.touch_time + self.upstart_time) and (t >= self.touch_time):  # 刚刚触地预紧
@@ -134,7 +134,7 @@ class RightMed(Strategy):
                 force = force_pre
 
         # 摆动相
-        elif self.GRF_R.stance_flg == 0 and flag > 30:
+        elif self.GRF.stance_flg == 0 and flag > 30:
             force = force_pre
             if t < self.off_time + 0.5: # 摆动相持续时间是0.5s
                 mode = self.Mode_fight

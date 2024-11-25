@@ -6,7 +6,7 @@ from abstract import Strategy
 import math
 
 
-class RightMed_art(Strategy):
+class LeftLat_art(Strategy):
     def __init__(self):
         super().__init__()
         self.numm = 0  # 这是一个样例，代表在子类里面定义自己类变量
@@ -24,6 +24,7 @@ class RightMed_art(Strategy):
         self.Mode_other = 0
         self.Pos = 0
         self.num = 5
+
 
 
     def force_curve(self, t):
@@ -96,11 +97,10 @@ class RightMed_art(Strategy):
         return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax
 
 
-
 if __name__ == '__main__':
     import os
     file_name = os.path.basename(__file__)
     name = os.path.splitext(file_name)[0]
     rospy.init_node(name)
-    RightMed_art().start_loop(100.0)
+    RightLat_art().start_loop(100.0)
     pass

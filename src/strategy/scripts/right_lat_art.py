@@ -24,22 +24,14 @@ class RightLat_art(Strategy):
         self.Mode_other = 0
         self.Pos = 0
         self.num = 5
-        return
 
-    def Mode_Callback(self, mode_stance, mode_fight, mode_other,pos_fight):
-        self.mode_stance = mode_stance
-        self.mode_fight = mode_fight
-        self.mode_other = mode_other
-        self.pos = pos_fight
-        rospy.loginfo(" RightLat param update --> mode_stance=%d,mode_fight=%d \n\t", self.mode_stance, self.mode_fight)
-        return
 
     def force_curve(self, t):
 
-        if t > 5 and self.Last_t < self.num <= t:  # 判定是否新的周期
+        if t > 5 and self.Last_t < self.num <= t:
             # t 是窗口执行时间
-            self.Flag = 1  # 计数，周期开始清0
-            self.num = self.num + 3  # 3是周期数
+            self.Flag = 1
+            self.num = self.num + 3
             self.touch_time = t  # 触地时刻
             self.Mode_stance = self.mode_stance  # 在这里更新mode是由于中间突变模式会出现不受控现象，尤其在迭代学习支撑相期间
             self.Mode_other = self.mode_other
@@ -50,9 +42,9 @@ class RightLat_art(Strategy):
         kp = 3
         mode = 0
         # 时间
-        start_time = self.F_start  # 从触地到开始助力时间
-        rise_time = self.F_rise
-        fall_time = self.F_fall
+        start_time = self.t_start  # 从触地到开始助力时间
+        rise_time = self.t_rise
+        fall_time = self.t_rise
         T_v = 0.05  # 助力结束后学习持续学习时间
         # 力
         force = 0.0
@@ -102,6 +94,8 @@ class RightLat_art(Strategy):
             mode = self.Mode_stance
 
         return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax
+
+
 
 
 if __name__ == '__main__':

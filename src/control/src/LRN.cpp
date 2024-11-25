@@ -116,7 +116,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
             case 1:  {
 
-                int t1=6;  //提前激活时间
+                int t1=8;  //提前激活时间
                 int t2=2;
                 int t3=0;
 
@@ -138,7 +138,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 {
 
                     float f_min = -0*1000/30;
-                    float fmax = ( 4*Fmax+errFmax)*0.03*1000/30;
+                    float fmax = ( Fmax+errFmax)*0.03*1000/30;
                     output_force= force_pre + sin(3.1415926/2*(SNum_-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
                     if(output_force < f_min)output_force = f_min;
                     //ROS_INFO_STREAM("Trise: " << SNum_<<"force"<<output_force<<"real"<<force_real);
@@ -181,12 +181,12 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 // 记录放绳阶段力误差
                 if (SNum_==Tfall-2)
                 {
-                    if (force_real==0) force_real=-10;
+                    if (force_real<0.2) force_real=-10;
                     F1err=force_real-force_des;
                 }
                 if (SNum_==Tfall+5)
                 {
-                    if (force_real==0) force_real=-6;
+                    if (force_real<0.2) force_real=-6;
                     F2err=force_real-force_des;
                 }
 

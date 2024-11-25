@@ -16,10 +16,6 @@ class StrategyGroup:
         # 初始参数
         self.Last_flagL = 0 #上次触地标志位
         self.Last_flagR = 0
-        self.footL_up = 0 #判断触地
-        self.footR_up = 0
-        self.footL_down = 0
-        self.footR_down = 0
         self.Last_mode_fight = 0
         self.Last_mode_stance = 0
 
@@ -43,30 +39,41 @@ class StrategyGroup:
         if self.param_flag == 1:
             self.GRF_L = msg
 
-
             # 发布数据
             self.GRF_Ls.all_force = self.GRF_L.all_force
             self.GRF_Ls.stance_flg = self.GRF_L.stance_flg
-            # self.GRFL_pub.publish(self.GRF_Ls)
 
-            for strategy in self.strategy_list:
-                strategy.GRFL_Callback(self.GRF_Ls)
+            self.strategy_list[0].GRF_Callback(self.GRF_Ls)
+            self.strategy_list[1].GRF_Callback(self.GRF_Ls)
+
+            if self.GRF_L.stance_flg == 1 and self.Last_flagL == 0:
+                self.strategy_list[0].force_update()
+                self.strategy_list[1].force_update()
+
+            self.Last_flagL = self.GRF_L.stance_flg  # 上次触地标志位
 
         return
-
+        self.show_index = 0
 
     def GRFR_Callback(self, msg):
         if self.param_flag == 1:
             self.GRF_R = msg
-            self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
-
+            # self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
 
             # 发布数据
             self.GRF_Rs.all_force = self.GRF_R.all_force
             self.GRF_Rs.stance_flg = self.GRF_R.stance_flg
-            # self.GRFR_pub.publish(self.GRF_Rs)
-            for strategy in self.strategy_list:
-                strategy.GRFR_Callback(self.GRF_Rs)
+
+            self.strategy_list[2].GRF_Callback(self.GRF_Rs)
+            self.strategy_list[3].GRF_Callback(self.GRF_Rs)
+
+            if self.GRF_R.stance_flg == 1 and self.Last_flagR == 0:
+                self.strategy_list[2].force_update()
+                self.strategy_list[3].force_update()
+
+            self.Last_flagR =  self.GRF_R.stance_flg  # 上次触地标志位
+
+
         return
 
     def ParamCallback(self, config, level):  # level为参数的掩码（，表征到底哪个参数是否被改变
@@ -84,11 +91,11 @@ class StrategyGroup:
 
         # 2.助力更新
         # Left
-        self.strategy_list[0].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
-        self.strategy_list[1].ParamCallback(config.F_max,config.F_start_l,config.F_rise,config.F_fall)
+        self.strategy_list[0].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
+        self.strategy_list[1].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
         # Right
-        self.strategy_list[2].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
-        self.strategy_list[3].ParamCallback(config.F_max,config.F_start_r,config.F_rise,config.F_fall)
+        self.strategy_list[2].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
+        self.strategy_list[3].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
 
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
@@ -97,7 +104,6 @@ class StrategyGroup:
 
 
         # 4.mode处理与更新
-
         if config.Mode0 == 1:  # Mode0 是bool 选择是否快速防线
             config.Mode_fight_All = 0
             config.Mode_stance_All = 0
@@ -128,7 +134,7 @@ class StrategyGroup:
 
         # mode更新
         if config.update_Mode == 1 or config.Mode0 == 1:
-            mode_other = 1
+            mode_other = 1  # 位置积分控制
             # LeftLat
             # 即可以统一改变参数，可以单独调节一个绳子的变化
             mode_stance = config.Mode_stance_left_lat  

@@ -4,7 +4,7 @@
 
 
     <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/test.bag -a" />
-<!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
+    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
 
 <!--     <param name = "name" type = "string" value = "walk_test" /> -->
@@ -65,14 +65,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "000"
+           enable: "111"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "000"
+            enable: "001"
             motor0: "disturb"
             motor2: "left_lat"
 
