@@ -33,8 +33,8 @@ class StrategyGroup:
         rospy.Subscriber('pub_grf_R', GRF_Data, self.GRFR_Callback)
         self.GRF_R = GRF_Data()
         # 定义发布 更新后“GRF”
-        self.GRFR_pub = rospy.Publisher('GRF_R', Fgrf, queue_size=1000)
-        self.GRFL_pub = rospy.Publisher('GRF_L', Fgrf, queue_size=1000)
+        # self.GRFR_pub = rospy.Publisher('GRF_R', Fgrf, queue_size=1000)
+        # self.GRFL_pub = rospy.Publisher('GRF_L', Fgrf, queue_size=1000)
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
@@ -42,41 +42,13 @@ class StrategyGroup:
     def GRFL_Callback(self, msg):
         if self.param_flag == 1:
             self.GRF_L = msg
-            self.GRF_L.all_force = self.GRF_L.all_force * self.gain_GRFL + self.offset_GRFL  # 地反力修正
-            self.GRF_L.stance_flg = 0
 
-            # 1. 判断触地，条件：a.连续n次 b.>300 c.脚后跟力大于前侧力
-            backupl = 1  # 脚后跟力大于前侧力v
-            if self.GRF_L.hind - self.GRF_L.mid > 10:
-                backupl = 1
-
-            if self.GRF_L.all_force > 200 and self.Last_flagL == 0 and backupl == 1:  # 脚后跟力大于前侧力v 且 地反力大于阈值
-                self.footL_up = self.footL_up + 1
-            else:
-                self.footL_up = 0
-
-            if self.Last_flagL == 0 and self.footL_up == 12:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
-                self.GRF_L.stance_flg = 1
-
-            # 2. 判断支撑相阶段，保持处触地
-            if self.GRF_L.all_force > 200 and self.Last_flagL == 1:  
-                self.GRF_L.stance_flg = 1
-
-            # 3. 判断离地
-            if self.GRF_L.all_force < 200 and self.Last_flagL == 1:
-                self.footL_down = self.footL_down + 1
-            else:
-                self.footL_down = 0
-
-            if self.Last_flagL == 1 and self.footL_down == 30:
-                self.GRF_L.stance_flg = 0
-
-            self.Last_flagL = self.GRF_L.stance_flg
 
             # 发布数据
             self.GRF_Ls.all_force = self.GRF_L.all_force
             self.GRF_Ls.stance_flg = self.GRF_L.stance_flg
-            self.GRFL_pub.publish(self.GRF_Ls)
+            # self.GRFL_pub.publish(self.GRF_Ls)
+
             for strategy in self.strategy_list:
                 strategy.GRFL_Callback(self.GRF_Ls)
 
@@ -88,37 +60,11 @@ class StrategyGroup:
             self.GRF_R = msg
             self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
 
-            backupr = 1   # 脚后跟力大于前侧力v
-            if self.GRF_R.hind - self.GRF_R.mid > 10:
-                backupr = 1
-
-            if self.GRF_R.all_force > 200 and self.Last_flagR == 0 and backupr == 1:
-                self.footR_up = self.footR_up + 1
-            else:
-                self.footR_up = 0
-
-            if self.Last_flagR == 0 and self.footR_up == 12:
-                self.GRF_R.stance_flg = 1
-
-            # 持续
-            if self.GRF_R.all_force > 200 and self.Last_flagR == 1:
-                self.GRF_R.stance_flg = 1
-
-            # 判断蹬地
-            if self.GRF_R.all_force < 200 and self.Last_flagR == 1:
-                self.footR_down = self.footR_down + 1
-            else:
-                self.footR_down = 0
-
-            if self.Last_flagR == 1 and self.footR_down == 30:
-                self.GRF_R.stance_flg = 0
-
-            self.Last_flagR = self.GRF_R.stance_flg
 
             # 发布数据
             self.GRF_Rs.all_force = self.GRF_R.all_force
             self.GRF_Rs.stance_flg = self.GRF_R.stance_flg
-            self.GRFR_pub.publish(self.GRF_Rs)
+            # self.GRFR_pub.publish(self.GRF_Rs)
             for strategy in self.strategy_list:
                 strategy.GRFR_Callback(self.GRF_Rs)
         return
