@@ -72,13 +72,18 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Fmax = cmd_msg->Fmax;
 
 
+    if( cmd_msg_.mode != 8 && mode_last_!= 8 )
+    {
+//        pos_fight_=sensor_msg_.Pos ;
+        flag_fight_=cmd_msg_.flag;
+
+    }
 
 
 
     if( cmd_msg_.mode == 15 && mode_last_!= 15 )
     {
         pos_now=sensor_msg_.Pos ;
-
     }
 
 
@@ -89,12 +94,6 @@ void MotorControl::update()
     if (force_sub_flag_ && sensor_sub_flag_ && cmd_sub_flag_)
     {
 
-        if( cmd_msg_.mode == 11 && mode_last_!= 11 )
-        {
-            cmd_msg_.pos_fight=sensor_msg_.Pos ;
-            cmd_msg_.flag_fight=cmd_msg_.flag;
-        }        
-        
         switch (cmd_msg_.mode)
         {
              case 0:  //起始状态,位置控制：Kp=8，Fdes=2
@@ -216,6 +215,7 @@ void MotorControl::update()
 
             case 8: // LRN 迭代学习
             {
+                static float last_force_data = 0.0;
                 // 力矩模式
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
@@ -241,7 +241,14 @@ void MotorControl::update()
 
                 // 记录当前时刻电机位置，--一般只在迭代学习中更新
                 Pos_cmd[cmd_msg_.flag]= sensor_msg_.Pos;
+                
+                // mode10 防线参考位置参考
+                if (last_force_data < 5 && force_msg_.data >= 5){
+                     pos_fight_=sensor_msg_.Pos;
+                }
 
+
+                last_force_data = force_msg_.data;
                 break;
 
             }
@@ -293,21 +300,40 @@ void MotorControl::update()
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
 
-               static float force_err_max_ = -10;
-                float err_force_ = force_msg_.data-cmd_msg_.force;
-                if (force_err_max_< err_force_) force_err_max_=err_force_;
+
+               static float force_err_max_=0;
+               static float errsum=0;
+               float force_err_max_last=0;
+
+                // 根据上个周期力误差的最大(8个数据点之后的数值),修正这个周期
+               if (cmd_msg_.flag - flag_fight_>6){
+
+                  if (force_msg_.data< 0.5) force_msg_.data=-5;
+                  float err_force_=force_msg_.data -cmd_msg_.force;
+                  if (force_err_max_<err_force_)  force_err_max_= err_force_;
+
+               }
+
 
                 if( mode_last_!=10 ){
-                    pos_change_=pos_change_+ (force_err_max_) * 0.007;
-                    ROS_INFO_STREAM("pos_change_=="<< pos_change_<<"     force_err_max_=="<<force_err_max_);
+
+
+                    errsum=errsum+force_err_max_;
+
+                    pos_change_=pos_change_+ (force_err_max_) * 0.007 + errsum * 0.001;
+                    ROS_INFO_STREAM("pos_change_=="<<name_<< pos_change_<<"  force_err_max_=="<<force_err_max_);
                     if (pos_change_ > 2.5) pos_change_ = 2.5 ;
                     if (pos_change_ < -1) pos_change_ = -1 ;
-                    force_err_max_  = -10;  //误差重装
+                    force_err_max_last=force_err_max_;
+                    force_err_max_=0;
+
                 }
 
-                float numf=cmd_msg_.flag-cmd_msg_.flag_fight;
-                if (numf>15) numf=15;
-                ctrl_msg_.Pos = cmd_msg_.pos_fight + pos_change_ *(numf)/15;
+                float numf = cmd_msg_.flag-flag_fight_;  // 在15个控制信号完成收线
+                if (numf>10) numf=10;
+                ctrl_msg_.Pos = pos_fight_ + pos_change_ *(numf)/10;
+
+
 
                 break;
             }
@@ -320,9 +346,9 @@ void MotorControl::update()
 
                 float pos_change2_ = cmd_msg_.kp;
 
-                float numf = cmd_msg_.flag-cmd_msg_.flag_fight;
+                float numf = cmd_msg_.flag-flag_fight_;
                 if (numf>15) numf=15;
-                ctrl_msg_.Pos = cmd_msg_.pos_fight + pos_change2_ *(numf)/15;
+                ctrl_msg_.Pos = pos_fight_ + pos_change2_ *(numf)/15;
                 break;
             }
 

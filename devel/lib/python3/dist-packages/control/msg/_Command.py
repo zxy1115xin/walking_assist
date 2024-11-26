@@ -20,8 +20,7 @@ int32 flag    #标志触地
 float32 Tsta    #助力开始时刻
 float32 Trise    #助力结束时刻
 float32 Tfall    #助力开始时刻
-float32 Fmax    #助力结束时刻
-"""
+float32 Fmax    #助力结束时刻"""
   __slots__ = ['mode','force','kp','ki','kd','flag','Tsta','Trise','Tfall','Fmax']
   _slot_types = ['int32','float32','float32','float32','float32','int32','float32','float32','float32','float32']
 

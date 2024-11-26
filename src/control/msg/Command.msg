@@ -8,5 +8,3 @@ float32 Tsta    #助力开始时刻
 float32 Trise    #助力结束时刻
 float32 Tfall    #助力开始时刻
 float32 Fmax    #助力结束时刻
-float32 pos_fight   #防线开始时的电机位置
-int32 flag_fight   #防线开始时的电机位置
