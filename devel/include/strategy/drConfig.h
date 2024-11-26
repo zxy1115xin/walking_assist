@@ -678,7 +678,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.t_rise = 0.5;
 //#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.t_rise = 0.2;
+      __default__.t_rise = 0.25;
 //#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("t_rise", "double", 0, "A Double Parameter", "", &drConfig::t_rise)));
 //#line 12 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"

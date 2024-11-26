@@ -59,6 +59,11 @@ private:
     float mode_last_;
     float flag_mode;
     float pos_change_=0.2;
+    // mode 11
+    float last_force_data = 0.0;
+    float errsum=0;
+    float force_err_max_last=0;
+    float force_err_max_=0;
 
     // 导入控制算法
     PID pid_;

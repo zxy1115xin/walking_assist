@@ -60,6 +60,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     Trise=floor(Trise);
     Tfall=floor(Tfall);
     static float fend1;
+    static int SNum_last;
 
     diff_err_=force_real-force_des-err_;
     err_=force_real-force_des;
@@ -86,7 +87,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             }
                 f_cmd_last[0] = f_cmd_last[1];
 
-            if (Fmax_cmd_-Fmax_real > -10  &&  Fmax_cmd_-Fmax_real < 10 &&  step_>10 && K_ind==0 )
+            if (Fmax-Fmax_real > -10  &&  Fmax-Fmax_real < 10 &&  step_>10 && K_ind==0 )
             {
                 Kerrf = 0.5;  //误差较小时，减少修正比例
                 K_ind = 1;
@@ -94,8 +95,11 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             }
         }
         err_sum_=0;  //积分清零
-        errFmax=errFmax+Kerrf*(Fmax_cmd_-Fmax_real);
+        errFmax=errFmax+Kerrf*(Fmax-Fmax_real);
         errFmin=errFmin+Kerrf*(F1err+F2err)/2;
+
+//       ROS_INFO_STREAM("F2err"<< F2err<<"---F1err"<<F1err<<"---errFminx"<<errFmin<<"---Kerrf---"<<Kerrf<<"----errFmax"<<errFmax);
+
         Fmax_real=0;
         Fmax_cmd_=0;
         F1err=0;
@@ -103,6 +107,9 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         index_new=1;  // index=1时代表周期更新
         step_++;  //学习了多少步
         fend1=0;
+
+
+//        ROS_INFO_STREAM("= F2err=="<< F2err<<"errFminx"<<errFmin<<"Kerrf---"<<Kerrf<<"errFmax"<<errFmax);
 
     }
 
@@ -159,7 +166,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 else if (SNum_>Trise+t3  && force_des>10)
                 {
 
-                    float f_min =( 0.5*Fmax+errFmin)*0.075*1000/30;
+                    float f_min =( 0.5*Fmax+0.5*errFmin)*0.075*1000/30;
                     output_force=-f_min*(SNum_ - Trise - t3) / (Tfall - Trise - t3 -2); // 自下而上的斜线
                     float fmin =( -50)*0.075*1000/30;
                     float fmax = 0;
@@ -176,15 +183,17 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
                 //记录周期内力的最大值
                 if (force_real > Fmax_real)Fmax_real=force_real;
-                if (force_des > Fmax_cmd_)Fmax_cmd_=force_des;
 
-                // 记录放绳阶段力误差
-                if (SNum_==Tfall-2)
+
+                // 记录放绳阶段力误差,有金
+                if (SNum_>Tfall-2 && SNum_last<= Tfall-2 && !std::isnan(force_real))
                 {
                     if (force_real<0.2) force_real=-10;
+
                     F1err=force_real-force_des;
                 }
-                if (SNum_==Tfall+5)
+
+                if (SNum_>Tfall+5 && SNum_last<=Tfall+5 && !std::isnan(force_real))
                 {
                     if (force_real<0.2) force_real=-6;
                     F2err=force_real-force_des;
@@ -193,6 +202,9 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
                 //只覆盖这次，保留未经历的上次结果，防止误判
                 f_cmd[SNum_]=output_force;
+
+
+
 
               break;
             }
@@ -231,6 +243,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         }  //输出力
 
     }
-
+    SNum_last=SNum_;
     return output_force;
 }

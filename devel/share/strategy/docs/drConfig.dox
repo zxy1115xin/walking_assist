@@ -4,7 +4,7 @@ Reads and maintains the following parameters on the ROS server
 
 - \b "~show" : \b [bool] 显示步态参数 min: False, default: False, max: True
 - \b "~F_max" : \b [double] A Double Parameter, min: 0.0, default: 30.0, max: 180.0
-- \b "~t_rise" : \b [double] A Double Parameter min: 0.0, default: 0.2, max: 0.5
+- \b "~t_rise" : \b [double] A Double Parameter min: 0.0, default: 0.25, max: 0.5
 - \b "~t_fall" : \b [double] A Double Parameter min: 0.0, default: 0.1, max: 0.5
 - \b "~T_max_r" : \b [double] A Double Parameter min: 0.0, default: 0.3, max: 0.7
 - \b "~T_max_l" : \b [double] A Double Parameter min: 0.0, default: 0.3, max: 0.7

@@ -72,12 +72,12 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Fmax = cmd_msg->Fmax;
 
 
-    if( cmd_msg_.mode != 8 && mode_last_!= 8 )
-    {
-//        pos_fight_=sensor_msg_.Pos ;
-        flag_fight_=cmd_msg_.flag;
-
-    }
+//    if( cmd_msg_.mode != 8 && mode_last_== 8 )
+//    {
+////      pos_fight_=sensor_msg_.Pos ;
+//        flag_fight_=cmd_msg_.flag;
+//
+//    }
 
 
 
@@ -149,7 +149,6 @@ void MotorControl::update()
 
             case 5:  // pid 力矩模式
             {
-                static float last_force_data = 0.0;
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 pid_.setKp(cmd_msg_.kp);
@@ -187,7 +186,6 @@ void MotorControl::update()
             case 7:
             {
                 // adaptive control
-                static float last_force_data = 0.0;
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 adapt_.setParam(0.01, 0.5, 1.5, 1.0, 1.0);
@@ -215,7 +213,6 @@ void MotorControl::update()
 
             case 8: // LRN 迭代学习
             {
-                static float last_force_data = 0.0;
                 // 力矩模式
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
@@ -225,6 +222,8 @@ void MotorControl::update()
                 if (cmd_msg_.flag>400) cmd_msg_.flag=400;  // 防止超出数组大小
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
+
+//                ROS_INFO_STREAM("=="<<name_<<"fight"<<ctrl_msg_.T<<"fmax"<< cmd_msg_.Fmax);
 
                 // 根据反馈的保护
                 if (force_msg_.data > 180)
@@ -246,9 +245,9 @@ void MotorControl::update()
                 if (last_force_data < 5 && force_msg_.data >= 5){
                      pos_fight_=sensor_msg_.Pos;
                 }
-
-
+                flag_fight_=cmd_msg_.flag;
                 last_force_data = force_msg_.data;
+
                 break;
 
             }
@@ -300,32 +299,29 @@ void MotorControl::update()
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
 
-
-               static float force_err_max_=0;
-               static float errsum=0;
-               float force_err_max_last=0;
-
                 // 根据上个周期力误差的最大(8个数据点之后的数值),修正这个周期
-               if (cmd_msg_.flag - flag_fight_>6){
+               if (cmd_msg_.flag - flag_fight_>8){
 
-                  if (force_msg_.data< 0.5) force_msg_.data=-5;
+                  if (force_msg_.data< 0.5) force_msg_.data=-4;
                   float err_force_=force_msg_.data -cmd_msg_.force;
-                  if (force_err_max_<err_force_)  force_err_max_= err_force_;
-
-               }
-
+                  if (force_err_max_<err_force_) force_err_max_= err_force_;
+             }
 
                 if( mode_last_!=10 ){
 
+                    // 当误差小于一定数值时不再修正
+                    if (force_err_max_<3 && force_err_max_>-2 ){}
+                    else{ errsum=errsum+force_err_max_;}
 
-                    errsum=errsum+force_err_max_;
 
-                    pos_change_=pos_change_+ (force_err_max_) * 0.007 + errsum * 0.001;
-                    ROS_INFO_STREAM("pos_change_=="<<name_<< pos_change_<<"  force_err_max_=="<<force_err_max_);
-                    if (pos_change_ > 2.5) pos_change_ = 2.5 ;
+                    pos_change_=pos_change_+ (force_err_max_) * 0.007 + errsum * 0.002;
+
+//                    ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);
+
+                    if (pos_change_ > 2.5) pos_change_ = 2.5 ;  //防线
                     if (pos_change_ < -1) pos_change_ = -1 ;
                     force_err_max_last=force_err_max_;
-                    force_err_max_=0;
+                    force_err_max_=-10;
 
                 }
 

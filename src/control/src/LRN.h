@@ -6,6 +6,7 @@
 #define SRC_LRN_H
 #include <math.h>
 #include <ros/ros.h>
+#include <cmath>
 
 class LRN
 {
@@ -25,25 +26,25 @@ private:
     float Kp_;
     float Kd_;
     float Ki_;
-    float err_;
-    float diff_err_;
+    float err_= 0;
+    float diff_err_= 0;
     bool index_;  // 模式选择
-    float err_sum_ ;
+    float err_sum_ = 0;
     float lastlast_err_ = 0;
     float lastlast_diff_err_ = 0;
     float lastlast_err_sum_ = 0;
-    int SNum_;
+    int SNum_= 0;
     int step_;
     float other_force_;  // 传参空位
     int index_new; //是否进入新步态
-    float errFmax ; //峰值修正量
-    float errFmin ;
-    float Fmax_real ;
-    float F1err ;
-    float F2err ;
-    float Fmax_cmd_;
+    float errFmax =0 ;//峰值修正量
+    float errFmin =0 ;
+    float Fmax_real =0 ;
+    float F1err=0 ;
+    float F2err=0 ;
+    float Fmax_cmd_= 0;
     float Kerrf = 1 ;
-    int K_ind ;
+    int K_ind =0 ;
     int siga = 0;
 };
 
