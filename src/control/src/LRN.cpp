@@ -123,8 +123,8 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
             case 1:  {
 
-                int t1=8;  //提前激活时间
-                int t2=2;
+                int t1=4;  //提前激活时间
+                int t2=1;
                 int t3=0;
 
                 output_force=f_cmd_last[SNum_]+this_cmd;

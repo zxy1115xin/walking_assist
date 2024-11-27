@@ -2,11 +2,11 @@
     <!--   外侧单绳助力： F=100N/m -->
 
 
-
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_lat.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/walk_lat.bag -a" />
+<!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_lat.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
-    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+<!--    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />-->
 
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
@@ -54,7 +54,7 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "000"
+           enable: "001"
        </rosparam>
    </node>
 

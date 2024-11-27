@@ -285,8 +285,8 @@ void MotorControl::update()
                     ctrl_msg_.T = 0;
 
                 const float T_max = 50;
-                if (ctrl_msg_.T > 24) // 力矩限制保护
-                        ctrl_msg_.T = 24;
+                if (ctrl_msg_.T > 35) // 力矩限制保护
+                        ctrl_msg_.T = 35;
                 if (ctrl_msg_.T < -T_max)
                         ctrl_msg_.T = -T_max;
 

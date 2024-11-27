@@ -4,13 +4,11 @@
     <!--   询问受试者基本信息： 身高/体重等 ，并完成表格填写  -->
 
     <!-- 不含采集日期-O -->  <!-- 含采集日期-o -->
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_double.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/walk_double.bag -a" />
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
 
-    <param name = "name" type = "string" value = "walk_double" />
-    <param name = "path" type = "string" value = "F:\zxy\mul_assist\ankle1125\liying"/>
-    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+<!--    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />-->
 
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
