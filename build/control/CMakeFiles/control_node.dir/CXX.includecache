@@ -54,9 +54,17 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
+/home/c208/walking_assist/src/control/src/Adapt.cpp
+Adapt.h
+/home/c208/walking_assist/src/control/src/Adapt.h
+
 /home/c208/walking_assist/src/control/src/Adapt.h
 math.h
 -
+
+/home/c208/walking_assist/src/control/src/FD_PID.cpp
+FD_PID.h
+/home/c208/walking_assist/src/control/src/FD_PID.h
 
 /home/c208/walking_assist/src/control/src/FD_PID.h
 algorithm
@@ -66,17 +74,29 @@ math.h
 ros/ros.h
 -
 
+/home/c208/walking_assist/src/control/src/Feedforward.cpp
+Feedforward.h
+/home/c208/walking_assist/src/control/src/Feedforward.h
+
 /home/c208/walking_assist/src/control/src/Feedforward.h
 math.h
 -
 ros/ros.h
 -
 
+/home/c208/walking_assist/src/control/src/ForwardPID.cpp
+ForwardPID.h
+/home/c208/walking_assist/src/control/src/ForwardPID.h
+
 /home/c208/walking_assist/src/control/src/ForwardPID.h
 math.h
 -
 ros/ros.h
 -
+
+/home/c208/walking_assist/src/control/src/LRN.cpp
+LRN.h
+/home/c208/walking_assist/src/control/src/LRN.h
 
 /home/c208/walking_assist/src/control/src/LRN.h
 math.h
@@ -85,6 +105,10 @@ ros/ros.h
 -
 cmath
 -
+
+/home/c208/walking_assist/src/control/src/MFAC.cpp
+MFAC.h
+/home/c208/walking_assist/src/control/src/MFAC.h
 
 /home/c208/walking_assist/src/control/src/MFAC.h
 math.h
@@ -128,6 +152,10 @@ Feedforward.h
 ForwardPID.h
 /home/c208/walking_assist/src/control/src/ForwardPID.h
 
+/home/c208/walking_assist/src/control/src/PID.cpp
+PID.h
+/home/c208/walking_assist/src/control/src/PID.h
+
 /home/c208/walking_assist/src/control/src/PID.h
 cstdint
 -
@@ -137,6 +165,14 @@ math.h
 -
 ros/ros.h
 -
+
+/home/c208/walking_assist/src/control/src/control.cpp
+control.h
+/home/c208/walking_assist/src/control/src/control.h
+
+/home/c208/walking_assist/src/control/src/control.h
+MotorControl.h
+/home/c208/walking_assist/src/control/src/MotorControl.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h

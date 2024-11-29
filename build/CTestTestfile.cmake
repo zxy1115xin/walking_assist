@@ -7,7 +7,6 @@
 subdirs("gtest")
 subdirs("cable_force")
 subdirs("emg_process")
-subdirs("ground_reaction_force")
 subdirs("stm32_emg")
 subdirs("unitree_motor")
 subdirs("control")
