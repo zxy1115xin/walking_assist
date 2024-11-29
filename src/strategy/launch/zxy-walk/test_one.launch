@@ -2,8 +2,8 @@
     <!--   外侧单绳助力： F=100N/m -->
 
 
-
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_one.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/walk_one.bag -a" />
+<!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_one.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
     <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
@@ -19,8 +19,8 @@
 
     <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
         <remap from="can_rx" to="can0_rx"/>
-        <remap from="channel1" to="left_med_force"/>
-        <remap from="channel2" to="left_lat_force"/>
+        <remap from="channel1" to="left_lat_force"/>
+        <remap from="channel2" to="left_med_force"/>
         <remap from="channel3" to="right_lat_force"/>
         <remap from="channel4" to="right_med_force"/>
     </node>
@@ -54,14 +54,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "001"
+           enable: "110"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "001"
+            enable: "000"
             motor0: "disturb"
             motor2: "left_lat"
 

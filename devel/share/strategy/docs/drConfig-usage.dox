@@ -5,8 +5,8 @@
   <param name="F_max" type="double" value="30.0" />
   <param name="t_rise" type="double" value="0.3" />
   <param name="t_fall" type="double" value="0.1" />
-  <param name="T_max_r" type="double" value="0.33" />
-  <param name="T_max_l" type="double" value="0.33" />
+  <param name="T_max_r" type="double" value="0.31" />
+  <param name="T_max_l" type="double" value="0.31" />
   <param name="update_Mode" type="bool" value="False" />
   <param name="Mode0" type="bool" value="False" />
   <param name="StrDyParam" type="str" value="Mode=8 支撑学习；Mode=9支撑停止学习 ；Mode=10 摆动学习；Mode=11摆动停止学习" />

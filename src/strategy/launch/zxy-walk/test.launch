@@ -22,13 +22,8 @@
 
     <node pkg="cable_force" type="cable_force_node" name="assist_force" output="screen">
         <remap from="can_rx" to="can0_rx"/>
-<!--        <remap from="channel1" to="left_lat_force"/>-->
-<!--        <remap from="channel2" to="left_med_force"/>-->
-<!--        <remap from="channel3" to="right_med_force"/>-->
-<!--        <remap from="channel4" to="right_lat_force"/>-->
-
-        <remap from="channel1" to="left_med_force"/>
-        <remap from="channel2" to="left_lat_force"/>
+        <remap from="channel1" to="left_lat_force"/>
+        <remap from="channel2" to="left_med_force"/>
         <remap from="channel3" to="right_lat_force"/>
         <remap from="channel4" to="right_med_force"/>
 
@@ -65,14 +60,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "111"
+           enable: "000"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "001"
+            enable: "000"
             motor0: "disturb"
             motor2: "left_lat"
 

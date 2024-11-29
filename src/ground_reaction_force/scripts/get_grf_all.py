@@ -58,7 +58,7 @@ class GRF_fit:
 
 
         if self.foot_index == 0:  #R
-            grf_index = 300
+            grf_index = 400
             # 1. 判断触地
             if self.grf.all_force > grf_index and self.Last_flagR == 0 and backupl == 1:  # 脚后跟力大于前侧力v 且 地反力大于阈值
                 self.foot_upR = self.foot_upR + 1
@@ -84,7 +84,7 @@ class GRF_fit:
             self.Last_flagR = self.grf.stance_flg
 
         if self.foot_index == 1:  #L
-            grf_index = 400
+            grf_index = 250
             # 1. 判断触地
             if self.grf.all_force > grf_index and self.Last_flagL == 0 and backupl == 1:  # 脚后跟力大于前侧力v 且 地反力大于阈值
                 self.foot_upL = self.foot_upL + 1

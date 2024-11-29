@@ -698,7 +698,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.T_max_r = 0.7;
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.T_max_r = 0.33;
+      __default__.T_max_r = 0.31;
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("T_max_r", "double", 0, "A Double Parameter", "", &drConfig::T_max_r)));
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
@@ -708,7 +708,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.T_max_l = 0.7;
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.T_max_l = 0.33;
+      __default__.T_max_l = 0.31;
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("T_max_l", "double", 0, "A Double Parameter", "", &drConfig::T_max_l)));
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"

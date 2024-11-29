@@ -7,10 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/c208/walking_assist/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/c208/walking_assist/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/c208/walking_assist/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/c208/walking_assist/build'
-export PYTHONPATH="/home/c208/walking_assist/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/c208/walking_assist/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/c208/walking_assist/src:$ROS_PACKAGE_PATH"
