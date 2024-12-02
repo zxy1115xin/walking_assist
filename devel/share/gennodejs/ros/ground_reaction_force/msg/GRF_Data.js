@@ -21,6 +21,8 @@ class GRF_Data {
       this.fore = null;
       this.mid = null;
       this.hind = null;
+      this.xcop = null;
+      this.ycop = null;
       this.all_force = null;
       this.stance_flg = null;
     }
@@ -42,6 +44,18 @@ class GRF_Data {
       }
       else {
         this.hind = 0.0;
+      }
+      if (initObj.hasOwnProperty('xcop')) {
+        this.xcop = initObj.xcop
+      }
+      else {
+        this.xcop = 0.0;
+      }
+      if (initObj.hasOwnProperty('ycop')) {
+        this.ycop = initObj.ycop
+      }
+      else {
+        this.ycop = 0.0;
       }
       if (initObj.hasOwnProperty('all_force')) {
         this.all_force = initObj.all_force
@@ -66,6 +80,10 @@ class GRF_Data {
     bufferOffset = _serializer.float32(obj.mid, buffer, bufferOffset);
     // Serialize message field [hind]
     bufferOffset = _serializer.float32(obj.hind, buffer, bufferOffset);
+    // Serialize message field [xcop]
+    bufferOffset = _serializer.float32(obj.xcop, buffer, bufferOffset);
+    // Serialize message field [ycop]
+    bufferOffset = _serializer.float32(obj.ycop, buffer, bufferOffset);
     // Serialize message field [all_force]
     bufferOffset = _serializer.float32(obj.all_force, buffer, bufferOffset);
     // Serialize message field [stance_flg]
@@ -83,6 +101,10 @@ class GRF_Data {
     data.mid = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [hind]
     data.hind = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [xcop]
+    data.xcop = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [ycop]
+    data.ycop = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [all_force]
     data.all_force = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [stance_flg]
@@ -91,7 +113,7 @@ class GRF_Data {
   }
 
   static getMessageSize(object) {
-    return 17;
+    return 25;
   }
 
   static datatype() {
@@ -101,7 +123,7 @@ class GRF_Data {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5b6c0986b39b00f008d103a1a1b557b8';
+    return 'e0986bb67ac829a78eeead1a9f8401cb';
   }
 
   static messageDefinition() {
@@ -110,6 +132,8 @@ class GRF_Data {
     float32 fore
     float32 mid
     float32 hind
+    float32 xcop
+    float32 ycop
     float32 all_force
     bool stance_flg
     `;
@@ -140,6 +164,20 @@ class GRF_Data {
     }
     else {
       resolved.hind = 0.0
+    }
+
+    if (msg.xcop !== undefined) {
+      resolved.xcop = msg.xcop;
+    }
+    else {
+      resolved.xcop = 0.0
+    }
+
+    if (msg.ycop !== undefined) {
+      resolved.ycop = msg.ycop;
+    }
+    else {
+      resolved.ycop = 0.0
     }
 
     if (msg.all_force !== undefined) {

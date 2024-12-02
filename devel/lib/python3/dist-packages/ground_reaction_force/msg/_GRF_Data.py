@@ -8,16 +8,18 @@ import struct
 
 
 class GRF_Data(genpy.Message):
-  _md5sum = "5b6c0986b39b00f008d103a1a1b557b8"
+  _md5sum = "e0986bb67ac829a78eeead1a9f8401cb"
   _type = "ground_reaction_force/GRF_Data"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """float32 fore
 float32 mid
 float32 hind
+float32 xcop
+float32 ycop
 float32 all_force
 bool stance_flg"""
-  __slots__ = ['fore','mid','hind','all_force','stance_flg']
-  _slot_types = ['float32','float32','float32','float32','bool']
+  __slots__ = ['fore','mid','hind','xcop','ycop','all_force','stance_flg']
+  _slot_types = ['float32','float32','float32','float32','float32','float32','bool']
 
   def __init__(self, *args, **kwds):
     """
@@ -27,7 +29,7 @@ bool stance_flg"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       fore,mid,hind,all_force,stance_flg
+       fore,mid,hind,xcop,ycop,all_force,stance_flg
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -42,6 +44,10 @@ bool stance_flg"""
         self.mid = 0.
       if self.hind is None:
         self.hind = 0.
+      if self.xcop is None:
+        self.xcop = 0.
+      if self.ycop is None:
+        self.ycop = 0.
       if self.all_force is None:
         self.all_force = 0.
       if self.stance_flg is None:
@@ -50,6 +56,8 @@ bool stance_flg"""
       self.fore = 0.
       self.mid = 0.
       self.hind = 0.
+      self.xcop = 0.
+      self.ycop = 0.
       self.all_force = 0.
       self.stance_flg = False
 
@@ -66,7 +74,7 @@ bool stance_flg"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4fB().pack(_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg))
+      buff.write(_get_struct_6fB().pack(_x.fore, _x.mid, _x.hind, _x.xcop, _x.ycop, _x.all_force, _x.stance_flg))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -81,8 +89,8 @@ bool stance_flg"""
       end = 0
       _x = self
       start = end
-      end += 17
-      (_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
+      end += 25
+      (_x.fore, _x.mid, _x.hind, _x.xcop, _x.ycop, _x.all_force, _x.stance_flg,) = _get_struct_6fB().unpack(str[start:end])
       self.stance_flg = bool(self.stance_flg)
       return self
     except struct.error as e:
@@ -97,7 +105,7 @@ bool stance_flg"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4fB().pack(_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg))
+      buff.write(_get_struct_6fB().pack(_x.fore, _x.mid, _x.hind, _x.xcop, _x.ycop, _x.all_force, _x.stance_flg))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -113,8 +121,8 @@ bool stance_flg"""
       end = 0
       _x = self
       start = end
-      end += 17
-      (_x.fore, _x.mid, _x.hind, _x.all_force, _x.stance_flg,) = _get_struct_4fB().unpack(str[start:end])
+      end += 25
+      (_x.fore, _x.mid, _x.hind, _x.xcop, _x.ycop, _x.all_force, _x.stance_flg,) = _get_struct_6fB().unpack(str[start:end])
       self.stance_flg = bool(self.stance_flg)
       return self
     except struct.error as e:
@@ -124,9 +132,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_4fB = None
-def _get_struct_4fB():
-    global _struct_4fB
-    if _struct_4fB is None:
-        _struct_4fB = struct.Struct("<4fB")
-    return _struct_4fB
+_struct_6fB = None
+def _get_struct_6fB():
+    global _struct_6fB
+    if _struct_6fB is None:
+        _struct_6fB = struct.Struct("<6fB")
+    return _struct_6fB

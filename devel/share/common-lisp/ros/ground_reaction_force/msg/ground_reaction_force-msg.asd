@@ -10,4 +10,6 @@
     (:file "_package_GRF_Data1" :depends-on ("_package"))
     (:file "GRF_Data2" :depends-on ("_package_GRF_Data2"))
     (:file "_package_GRF_Data2" :depends-on ("_package"))
+    (:file "GRF_Data3" :depends-on ("_package_GRF_Data3"))
+    (:file "_package_GRF_Data3" :depends-on ("_package"))
   ))

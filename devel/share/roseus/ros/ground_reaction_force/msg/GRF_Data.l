@@ -14,7 +14,7 @@
 
 (defclass ground_reaction_force::GRF_Data
   :super ros::object
-  :slots (_fore _mid _hind _all_force _stance_flg ))
+  :slots (_fore _mid _hind _xcop _ycop _all_force _stance_flg ))
 
 (defmethod ground_reaction_force::GRF_Data
   (:init
@@ -22,6 +22,8 @@
     ((:fore __fore) 0.0)
     ((:mid __mid) 0.0)
     ((:hind __hind) 0.0)
+    ((:xcop __xcop) 0.0)
+    ((:ycop __ycop) 0.0)
     ((:all_force __all_force) 0.0)
     ((:stance_flg __stance_flg) nil)
     )
@@ -29,6 +31,8 @@
    (setq _fore (float __fore))
    (setq _mid (float __mid))
    (setq _hind (float __hind))
+   (setq _xcop (float __xcop))
+   (setq _ycop (float __ycop))
    (setq _all_force (float __all_force))
    (setq _stance_flg __stance_flg)
    self)
@@ -41,6 +45,12 @@
   (:hind
    (&optional __hind)
    (if __hind (setq _hind __hind)) _hind)
+  (:xcop
+   (&optional __xcop)
+   (if __xcop (setq _xcop __xcop)) _xcop)
+  (:ycop
+   (&optional __ycop)
+   (if __ycop (setq _ycop __ycop)) _ycop)
   (:all_force
    (&optional __all_force)
    (if __all_force (setq _all_force __all_force)) _all_force)
@@ -55,6 +65,10 @@
     ;; float32 _mid
     4
     ;; float32 _hind
+    4
+    ;; float32 _xcop
+    4
+    ;; float32 _ycop
     4
     ;; float32 _all_force
     4
@@ -71,6 +85,10 @@
        (sys::poke _mid (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _hind
        (sys::poke _hind (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _xcop
+       (sys::poke _xcop (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _ycop
+       (sys::poke _ycop (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _all_force
        (sys::poke _all_force (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; bool _stance_flg
@@ -85,6 +103,10 @@
      (setq _mid (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _hind
      (setq _hind (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _xcop
+     (setq _xcop (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _ycop
+     (setq _ycop (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _all_force
      (setq _all_force (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; bool _stance_flg
@@ -93,18 +115,20 @@
    self)
   )
 
-(setf (get ground_reaction_force::GRF_Data :md5sum-) "5b6c0986b39b00f008d103a1a1b557b8")
+(setf (get ground_reaction_force::GRF_Data :md5sum-) "e0986bb67ac829a78eeead1a9f8401cb")
 (setf (get ground_reaction_force::GRF_Data :datatype-) "ground_reaction_force/GRF_Data")
 (setf (get ground_reaction_force::GRF_Data :definition-)
       "float32 fore
 float32 mid
 float32 hind
+float32 xcop
+float32 ycop
 float32 all_force
 bool stance_flg
 ")
 
 
 
-(provide :ground_reaction_force/GRF_Data "5b6c0986b39b00f008d103a1a1b557b8")
+(provide :ground_reaction_force/GRF_Data "e0986bb67ac829a78eeead1a9f8401cb")
 
 

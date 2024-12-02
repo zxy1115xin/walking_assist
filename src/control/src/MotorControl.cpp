@@ -300,9 +300,9 @@ void MotorControl::update()
                 ctrl_msg_.K_W = 3;
 
                 // 根据上个周期力误差的最大(8个数据点之后的数值),修正这个周期
-               if (cmd_msg_.flag - flag_fight_>8){
+               if (cmd_msg_.flag - flag_fight_>12){
 
-                  if (force_msg_.data< 0.5) force_msg_.data=-4;
+                  if (force_msg_.data< 0.5) force_msg_.data=-5;
                   float err_force_=force_msg_.data -cmd_msg_.force;
                   if (force_err_max_<err_force_) force_err_max_= err_force_;
              }
@@ -310,7 +310,7 @@ void MotorControl::update()
                 if( mode_last_!=10 ){
 
                     // 当误差小于一定数值时不再修正
-                    if (force_err_max_<3 && force_err_max_>-2 ){}
+                    if (force_err_max_<3 && force_err_max_>-1 ){}
                     else{ errsum=errsum+force_err_max_;}
 
 

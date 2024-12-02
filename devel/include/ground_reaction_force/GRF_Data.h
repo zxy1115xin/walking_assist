@@ -27,6 +27,8 @@ struct GRF_Data_
     : fore(0.0)
     , mid(0.0)
     , hind(0.0)
+    , xcop(0.0)
+    , ycop(0.0)
     , all_force(0.0)
     , stance_flg(false)  {
     }
@@ -34,6 +36,8 @@ struct GRF_Data_
     : fore(0.0)
     , mid(0.0)
     , hind(0.0)
+    , xcop(0.0)
+    , ycop(0.0)
     , all_force(0.0)
     , stance_flg(false)  {
   (void)_alloc;
@@ -49,6 +53,12 @@ struct GRF_Data_
 
    typedef float _hind_type;
   _hind_type hind;
+
+   typedef float _xcop_type;
+  _xcop_type xcop;
+
+   typedef float _ycop_type;
+  _ycop_type ycop;
 
    typedef float _all_force_type;
   _all_force_type all_force;
@@ -88,6 +98,8 @@ bool operator==(const ::ground_reaction_force::GRF_Data_<ContainerAllocator1> & 
   return lhs.fore == rhs.fore &&
     lhs.mid == rhs.mid &&
     lhs.hind == rhs.hind &&
+    lhs.xcop == rhs.xcop &&
+    lhs.ycop == rhs.ycop &&
     lhs.all_force == rhs.all_force &&
     lhs.stance_flg == rhs.stance_flg;
 }
@@ -146,12 +158,12 @@ struct MD5Sum< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5b6c0986b39b00f008d103a1a1b557b8";
+    return "e0986bb67ac829a78eeead1a9f8401cb";
   }
 
   static const char* value(const ::ground_reaction_force::GRF_Data_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5b6c0986b39b00f0ULL;
-  static const uint64_t static_value2 = 0x08d103a1a1b557b8ULL;
+  static const uint64_t static_value1 = 0xe0986bb67ac829a7ULL;
+  static const uint64_t static_value2 = 0x8eeead1a9f8401cbULL;
 };
 
 template<class ContainerAllocator>
@@ -173,6 +185,8 @@ struct Definition< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
     return "float32 fore\n"
 "float32 mid\n"
 "float32 hind\n"
+"float32 xcop\n"
+"float32 ycop\n"
 "float32 all_force\n"
 "bool stance_flg\n"
 ;
@@ -196,6 +210,8 @@ namespace serialization
       stream.next(m.fore);
       stream.next(m.mid);
       stream.next(m.hind);
+      stream.next(m.xcop);
+      stream.next(m.ycop);
       stream.next(m.all_force);
       stream.next(m.stance_flg);
     }
@@ -222,6 +238,10 @@ struct Printer< ::ground_reaction_force::GRF_Data_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.mid);
     s << indent << "hind: ";
     Printer<float>::stream(s, indent + "  ", v.hind);
+    s << indent << "xcop: ";
+    Printer<float>::stream(s, indent + "  ", v.xcop);
+    s << indent << "ycop: ";
+    Printer<float>::stream(s, indent + "  ", v.ycop);
     s << indent << "all_force: ";
     Printer<float>::stream(s, indent + "  ", v.all_force);
     s << indent << "stance_flg: ";

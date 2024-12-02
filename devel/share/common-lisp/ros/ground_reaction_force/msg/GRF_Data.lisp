@@ -22,6 +22,16 @@
     :initarg :hind
     :type cl:float
     :initform 0.0)
+   (xcop
+    :reader xcop
+    :initarg :xcop
+    :type cl:float
+    :initform 0.0)
+   (ycop
+    :reader ycop
+    :initarg :ycop
+    :type cl:float
+    :initform 0.0)
    (all_force
     :reader all_force
     :initarg :all_force
@@ -57,6 +67,16 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ground_reaction_force-msg:hind-val is deprecated.  Use ground_reaction_force-msg:hind instead.")
   (hind m))
 
+(cl:ensure-generic-function 'xcop-val :lambda-list '(m))
+(cl:defmethod xcop-val ((m <GRF_Data>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ground_reaction_force-msg:xcop-val is deprecated.  Use ground_reaction_force-msg:xcop instead.")
+  (xcop m))
+
+(cl:ensure-generic-function 'ycop-val :lambda-list '(m))
+(cl:defmethod ycop-val ((m <GRF_Data>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ground_reaction_force-msg:ycop-val is deprecated.  Use ground_reaction_force-msg:ycop instead.")
+  (ycop m))
+
 (cl:ensure-generic-function 'all_force-val :lambda-list '(m))
 (cl:defmethod all_force-val ((m <GRF_Data>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader ground_reaction_force-msg:all_force-val is deprecated.  Use ground_reaction_force-msg:all_force instead.")
@@ -79,6 +99,16 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'hind))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'xcop))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'ycop))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -115,6 +145,18 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'xcop) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'ycop) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'all_force) (roslisp-utils:decode-single-float-bits bits)))
     (cl:setf (cl:slot-value msg 'stance_flg) (cl:not (cl:zerop (cl:read-byte istream))))
   msg
@@ -127,18 +169,20 @@
   "ground_reaction_force/GRF_Data")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<GRF_Data>)))
   "Returns md5sum for a message object of type '<GRF_Data>"
-  "5b6c0986b39b00f008d103a1a1b557b8")
+  "e0986bb67ac829a78eeead1a9f8401cb")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'GRF_Data)))
   "Returns md5sum for a message object of type 'GRF_Data"
-  "5b6c0986b39b00f008d103a1a1b557b8")
+  "e0986bb67ac829a78eeead1a9f8401cb")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<GRF_Data>)))
   "Returns full string definition for message of type '<GRF_Data>"
-  (cl:format cl:nil "float32 fore~%float32 mid~%float32 hind~%float32 all_force~%bool stance_flg~%~%"))
+  (cl:format cl:nil "float32 fore~%float32 mid~%float32 hind~%float32 xcop~%float32 ycop~%float32 all_force~%bool stance_flg~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'GRF_Data)))
   "Returns full string definition for message of type 'GRF_Data"
-  (cl:format cl:nil "float32 fore~%float32 mid~%float32 hind~%float32 all_force~%bool stance_flg~%~%"))
+  (cl:format cl:nil "float32 fore~%float32 mid~%float32 hind~%float32 xcop~%float32 ycop~%float32 all_force~%bool stance_flg~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <GRF_Data>))
   (cl:+ 0
+     4
+     4
      4
      4
      4
@@ -151,6 +195,8 @@
     (cl:cons ':fore (fore msg))
     (cl:cons ':mid (mid msg))
     (cl:cons ':hind (hind msg))
+    (cl:cons ':xcop (xcop msg))
+    (cl:cons ':ycop (ycop msg))
     (cl:cons ':all_force (all_force msg))
     (cl:cons ':stance_flg (stance_flg msg))
 ))

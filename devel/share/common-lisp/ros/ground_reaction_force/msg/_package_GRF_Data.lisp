@@ -5,6 +5,10 @@
           MID
           HIND-VAL
           HIND
+          XCOP-VAL
+          XCOP
+          YCOP-VAL
+          YCOP
           ALL_FORCE-VAL
           ALL_FORCE
           STANCE_FLG-VAL
