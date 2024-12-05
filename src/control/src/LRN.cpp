@@ -145,7 +145,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 {
 
                     float f_min = -0*1000/30;
-                    float fmax = ( Fmax+errFmax)*0.03*1000/30;
+                    float fmax = ( 0.5*Fmax+errFmax)*0.03*1000/30;
                     output_force= force_pre + sin(3.1415926/2*(SNum_-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
                     if(output_force < f_min)output_force = f_min;
                     //ROS_INFO_STREAM("Trise: " << SNum_<<"force"<<output_force<<"real"<<force_real);
