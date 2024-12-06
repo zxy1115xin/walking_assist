@@ -83,7 +83,7 @@
 
     <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
          <param name = "force_pre" type = "double" value = "5.0" />
-         <param name = "lat" type = "double" value = "1.0" />
+         <param name = "lat" type = "double" value = "0.0" />
          <param name = "med" type = "double" value = "0.0" />
    </node>
 

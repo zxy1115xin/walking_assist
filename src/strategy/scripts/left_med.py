@@ -9,33 +9,7 @@ import math
 class LeftMed(Strategy):
     def __init__(self):
         super(LeftMed, self).__init__()
-        self.numm = 0  # 这是一个样例，代表在子类里面定义自己类变量
-        # 初始化
-        self.mode_stance = 0
-        self.mode_fight = 0
-        self.mode_other = 0
-        self.pos = 0
-        self.Flag = 0  # 周期计数
-        self.touch_time = -10
-        self.off_time = -10
-        self.Last_flag = 0
-        self.Mode_stance = 0
-        self.Mode_fight = 0
-        self.Mode_other = 0
-        self.Pos = 0  # 腾空相放线
-
-        self.upstart_time = 0
-        self.uprise_time = 0
-        self.upfall_time = 0
-        self.upforce_max = 0
-
-        self.GRF.stance_flg = 0
-
-        self.stance_num = 0
-        self.gait_num_last2 = 0
-        self.gait_num_last = 0
-        self.gait_num = 0
-        self.F_start1 = 0
+        self.location = 1
 
     # def force_curve(self, t):
     #

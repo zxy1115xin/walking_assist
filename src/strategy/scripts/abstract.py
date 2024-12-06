@@ -9,6 +9,7 @@ from control.msg import Command
 import sys, os
 from strategy.msg  import Fgrf
 import math
+import calculate_f12
 
 class Strategy:
 
@@ -17,10 +18,11 @@ class Strategy:
         file_name = os.path.basename(sys.modules[self.__module__].__file__)
         name = os.path.splitext(file_name)[0]
 
+        self.location = none
+
         # 参数设计
         self.pre_force = rospy.get_param("~force_pre")  # 获取参数
         self.show_index = 1
-        self.server_flag = 0
 
         self.mode_stance = 0
         self.mode_fight = 0
@@ -35,6 +37,7 @@ class Strategy:
         self.t_rise = 0
         self.t_fall = 0
         self.t_start = 0
+        self.adapt_=0
 
         self.Flag = 0  # 周期计数
         self.touch_time = -10
@@ -60,11 +63,6 @@ class Strategy:
 
     def GRF_Callback(self, msg):
         self.GRF = msg
-        # self.server_flag = 1
-        return
-
-    def force_update(self):
-
         return
 
     def Mode_Callback(self, mode_stance, mode_fight, mode_other,pos_fight):
@@ -75,11 +73,12 @@ class Strategy:
         # rospy.loginfo(" RightMed param update --> mode_stance=%d,mode_fight=%d \n\t", self.mode_stance, self.mode_fight)
         return
 
-    def ParamCallback(self, F_max, T_max, t_rise, t_fall):
+    def ParamCallback(self, F_max, T_max, t_rise, t_fall,adapt_):
         self.F_max = F_max  # 辅助力峰值
         self.T_max = T_max  # 辅助力峰值时刻占步态的百分比：这里要考虑触地判定延迟大概有20~25ms
         self.t_rise = t_rise
         self.t_fall = t_fall
+        self.adapt_=adapt_
         return
 
     def update(self, t):
@@ -94,22 +93,6 @@ class Strategy:
         self.cmd_msg.Fmax = Fmax
         self.cmd_pub.publish(self.cmd_msg)
         return
-
-    def set_P(self, x,t1,t2 ):
-
-        if self.PMode >= 0:
-            P_force = self.PMode
-        elif self.PMode == -1:  # 0-1
-            if x<t1:
-                P_force = x/t1/2
-            else:
-                P_force = 0.5+(x-t1)/(t2-t1)/2
-        elif self.PMode == -2:  # 0-1-1
-            if x<t1:
-                P_force = 2*x/t1/3
-            else:
-                P_force = 2/3+(x-t1)/(t2-t1)/3
-        return P_force
 
     def timeCallback(self, event):
         t = (event.current_real - self.time0).to_sec()
@@ -145,21 +128,31 @@ class Strategy:
             self.Pos = self.pos  # 这里把参数传给KP传出
 
             # 2. 更新力曲线
-            if self.Flag > 70:
+            if self.Flag > 70: #计算步态周期
                 self.gait_num_last2 = self.gait_num_last
                 self.gait_num_last = self.gait_num
                 self.gait_num = self.Flag  # 记录支撑相时间
                 self.gait_T = 1 / 3 * (self.gait_num_last2 + self.gait_num_last + self.gait_num)
 
-            if self.gait_num_last2 > 0:  # 助力开始时间确定
-                self.t_start = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相位
-            else:
-                self.t_start = 0.2
+            if self.adapt_=0:
+                self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相
+                self.uprise_time = self.t_rise
+                self.upfall_time = self.t_fall
+                self.upforce_max = self.F_max
 
-            self.upstart_time = self.t_start
-            self.uprise_time = self.t_rise
-            self.upfall_time = self.t_fall
-            self.upforce_max = self.F_max
+            else:
+
+                f_max_1,t_sta_1,t_rise_1,t_fall_1,f_max_2,t_sta_2,t_rise_2,t_fall_2 = calculate_f12( self.F_max, self.T_max, self.t_rise, self.t_fall, self.gait_T)
+                if self.location =1:
+                    self.upstart_time = t_fall_1 * self.gait_T / 100
+                    self.uprise_time = t_rise_1 * self.gait_T / 100
+                    self.upfall_time = t_sta_1 * self.gait_T / 100
+                    self.upforce_max = f_max_1
+                else:
+                    self.upstart_time = t_fall_2 * self.gait_T / 100
+                    self.uprise_time = t_rise_2 * self.gait_T / 100
+                    self.upfall_time = t_sta_2 * self.gait_T / 100
+                    self.upforce_max = f_max_2
 
             # 3.其他
             self.stance_finsh = 0
@@ -241,4 +234,3 @@ class Strategy:
             mode = self.Mode_other
 
         return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax
-

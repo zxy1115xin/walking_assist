@@ -13,13 +13,16 @@ class StrategyGroup:
 
         self.strategy_list = strategy_list
 
-        # 初始参数
+        # 1.初始参数
         self.Last_flagL = 0 #上次触地标志位
         self.Last_flagR = 0
         self.Last_mode_fight = 0
         self.Last_mode_stance = 0
 
+        self.lat = rospy.get_param("~lat")  
+        self.med = rospy.get_param("~med") 
 
+        # 2. ros参数订阅
         # 参数服务器，ParamCallback 的执行时机是 当参数服务器中的参数被修改时，它会被立即触发。在rqt中执行一次
         self.param_flag = 0 # 参数服务器标志位
         self.server = Server(drConfig, self.ParamCallback)
@@ -29,8 +32,6 @@ class StrategyGroup:
         rospy.Subscriber('pub_grf_R', GRF_Data, self.GRFR_Callback)
         self.GRF_R = GRF_Data()
         # 定义发布 更新后“GRF”
-        # self.GRFR_pub = rospy.Publisher('GRF_R', Fgrf, queue_size=1000)
-        # self.GRFL_pub = rospy.Publisher('GRF_L', Fgrf, queue_size=1000)
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
@@ -46,14 +47,10 @@ class StrategyGroup:
             self.strategy_list[0].GRF_Callback(self.GRF_Ls)
             self.strategy_list[1].GRF_Callback(self.GRF_Ls)
 
-            if self.GRF_L.stance_flg == 1 and self.Last_flagL == 0:
-                self.strategy_list[0].force_update()
-                self.strategy_list[1].force_update()
-
             self.Last_flagL = self.GRF_L.stance_flg  # 上次触地标志位
 
         return
-        self.show_index = 0
+
 
     def GRFR_Callback(self, msg):
         if self.param_flag == 1:
@@ -67,13 +64,7 @@ class StrategyGroup:
             self.strategy_list[2].GRF_Callback(self.GRF_Rs)
             self.strategy_list[3].GRF_Callback(self.GRF_Rs)
 
-            if self.GRF_R.stance_flg == 1 and self.Last_flagR == 0:
-                self.strategy_list[2].force_update()
-                self.strategy_list[3].force_update()
-
             self.Last_flagR =  self.GRF_R.stance_flg  # 上次触地标志位
-
-
         return
 
     def ParamCallback(self, config, level):  # level为参数的掩码（，表征到底哪个参数是否被改变
@@ -83,19 +74,27 @@ class StrategyGroup:
         # 更新提示
         # rospy.loginfo("which parameter is changed::%d\n\t", level + 1)
 
-        # 1.地反力参数更新
-        self.gain_GRFL = config.gain_GRFL
-        self.offset_GRFL = config.offset_GRFL
-        self.gain_GRFR = config.gain_GRFR
-        self.offset_GRFR = config.offset_GRFR
+        # # 1.地反力参数更新
+        # self.gain_GRFL = config.gain_GRFL
+        # self.offset_GRFL = config.offset_GRFL
+        # self.gain_GRFR = config.gain_GRFR
+        # self.offset_GRFR = config.offset_GRFR
 
         # 2.助力更新
-        # Left
-        self.strategy_list[0].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
-        self.strategy_list[1].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
-        # Right
-        self.strategy_list[2].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
-        self.strategy_list[3].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
+        if self.lat <2:
+            # Left
+            self.strategy_list[0].ParamCallback(self.lat*config.F_max,config.T_max_l,config.t_rise,config.t_fall,0)
+            self.strategy_list[1].ParamCallback(self.med*config.F_max,config.T_max_l,config.t_rise,config.t_fall,0)
+            # Right
+            self.strategy_list[2].ParamCallback(self.med*config.F_max,config.T_max_r,config.t_rise,config.t_fall,0)
+            self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,0)
+        else: #当前是自适应控制
+            # Left
+            self.strategy_list[0].ParamCallback(self.lat*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            self.strategy_list[1].ParamCallback(self.med*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            # Right
+            self.strategy_list[2].ParamCallback(self.med*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
+            self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
 
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
@@ -157,7 +156,6 @@ class StrategyGroup:
             pos_fight = config.fight_pos_right_Med
             self.strategy_list[2].Mode_Callback(mode_stance,mode_fight,mode_other,pos_fight)
 
-
         return config
 
     def update(self, t):
@@ -192,13 +190,12 @@ if __name__ == '__main__':
     from right_med import RightMed
     from right_lat import RightLat
 
-
     strategy_list = [
         LeftLat(),
         LeftMed(),
         RightMed(),
         RightLat(),
-
     ]
+
     StrategyGroup(strategy_list).start_loop(100.0)
     pass
