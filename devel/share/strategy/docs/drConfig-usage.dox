@@ -24,10 +24,6 @@
   <param name="Mode_stance_right_Med" type="int" value="8" />
   <param name="Mode_stance_left_lat" type="int" value="8" />
   <param name="Mode_stance_left_Med" type="int" value="8" />
-  <param name="gain_GRFL" type="double" value="1.5" />
-  <param name="offset_GRFL" type="double" value="-200.0" />
-  <param name="gain_GRFR" type="double" value="1.0" />
-  <param name="offset_GRFR" type="double" value="-200.0" />
 </node>
 \endverbatim
 

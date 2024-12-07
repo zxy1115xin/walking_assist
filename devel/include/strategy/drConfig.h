@@ -422,40 +422,6 @@ int Mode_stance_left_Med;
 
 }mode_group;
 
-class GRF_GROUP
-{
-  public:
-    GRF_GROUP()
-    {
-      state = true;
-      name = "GRF_Group";
-    }
-
-    void setParams(drConfig &config, const std::vector<AbstractParamDescriptionConstPtr> params)
-    {
-      for (std::vector<AbstractParamDescriptionConstPtr>::const_iterator _i = params.begin(); _i != params.end(); ++_i)
-      {
-        boost::any val;
-        (*_i)->getValue(config, val);
-
-        if("gain_GRFL"==(*_i)->name){gain_GRFL = boost::any_cast<double>(val);}
-        if("offset_GRFL"==(*_i)->name){offset_GRFL = boost::any_cast<double>(val);}
-        if("gain_GRFR"==(*_i)->name){gain_GRFR = boost::any_cast<double>(val);}
-        if("offset_GRFR"==(*_i)->name){offset_GRFR = boost::any_cast<double>(val);}
-      }
-    }
-
-    double gain_GRFL;
-double offset_GRFL;
-double gain_GRFR;
-double offset_GRFR;
-
-    bool state;
-    std::string name;
-
-    
-}grf_group;
-
 }groups;
 
 
@@ -506,14 +472,6 @@ double offset_GRFR;
       int Mode_stance_left_lat;
 //#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_left_Med;
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double gain_GRFL;
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double offset_GRFL;
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double gain_GRFR;
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double offset_GRFR;
 //#line 231 "/opt/ros/noetic/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -917,53 +875,6 @@ drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::STANCE_PHASE, drConfig
       Default.groups.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP, drConfig::DEFAULT>(Mode_Group)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP, drConfig::DEFAULT>(Mode_Group)));
-drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT> GRF_Group("GRF_Group", "hide", 0, 6, true, &drConfig::DEFAULT::grf_group);
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __min__.gain_GRFL = 0.0;
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __max__.gain_GRFL = 5.0;
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.gain_GRFL = 1.5;
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFL", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFL)));
-//#line 46 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFL", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFL)));
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __min__.offset_GRFL = -1000.0;
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __max__.offset_GRFL = 500.0;
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.offset_GRFL = -200.0;
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFL", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFL)));
-//#line 47 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFL", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFL)));
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __min__.gain_GRFR = 0.0;
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __max__.gain_GRFR = 5.0;
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.gain_GRFR = 1.0;
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFR", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFR)));
-//#line 48 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("gain_GRFR", "double", 0, "A Double Parameter", "", &drConfig::gain_GRFR)));
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __min__.offset_GRFR = -1000.0;
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __max__.offset_GRFR = 500.0;
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.offset_GRFR = -200.0;
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      GRF_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFR", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFR)));
-//#line 49 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("offset_GRFR", "double", 0, "A Double Parameter", "", &drConfig::offset_GRFR)));
-//#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      GRF_Group.convertParams();
-//#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.groups.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT>(GRF_Group)));
-//#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::GRF_GROUP, drConfig::DEFAULT>(GRF_Group)));
 //#line 246 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
 //#line 246 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"

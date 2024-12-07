@@ -83,11 +83,11 @@ class StrategyGroup:
         # 更新提示
         # rospy.loginfo("which parameter is changed::%d\n\t", level + 1)
 
-        # 1.地反力参数更新
-        self.gain_GRFL = config.gain_GRFL
-        self.offset_GRFL = config.offset_GRFL
-        self.gain_GRFR = config.gain_GRFR
-        self.offset_GRFR = config.offset_GRFR
+        # # 1.地反力参数更新
+        # self.gain_GRFL = config.gain_GRFL
+        # self.offset_GRFL = config.offset_GRFL
+        # self.gain_GRFR = config.gain_GRFR
+        # self.offset_GRFR = config.offset_GRFR
 
         # 2.助力更新
         # Left
