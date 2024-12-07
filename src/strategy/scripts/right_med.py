@@ -12,7 +12,6 @@ class RightMed(Strategy):
         self.location = 1
 
 
-
     # def force_curve(self, t):Number of plugins loaded:
     #
     #     # 判断触地，任务：参数更新

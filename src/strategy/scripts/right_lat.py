@@ -9,11 +9,9 @@ import math
 class RightLat(Strategy):
     def __init__(self):
         super(RightLat, self).__init__()
-        #
         self.location = 2
 
 
-    #
     # def force_curve(self, t):
     #
     #     # 判断触地，任务：参数更新

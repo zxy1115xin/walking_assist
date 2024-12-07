@@ -39,16 +39,12 @@ class StrategyGroup:
     def GRFL_Callback(self, msg):
         if self.param_flag == 1:
             self.GRF_L = msg
-
             # 发布数据
             self.GRF_Ls.all_force = self.GRF_L.all_force
             self.GRF_Ls.stance_flg = self.GRF_L.stance_flg
-
             self.strategy_list[0].GRF_Callback(self.GRF_Ls)
             self.strategy_list[1].GRF_Callback(self.GRF_Ls)
-
             self.Last_flagL = self.GRF_L.stance_flg  # 上次触地标志位
-
         return
 
 
@@ -56,14 +52,11 @@ class StrategyGroup:
         if self.param_flag == 1:
             self.GRF_R = msg
             # self.GRF_R.all_force = self.GRF_R.all_force * self.gain_GRFR + self.offset_GRFR
-
             # 发布数据
             self.GRF_Rs.all_force = self.GRF_R.all_force
             self.GRF_Rs.stance_flg = self.GRF_R.stance_flg
-
             self.strategy_list[2].GRF_Callback(self.GRF_Rs)
             self.strategy_list[3].GRF_Callback(self.GRF_Rs)
-
             self.Last_flagR =  self.GRF_R.stance_flg  # 上次触地标志位
         return
 
