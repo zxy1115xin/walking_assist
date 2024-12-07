@@ -68,15 +68,17 @@ class Strategy:
         self.prepare_functions()
 
 
-    def load_human_data(self, file_path):
+    def load_human_data(self):
         data = {}
+        file_path = '/home/c208/walking_assist/src/strategy/scripts/data/human_data.txt'
         with open(file_path, 'r') as file:
             for line in file:
                 line = line.strip()
                 var_BQname, values = line.split(':')
                 arr = list(map(float, values.split()))
                 data[var_BQname] = arr
-        return data
+        self.human_data = data
+        return
 
     def load_equations(self, file_path):
         eqs = {}

@@ -9,7 +9,7 @@ import math
 class RightMed(Strategy):
     def __init__(self):
         super().__init__()
-        self.numm = 0  # 这是一个样例，代表在子类里面定义自己类变量
+        self.location = 1
         # 初始化
 
 

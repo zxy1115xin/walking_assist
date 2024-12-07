@@ -54,7 +54,7 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "110"
+           enable: "000"
        </rosparam>
    </node>
 

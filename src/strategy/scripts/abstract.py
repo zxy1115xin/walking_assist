@@ -21,6 +21,8 @@ class Strategy:
         file_name = os.path.basename(sys.modules[self.__module__].__file__)
         name = os.path.splitext(file_name)[0]
 
+        self.location = None
+
         # 参数设计
         self.pre_force = rospy.get_param("~force_pre")  # 获取参数
         self.show_index = 1
@@ -33,7 +35,7 @@ class Strategy:
         self.Mode_fight = 0
         self.Mode_other = 0
         self.pos = 0
-        self.adapt_=0
+        self.adapt_ = 0
         
         self.F_max = 0  # 辅助力峰值
         self.T_max = 0  # 辅助力峰值时刻占步态的百分比：这里要考虑触地判定延迟大概有20~25ms
@@ -55,6 +57,7 @@ class Strategy:
         self.gait_num_last2 = 0
         self.gait_num_last = 0
         self.gait_num = 0
+        self.gait_T = 100
 
 
         # 定义发布 “指令” command
@@ -62,14 +65,103 @@ class Strategy:
         self.cmd_msg = Command()
         # 定义地反力
         self.GRF = Fgrf()
+        self.human_data = {}
+        # self.F1_func = {}
+        # self.F2_func = {}
+
+
+    def get_data(self, human_data, F1_func ,F2_func):
+
+        self.human_data = human_data
+        self.F1_func = F1_func
+        self.F2_func = F2_func
+
+        print('%%%%%%%%%%%%%%%%%%%',self.F2_func)
+
+        return
+
+    def calculate_f1(self, fmax, Tmax, t_rise, t_fall, T_gait):
+        # 生成辅助力曲线
+        t_f = np.linspace(0, T_gait, 100)
+        f_assist = np.zeros(100)
+        tsta = int(np.round((Tmax - t_rise / T_gait) * 100))
+        tmax = int(np.round(Tmax * 100))
+        tend = int(np.round((Tmax + t_fall / T_gait) * 100))
+
+        # 上升阶段
+        x = t_f[tsta:tmax] - t_f[tsta]
+        f_assist[tsta:tmax] = 4 * fmax * (x ** 3) / (t_rise ** 3) - 3 * fmax * (x ** 4) / (t_rise ** 4)
+
+        # 下降阶段
+        x = t_f[tmax:tend] - t_f[tmax]
+        f_assist[tmax:tend] = fmax - 4 * fmax * (x ** 3) / (t_fall ** 3) + 3 * fmax * (x ** 4) / (t_fall ** 4)
+
+        # 辅助力规划
+        t = np.arange(0, 100, 1)
+        flexion_ = self.human_data['flexion_']
+        inversion_ = self.human_data['inversion_']
+        adduction_ = t * 0
+
+        Mx_ = 0.05 * f_assist * np.array(self.human_data["M_x_d_"]) / (
+                    np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
+        My_ = 0.05 * f_assist * np.array(self.human_data["M_y_d_"]) / (
+                    np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
+
+        F1_func1 = self.F1_func(flexion_, inversion_, adduction_, Mx_, My_)
+
+        # 输出参数
+        f_max_1 = np.max(F1_func1)
+        t_sta_1 = np.where(F1_func1 > 1)[0][0]
+        t_rise_1 = np.argmax(F1_func1) - t_sta_1
+        t_fall_1 = np.where(F1_func1 > 1)[0][-1] - np.argmax(F1_func1)
+
+        # print("f_max_1:", f_max_1)
+        # print("t_sta_1:", t_sta_1)
+        # print("t_rise_1:", t_rise_1)
+        # print("t_fall_1:", t_fall_1)
+
+        return f_max_1, t_sta_1, t_rise_1, t_fall_1
+
+    def calculate_f2(self, fmax, Tmax, t_rise, t_fall, T_gait):
+        # 生成辅助力曲线
+        t_f = np.linspace(0, T_gait, 100)
+        f_assist = np.zeros(100)
+        tsta = int(np.round((Tmax - t_rise / T_gait) * 100))
+        tmax = int(np.round(Tmax * 100))
+        tend = int(np.round((Tmax + t_fall / T_gait) * 100))
+
+        # 上升阶段
+        x = t_f[tsta:tmax] - t_f[tsta]
+        f_assist[tsta:tmax] = 4 * fmax * (x ** 3) / (t_rise ** 3) - 3 * fmax * (x ** 4) / (t_rise ** 4)
+
+        # 下降阶段
+        x = t_f[tmax:tend] - t_f[tmax]
+        f_assist[tmax:tend] = fmax - 4 * fmax * (x ** 3) / (t_fall ** 3) + 3 * fmax * (x ** 4) / (t_fall ** 4)
+
+        # 辅助力规划
+        t = np.arange(0, 100, 1)
+        flexion_ = self.human_data['flexion_']
+        inversion_ = self.human_data['inversion_']
+        adduction_ = t * 0
+
+        Mx_ = 0.05 * f_assist * np.array(self.human_data["M_x_d_"]) / (
+                    np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
+        My_ = 0.05 * f_assist * np.array(self.human_data["M_y_d_"]) / (
+                    np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
+
+        F2_func1 = self.F2_func(flexion_, inversion_, adduction_, Mx_, My_)
+
+        # 输出参数
+        f_max_2 = np.max(F2_func1)
+        t_sta_2 = np.where(F2_func1 > 1)[0][0]
+        t_rise_2 = np.argmax(F2_func1) - t_sta_2
+        t_fall_2 = np.where(F2_func1 > 1)[0][-1] - np.argmax(F2_func1)
+
+        return f_max_2, t_sta_2, t_rise_2, t_fall_2
 
     def GRF_Callback(self, msg):
         self.GRF = msg
         # self.server_flag = 1
-        return
-
-    def force_update(self):
-
         return
 
     def Mode_Callback(self, mode_stance, mode_fight, mode_other,pos_fight):
@@ -80,12 +172,12 @@ class Strategy:
         # rospy.loginfo(" RightMed param update --> mode_stance=%d,mode_fight=%d \n\t", self.mode_stance, self.mode_fight)
         return
 
-    def ParamCallback(self, F_max, T_max, t_rise, t_fall,adapt_):
+    def ParamCallback(self, F_max, T_max, t_rise, t_fall, adapt_):
         self.F_max = F_max  # 辅助力峰值
         self.T_max = T_max  # 辅助力峰值时刻占步态的百分比：这里要考虑触地判定延迟大概有20~25ms
         self.t_rise = t_rise
         self.t_fall = t_fall
-        self.adapt_=adapt_
+        self.adapt_ = adapt_
         return
 
     def update(self, t):
@@ -136,21 +228,31 @@ class Strategy:
             self.Pos = self.pos  # 这里把参数传给KP传出
 
             # 2. 更新力曲线
-            if self.Flag > 70:
+            if self.Flag > 70: #计算步态周期
                 self.gait_num_last2 = self.gait_num_last
                 self.gait_num_last = self.gait_num
                 self.gait_num = self.Flag  # 记录支撑相时间
                 self.gait_T = 1 / 3 * (self.gait_num_last2 + self.gait_num_last + self.gait_num)
 
-            if self.gait_num_last2 > 0:  # 助力开始时间确定
-                self.t_start = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相位
-            else:
-                self.t_start = 0.2
+            if self.adapt_ == 0:
+                self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相
+                self.uprise_time = self.t_rise
+                self.upfall_time = self.t_fall
+                self.upforce_max = self.F_max
 
-            self.upstart_time = self.t_start
-            self.uprise_time = self.t_rise
-            self.upfall_time = self.t_fall
-            self.upforce_max = self.F_max
+            else:
+                if self.location == 2:
+                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.2, self.t_rise, self.t_fall, self.gait_T / 100)
+                    self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
+                    self.uprise_time = t_rise_1 * self.gait_T / 100 /100
+                    self.upfall_time = t_fall_1 * self.gait_T / 100 /100
+                    self.upforce_max = f_max_1
+                else:
+                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.2, self.t_rise, self.t_fall, self.gait_T / 100)
+                    self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
+                    self.uprise_time = t_rise_1 * self.gait_T / 100 /100
+                    self.upfall_time = t_fall_1 * self.gait_T / 100 /100
+                    self.upforce_max = f_max_1
 
             # 3.其他
             self.stance_finsh = 0

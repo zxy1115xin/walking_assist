@@ -6,12 +6,18 @@ from dynamic_reconfigure.server import Server
 from strategy.cfg import drConfig
 from ground_reaction_force.msg import GRF_Data
 from strategy.msg import Fgrf
+import math
+from sympy import symbols, sympify, lambdify
+import sympy as sp
+import numpy as np
 
 
 class StrategyGroup:
     def __init__(self, strategy_list):
 
         self.strategy_list = strategy_list
+        self.lat = rospy.get_param("~lat")
+        self.med = rospy.get_param("~med")
 
         # 初始参数
         self.Last_flagL = 0 #上次触地标志位
@@ -34,6 +40,66 @@ class StrategyGroup:
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
+        self.human_data = self.load_human_data()
+        self.equations = self.load_equations()
+        self.prepare_functions()
+        self.out_data()
+
+
+    def load_human_data(self):
+        data = {}
+        file_path = '/home/c208/walking_assist/src/strategy/scripts/data/human_data.txt'
+        with open(file_path, 'r') as file:
+            for line in file:
+                line = line.strip()
+                var_BQname, values = line.split(':')
+                arr = list(map(float, values.split()))
+                data[var_BQname] = arr
+        return data
+
+    def load_equations(self):
+        file_path = '/home/c208/walking_assist/src/strategy/scripts/data/equation.txt'
+        eqs = {}
+        with open(file_path, 'r') as f:
+            for line in f:
+                name, expr_str = line.strip().split('=', 1)
+                eqs[name] = sympify(expr_str)
+        return eqs
+
+    def prepare_functions(self):
+        # Define symbols
+        F1, xp1, yp1, zp1, theta_a, phi_a, theta_s, phi_s, F2, xp2, yp2, zp2 = sp.symbols('F1 xp1 yp1 zp1 theta_a phi_a theta_s phi_s F2 xp2 yp2 zp2')
+        flexion, inversion, adduction = sp.symbols('flexion inversion adduction')
+        Mx_d, My_d, Ma_d, Ms_d = sp.symbols('Mx_d My_d Ma_d Ms_d')
+        Mx, My = sp.symbols('Mx My')
+
+        # Substitute values
+        theta_a_ = np.deg2rad(6)
+        phi_a_ = np.deg2rad(10)
+        theta_s_ = np.deg2rad(16)
+        phi_s_ = np.deg2rad(42)
+        xp1_, yp1_, zp1_ = -0.07, 0.03, -0.11
+        xp2_, yp2_, zp2_ = -0.07, -0.03, -0.11
+        self.values_to_substitute = {
+            theta_a: theta_a_, phi_a: phi_a_, theta_s: theta_s_, phi_s: phi_s_,
+            xp1: xp1_, yp1: yp1_, zp1: zp1_, xp2: xp2_, yp2: yp2_, zp2: zp2_
+        }
+
+        # Lambdify functions
+        F1_expr = self.equations['F1_j'].subs(self.values_to_substitute)
+        F2_expr = self.equations['F2_j'].subs(self.values_to_substitute)
+        self.F1_func = lambdify([flexion, inversion, adduction, Mx_d, My_d], F1_expr, 'numpy')
+        self.F2_func = lambdify([flexion, inversion, adduction, Mx_d, My_d], F2_expr, 'numpy')
+
+        return
+
+    def out_data(self):
+
+        for strategy in self.strategy_list:
+            strategy.get_data(self.human_data, self.F1_func, self.F2_func)
+
+        return
+
 
     def GRFL_Callback(self, msg):
         if self.param_flag == 1:
@@ -46,9 +112,6 @@ class StrategyGroup:
             self.strategy_list[0].GRF_Callback(self.GRF_Ls)
             self.strategy_list[1].GRF_Callback(self.GRF_Ls)
 
-            if self.GRF_L.stance_flg == 1 and self.Last_flagL == 0:
-                self.strategy_list[0].force_update()
-                self.strategy_list[1].force_update()
 
             self.Last_flagL = self.GRF_L.stance_flg  # 上次触地标志位
 
@@ -66,10 +129,6 @@ class StrategyGroup:
 
             self.strategy_list[2].GRF_Callback(self.GRF_Rs)
             self.strategy_list[3].GRF_Callback(self.GRF_Rs)
-
-            if self.GRF_R.stance_flg == 1 and self.Last_flagR == 0:
-                self.strategy_list[2].force_update()
-                self.strategy_list[3].force_update()
 
             self.Last_flagR =  self.GRF_R.stance_flg  # 上次触地标志位
 
@@ -90,12 +149,20 @@ class StrategyGroup:
         # self.offset_GRFR = config.offset_GRFR
 
         # 2.助力更新
-        # Left
-        self.strategy_list[0].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
-        self.strategy_list[1].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall)
-        # Right
-        self.strategy_list[2].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
-        self.strategy_list[3].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall)
+        if self.lat <2:
+            # Left
+            self.strategy_list[0].ParamCallback(self.lat*config.F_max,config.T_max_l,config.t_rise,config.t_fall,0)
+            self.strategy_list[1].ParamCallback(self.med*config.F_max,config.T_max_l,config.t_rise,config.t_fall,0)
+            # Right
+            self.strategy_list[2].ParamCallback(self.med*config.F_max,config.T_max_r,config.t_rise,config.t_fall,0)
+            self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,0)
+        else: #当前是自适应控制
+            # Left
+            self.strategy_list[0].ParamCallback(self.lat*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            self.strategy_list[1].ParamCallback(self.med*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            # Right
+            self.strategy_list[2].ParamCallback(self.med*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
+            self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
 
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
