@@ -76,7 +76,6 @@ class Strategy:
         self.F1_func = F1_func
         self.F2_func = F2_func
 
-        print('%%%%%%%%%%%%%%%%%%%',self.F2_func)
 
         return
 
@@ -242,13 +241,13 @@ class Strategy:
 
             else:
                 if self.location == 2:
-                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.2, self.t_rise, self.t_fall, self.gait_T / 100)
+                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.25, self.t_rise, self.t_fall, self.gait_T / 100)
                     self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
                     self.uprise_time = t_rise_1 * self.gait_T / 100 /100
                     self.upfall_time = t_fall_1 * self.gait_T / 100 /100
                     self.upforce_max = f_max_1
                 else:
-                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.2, self.t_rise, self.t_fall, self.gait_T / 100)
+                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.25, self.t_rise, self.t_fall, self.gait_T / 100)
                     self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
                     self.uprise_time = t_rise_1 * self.gait_T / 100 /100
                     self.upfall_time = t_fall_1 * self.gait_T / 100 /100
@@ -326,7 +325,7 @@ class Strategy:
             if t < self.off_time + 0.5:  # 摆动相持续时间是0.5s
                 mode = self.Mode_fight
             else:
-                mode = self.Mode_other
+                mode = self.Mode_fight
 
         # 其他未在elif中考虑的情况
         else:

@@ -54,14 +54,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "000"
+           enable: "001"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "000"
+            enable: "001"
             motor0: "disturb"
             motor2: "left_lat"
 
@@ -82,7 +82,7 @@
 
 
    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
-         <param name = "force_pre" type = "double" value = "5.0" />
+         <param name = "force_pre" type = "double" value = "8.0" />
          <param name = "lat" type = "double" value = "1.0" />
          <param name = "med" type = "double" value = "0.0" />
    </node>

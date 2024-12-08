@@ -128,7 +128,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 int t3=0;
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
-                float force_pre = 0.5*1000/30;
+                float force_pre = 0.6*1000/30;
                 if(SNum_<=Tsta-t1 )
                 {
 //                    float f_max = 0.5*1000/30;
