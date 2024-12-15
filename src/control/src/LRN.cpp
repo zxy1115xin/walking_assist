@@ -98,8 +98,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         errFmax=errFmax+Kerrf*(Fmax-Fmax_real);
         errFmin=errFmin+Kerrf*(F1err+F2err)/2;
 
-//       ROS_INFO_STREAM("F2err"<< F2err<<"---F1err"<<F1err<<"---errFminx"<<errFmin<<"---Kerrf---"<<Kerrf<<"----errFmax"<<errFmax);
-
+        // 信息重置
         Fmax_real=0;
         Fmax_cmd_=0;
         F1err=0;
@@ -107,9 +106,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         index_new=1;  // index=1时代表周期更新
         step_++;  //学习了多少步
         fend1=0;
-
-
-//        ROS_INFO_STREAM("= F2err=="<< F2err<<"errFminx"<<errFmin<<"Kerrf---"<<Kerrf<<"errFmax"<<errFmax);
 
     }
 
@@ -121,14 +117,15 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         switch (Mode)
         {
 
-            case 1:  {
+            case 1:  // 迭代学习
+            {
 
-                int t1=4;  //提前激活时间
-                int t2=1;
+                int t1=5;  //提前激活时间
+                int t2=2;
                 int t3=0;
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
-                float force_pre = 0.6*1000/30;
+                float force_pre = 0.7*1000/30;
                 if(SNum_<=Tsta-t1 )
                 {
 //                    float f_max = 0.5*1000/30;
@@ -210,15 +207,16 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             }
 
 
-            case 2:{
-                // 开环模式，始终沿用以及学好的控制
+            case 2: // 停止学习，始终沿用以及学好的控制
+            {
+
                 output_force=f_cmd_last[SNum_];
                 break;
             }
 
 
-            case 3:{// 迭代学习前馈 + PID闭环模式
-                static int istep_index;
+            case 3: // 迭代学习前馈 + PID闭环模式
+            {
 
                 if (istep_index==1)
                 {

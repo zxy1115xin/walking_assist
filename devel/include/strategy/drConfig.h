@@ -303,12 +303,14 @@ class MODE_GROUP
         (*_i)->getValue(config, val);
 
         if("update_Mode"==(*_i)->name){update_Mode = boost::any_cast<bool>(val);}
+        if("Stop_update"==(*_i)->name){Stop_update = boost::any_cast<bool>(val);}
         if("Mode0"==(*_i)->name){Mode0 = boost::any_cast<bool>(val);}
         if("StrDyParam"==(*_i)->name){StrDyParam = boost::any_cast<std::string>(val);}
       }
     }
 
     bool update_Mode;
+bool Stop_update;
 bool Mode0;
 std::string StrDyParam;
 
@@ -441,36 +443,38 @@ int Mode_stance_left_Med;
 //#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       bool update_Mode;
 //#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      bool Mode0;
+      bool Stop_update;
 //#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      bool Mode0;
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       std::string StrDyParam;
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_fight_All;
 //#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_fight_right_lat;
+      int Mode_fight_All;
 //#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_fight_right_Med;
+      int Mode_fight_right_lat;
 //#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_fight_left_lat;
+      int Mode_fight_right_Med;
 //#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      int Mode_fight_left_lat;
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_fight_left_Med;
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double fight_pos_right_lat;
 //#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double fight_pos_right_Med;
+      double fight_pos_right_lat;
 //#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      double fight_pos_left_lat;
+      double fight_pos_right_Med;
 //#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      double fight_pos_left_lat;
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       double fight_pos_left_Med;
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_stance_All;
 //#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_stance_right_lat;
+      int Mode_stance_All;
 //#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_stance_right_Med;
+      int Mode_stance_right_lat;
 //#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      int Mode_stance_left_lat;
+      int Mode_stance_right_Med;
 //#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      int Mode_stance_left_lat;
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       int Mode_stance_left_Med;
 //#line 231 "/opt/ros/noetic/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
@@ -646,7 +650,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.t_fall = 0.5;
 //#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.t_fall = 0.125;
+      __default__.t_fall = 0.13;
 //#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("t_fall", "double", 0, "A Double Parameter", "", &drConfig::t_fall)));
 //#line 13 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
@@ -656,7 +660,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.T_max_r = 0.5;
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.T_max_r = 0.27;
+      __default__.T_max_r = 0.275;
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("T_max_r", "double", 0, "A Double Parameter", "", &drConfig::T_max_r)));
 //#line 14 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
@@ -666,7 +670,7 @@ drConfig::GroupDescription<drConfig::DEFAULT::ASSIST_FORCE_GROUP, drConfig::DEFA
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.T_max_l = 0.5;
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
-      __default__.T_max_l = 0.27;
+      __default__.T_max_l = 0.275;
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Assist_force_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("T_max_l", "double", 0, "A Double Parameter", "", &drConfig::T_max_l)));
 //#line 15 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
@@ -689,116 +693,126 @@ drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP, drConfig::DEFAULT> Mod
 //#line 19 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("update_Mode", "bool", 0, "A Bool Parameter", "", &drConfig::update_Mode)));
 //#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      __min__.Stop_update = 0;
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      __max__.Stop_update = 1;
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      __default__.Stop_update = 0;
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Stop_update", "bool", 0, "停止学习", "", &drConfig::Stop_update)));
+//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+      __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Stop_update", "bool", 0, "停止学习", "", &drConfig::Stop_update)));
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode0 = 0;
-//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode0 = 1;
-//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode0 = 0;
-//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Mode0", "bool", 0, "快速放松", "", &drConfig::Mode0)));
-//#line 20 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<bool>("Mode0", "bool", 0, "快速放松", "", &drConfig::Mode0)));
-//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.StrDyParam = "";
-//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.StrDyParam = "";
-//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.StrDyParam = "Mode=8 支撑学习；Mode=9支撑停止学习 ；Mode=10 摆动学习；Mode=11摆动停止学习";
-//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       Mode_Group.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<std::string>("StrDyParam", "str", 0, "备注", "", &drConfig::StrDyParam)));
-//#line 21 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 22 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<std::string>("StrDyParam", "str", 0, "备注", "", &drConfig::StrDyParam)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE, drConfig::DEFAULT::MODE_GROUP> fight_phase("fight_phase", "hide", 2, 3, true, &drConfig::DEFAULT::MODE_GROUP::fight_phase);
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_All = 0;
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_All = 20;
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_All = 10;
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_All", "int", 1, "摆动相，请 Mode =10 or 11", "", &drConfig::Mode_fight_All)));
-//#line 24 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_All", "int", 1, "摆动相，请 Mode =10 or 11", "", &drConfig::Mode_fight_All)));
-//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_right_lat = 0;
-//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_right_lat = 20;
-//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_right_lat = 10;
-//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_lat)));
-//#line 25 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_lat)));
-//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_right_Med = 0;
-//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_right_Med = 20;
-//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_right_Med = 10;
-//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_Med)));
-//#line 26 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_right_Med)));
-//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_left_lat = 0;
-//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_left_lat = 20;
-//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_left_lat = 10;
-//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_lat)));
-//#line 27 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_lat)));
-//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_fight_left_Med = 0;
-//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_fight_left_Med = 20;
-//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_fight_left_Med = 10;
-//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       fight_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_Med)));
-//#line 28 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 29 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_fight_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_fight_left_Med)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::RELEASE, drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE> release("release", "hide", 3, 4, false, &drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::release);
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_right_lat = -0.1;
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_right_lat = 1.5;
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_right_lat = 1.0;
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_lat)));
-//#line 32 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_lat)));
-//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_right_Med = -0.1;
-//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_right_Med = 1.5;
-//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_right_Med = 1.0;
-//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_Med)));
-//#line 33 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_right_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_right_Med)));
-//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_left_lat = -0.1;
-//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_left_lat = 1.5;
-//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_left_lat = 1.0;
-//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_lat)));
-//#line 34 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_lat", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_lat)));
-//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.fight_pos_left_Med = -0.1;
-//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.fight_pos_left_Med = 1.5;
-//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.fight_pos_left_Med = 1.0;
-//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       release.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_Med)));
-//#line 35 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 36 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<double>("fight_pos_left_Med", "double", 1, "A Double Parameter", "", &drConfig::fight_pos_left_Med)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       release.convertParams();
@@ -813,55 +827,55 @@ drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE::RELEASE, 
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(drConfig::AbstractGroupDescriptionConstPtr(new drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::FIGHT_PHASE, drConfig::DEFAULT::MODE_GROUP>(fight_phase)));
 drConfig::GroupDescription<drConfig::DEFAULT::MODE_GROUP::STANCE_PHASE, drConfig::DEFAULT::MODE_GROUP> stance_phase("stance_phase", "hide", 2, 5, true, &drConfig::DEFAULT::MODE_GROUP::stance_phase);
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_All = 0;
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_All = 20;
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_All = 8;
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_All", "int", 1, "支撑相，请 Mode =8 or 9", "", &drConfig::Mode_stance_All)));
-//#line 38 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_All", "int", 1, "支撑相，请 Mode =8 or 9", "", &drConfig::Mode_stance_All)));
-//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_right_lat = 0;
-//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_right_lat = 20;
-//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_right_lat = 8;
-//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_lat)));
-//#line 39 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_lat)));
-//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_right_Med = 0;
-//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_right_Med = 20;
-//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_right_Med = 8;
-//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_Med)));
-//#line 40 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_right_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_right_Med)));
-//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_left_lat = 0;
-//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_left_lat = 20;
-//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_left_lat = 8;
-//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_lat)));
-//#line 41 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_lat", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_lat)));
-//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __min__.Mode_stance_left_Med = 0;
-//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __max__.Mode_stance_left_Med = 20;
-//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __default__.Mode_stance_left_Med = 8;
-//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       stance_phase.abstract_parameters.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_Med)));
-//#line 42 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
+//#line 43 "/home/c208/walking_assist/src/strategy/cfg/DynamicParam.cfg"
       __param_descriptions__.push_back(drConfig::AbstractParamDescriptionConstPtr(new drConfig::ParamDescription<int>("Mode_stance_left_Med", "int", 1, "A Double Parameter", "", &drConfig::Mode_stance_left_Med)));
 //#line 124 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       stance_phase.convertParams();

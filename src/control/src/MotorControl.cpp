@@ -71,14 +71,10 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Tfall = cmd_msg->Tfall;
     cmd_msg_.Fmax = cmd_msg->Fmax;
 
-
-//    if( cmd_msg_.mode != 8 && mode_last_== 8 )
-//    {
-////      pos_fight_=sensor_msg_.Pos ;
-//        flag_fight_=cmd_msg_.flag;
-//
-//    }
-
+    // 估計周期長度
+    if( cmd_msg_.flag<5 and flag_last_>5 ){
+     Ngait_ = flag_last_;
+    }
 
 
     if( cmd_msg_.mode == 15 && mode_last_!= 15 )
@@ -246,6 +242,7 @@ void MotorControl::update()
                      pos_fight_=sensor_msg_.Pos;
                 }
                 flag_fight_=cmd_msg_.flag;
+
                 last_force_data = force_msg_.data;
 
                 break;
@@ -254,11 +251,12 @@ void MotorControl::update()
 
 
             case 9:{  //利用迭代学习的结果作为前馈（迭代学习结果+前馈2/闭环3/无模型自适应4）
+
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
                 int Mode_=2;  //开环模式
-//              int Mode_=3;  //闭环模式
-                //int Mode_=4;  //无模型自适应
+                // int Mode_=3;  //闭环模式
+                // int Mode_=4;  //无模型自适应
 
                 if (Mode_==4){  //无模型自适应4，但是实用范围不行，延迟
                     static int flag_mfac;
@@ -299,40 +297,89 @@ void MotorControl::update()
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
 
-                // 根据上个周期力误差的最大(8个数据点之后的数值),修正这个周期
-               if (cmd_msg_.flag - flag_fight_>12){
+             // 新周期開始，参数更新。  在腾空下前3/4 放线  后1/4 收线
+            if( mode_last_!=10 ){
 
-                  if (force_msg_.data< 0.5) force_msg_.data=-5;
-                  float err_force_=force_msg_.data -cmd_msg_.force;
-                  if (force_err_max_<err_force_) force_err_max_= err_force_;
-             }
 
-                if( mode_last_!=10 ){
+                    // 估計騰空縣時間
+                    Nfight_=Ngait_-flag_fight_;
 
                     // 当误差小于一定数值时不再修正
-                    if (force_err_max_<3 && force_err_max_>-1 ){}
-                    else{ errsum=errsum+force_err_max_;}
+                    if (force_err_max_<3 && force_err_max_>-1 )
+                    { // 只有放线稳定了，再进行收线
 
 
-                    pos_change_=pos_change_+ (force_err_max_) * 0.007 + errsum * 0.002;
+                    //注释这一点、收线阶段不再学习
 
-//                    ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);
+                        if (force_err_max1_<3 && force_err_max1_>-1 ){}
+                        else
+                        {
+                        errsum1 = errsum1+force_err_max1_;
+                        pos_change1_=-0.2 +(force_err_max1_) * 0.007 + errsum1 * 0.002;
+                        // pos_change1_ = -1;
 
-                    if (pos_change_ > 2.5) pos_change_ = 2.5 ;  //防线
+                        }
+
+                    }
+                    else
+                    {
+                     errsum=errsum+force_err_max_;
+                     pos_change1_ = -0;
+                     }
+
+
+                    pos_change_=(force_err_max_) * 0.007 + errsum * 0.002;
+
+
+                    //  ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);
+
+                    // 防止放线或者收线过多
+                    if (pos_change_ > 2.5) pos_change_ = 2.5 ;
                     if (pos_change_ < -1) pos_change_ = -1 ;
-                    force_err_max_last=force_err_max_;
                     force_err_max_=-10;
+
+                    // 防止放线或者收线过多
+                    if (pos_change1_ > 1) pos_change1_ = 1 ;
+                    if (pos_change1_ < -2) pos_change1_ = -2 ;
+                    force_err_max1_=-10;
 
                 }
 
-                float numf = cmd_msg_.flag-flag_fight_;  // 在15个控制信号完成收线
-                if (numf>10) numf=10;
-                ctrl_msg_.Pos = pos_fight_ + pos_change_ *(numf)/10;
+              // 判断放线是否足够 and 放线阶段
+            if (cmd_msg_.flag - flag_fight_>12 && cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_ <0){
+
+                  if (force_msg_.data< 0.5) force_msg_.data=-5;
+                  float err_force_=force_msg_.data -cmd_msg_.force; // 实际力大与期望力时，要放线
+                  if (force_err_max_<err_force_) force_err_max_= err_force_;
+             }
+
+             // 判断收线是否足够 and 收线
+            if (cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_ >0){
+
+                  if (force_msg_.data< 0.5) force_msg_.data=-5;
+                  float err_force_=force_msg_.data -cmd_msg_.force; // 实际力大与期望力时，要放线
+                  if (force_err_max1_<err_force_) force_err_max1_= err_force_;
+
+                 float numf = cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_;
+                 if (numf>15) numf=15;
+                 ctrl_msg_.Pos = pos_fight_ + pos_change_ + pos_change1_*(numf)/15; // 收
+
+            }
+
+             //  放线阶段
+            if (cmd_msg_.flag - flag_fight_>0 && cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_ <0){
+
+                 float numf = cmd_msg_.flag - flag_fight_ ;
+                 if (numf>15) numf=15;
+                 ctrl_msg_.Pos = pos_fight_ + pos_change_*(numf)/15;  //  + 是放线  -是收线
+
+             }
 
 
 
                 break;
             }
+
 
             case 11:  // 放线+手动pos_change2_
             {
@@ -348,13 +395,32 @@ void MotorControl::update()
                 break;
             }
 
-            case 12:  // 维持当前位置
+
+            case 12:  // 维持当放线
             {
                 ctrl_msg_.T = 0;
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
-                ctrl_msg_.Pos = sensor_msg_.Pos ;
 
+
+
+             //  收线
+            if (cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_ >0){
+
+                 float numf = cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_;
+                 if (numf>15) numf=15;
+                 ctrl_msg_.Pos = pos_fight_ + pos_change_ + pos_change1_*(numf)/15; // 收
+
+            }
+
+             //  放线阶段
+            if (cmd_msg_.flag - flag_fight_>0 && cmd_msg_.flag - flag_fight_ - 3.5/4* Nfight_ <0){
+
+                 float numf = cmd_msg_.flag - flag_fight_ ;
+                 if (numf>15) numf=15;
+                 ctrl_msg_.Pos = pos_fight_ + pos_change_*(numf)/15;  //  + 是放线  -是收线
+
+             }
                 break;
             }
 
@@ -436,6 +502,7 @@ void MotorControl::update()
 
        ctrl_pub.publish(ctrl_msg_);
        mode_last_=cmd_msg_.mode;
+       flag_last_=cmd_msg_.flag;
 
     }
 }

@@ -57,13 +57,18 @@ private:
     float pos_now;
     float flag_fight_;
     float mode_last_;
-    float flag_mode;
-    float pos_change_=0.2;
-    // mode 11
+    float flag_last_;
+    float Ngait_= 10;
+    float Nfight_= 10;
+
+    // 放线
     float last_force_data = 0.0;
+    float pos_change_=0.2;
     float errsum=0;
-    float force_err_max_last=0;
     float force_err_max_=0;
+    float pos_change1_=0.2;
+    float errsum1=0;
+    float force_err_max1_=0;
 
     // 导入控制算法
     PID pid_;

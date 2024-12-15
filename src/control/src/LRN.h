@@ -46,6 +46,7 @@ private:
     float Kerrf = 1 ;
     int K_ind =0 ;
     int siga = 0;
+    int istep_index = 0;
 };
 
 #endif //SRC_LRN_H

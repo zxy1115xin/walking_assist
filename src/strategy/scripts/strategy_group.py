@@ -40,10 +40,11 @@ class StrategyGroup:
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
-        self.human_data = self.load_human_data()
-        self.equations = self.load_equations()
-        self.prepare_functions()
-        self.out_data()
+        if self.lat > 1 :
+            self.human_data = self.load_human_data()
+            self.equations = self.load_equations()
+            self.prepare_functions()
+            self.out_data()
 
 
     def load_human_data(self):
@@ -137,7 +138,7 @@ class StrategyGroup:
 
     def ParamCallback(self, config, level):  # level为参数的掩码（，表征到底哪个参数是否被改变
         if self.param_flag == 0:  # 只有在参数服务器更新后再执行其他函数
-            config.groups.groups.Mode_Group.groups.fight_phase.groups.release.state=False #隐藏位置修正
+            config.groups.groups.Mode_Group.groups.fight_phase.groups.release.state = False #隐藏位置修正
             self.param_flag = 1
         # 更新提示
         # rospy.loginfo("which parameter is changed::%d\n\t", level + 1)
@@ -174,6 +175,10 @@ class StrategyGroup:
         if config.Mode0 == 1:  # Mode0 是bool 选择是否快速防线
             config.Mode_fight_All = 0
             config.Mode_stance_All = 0
+
+        if config.Stop_update == 1:  # Mode0 是bool 选择是否快速防线
+            config.Mode_fight_All = 12
+            config.Mode_stance_All = 9
 
         if config.Mode_fight_All != self.Last_mode_fight:
             config.Mode_fight_left_lat = config.Mode_fight_All
