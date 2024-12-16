@@ -7,6 +7,7 @@
 
 
 #include <ros/ros.h>
+#include <ros/time.h>
 #include <string>
 #include <unitree_motor/Sensor.h>
 #include <unitree_motor/Ctrl.h>
