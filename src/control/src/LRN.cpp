@@ -59,8 +59,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     Tsta=floor(Tsta);
     Trise=floor(Trise);
     Tfall=floor(Tfall);
-    static float fend1;
-    static int SNum_last;
+
 
     diff_err_=force_real-force_des-err_;
     err_=force_real-force_des;
@@ -105,7 +104,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
         F2err=0;
         index_new=1;  // index=1时代表周期更新
         step_++;  //学习了多少步
-        fend1=0;
+
 
     }
 
@@ -132,7 +131,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 //                    float f_min = -0.5*1000/30;
 //                    if(output_force > f_max)output_force = f_max;
 //                    if(output_force < f_min)output_force = f_min;
-//                    fend1=output_force;
                       output_force = force_pre;
                     //ROS_INFO_STREAM("Tsta: " << SNum_<<"force"<<output_force);
                 }

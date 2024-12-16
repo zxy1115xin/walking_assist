@@ -65,7 +65,7 @@ class Strategy:
         self.cmd_msg = Command()
         # 定义地反力
         self.GRF = Fgrf()
-        self.human_data = {}
+        # self.human_data = {}
         # self.F1_func = {}
         # self.F2_func = {}
 
@@ -96,10 +96,10 @@ class Strategy:
         f_assist[tmax:tend] = fmax - 4 * fmax * (x ** 3) / (t_fall ** 3) + 3 * fmax * (x ** 4) / (t_fall ** 4)
 
         # 辅助力规划
-        t = np.arange(0, 100, 1)
+        tx = np.arange(0, 100, 1)
         flexion_ = self.human_data['flexion_']
         inversion_ = self.human_data['inversion_']
-        adduction_ = t * 0
+        adduction_ = tx * 0
 
         Mx_ = 0.05 * f_assist * np.array(self.human_data["M_x_d_"]) / (
                     np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
@@ -138,10 +138,10 @@ class Strategy:
         f_assist[tmax:tend] = fmax - 4 * fmax * (x ** 3) / (t_fall ** 3) + 3 * fmax * (x ** 4) / (t_fall ** 4)
 
         # 辅助力规划
-        t = np.arange(0, 100, 1)
+        tx = np.arange(0, 100, 1)
         flexion_ = self.human_data['flexion_']
         inversion_ = self.human_data['inversion_']
-        adduction_ = t * 0
+        adduction_ = tx * 0
 
         Mx_ = 0.05 * f_assist * np.array(self.human_data["M_x_d_"]) / (
                     np.array(self.human_data["M_x_d_"]) + np.array(self.human_data["M_y_d_"]))
@@ -227,6 +227,7 @@ class Strategy:
             self.Pos = self.pos  # 这里把参数传给KP传出
 
             # 2. 更新力曲线
+
             if self.Flag > 70: #计算步态周期
                 self.gait_num_last2 = self.gait_num_last
                 self.gait_num_last = self.gait_num

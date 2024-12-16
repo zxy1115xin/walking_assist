@@ -34,6 +34,7 @@ private:
     float lastlast_diff_err_ = 0;
     float lastlast_err_sum_ = 0;
     int SNum_= 0;
+    int SNum_last = 0;
     int step_;
     float other_force_;  // 传参空位
     int index_new; //是否进入新步态

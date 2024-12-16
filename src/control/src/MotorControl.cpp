@@ -219,6 +219,10 @@ void MotorControl::update()
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
+                if (cmd_msg_.flag<5){
+                ROS_INFO_STREAM("=="<<name_<<"flag"<<cmd_msg_.flag<<"Tsta"<<cmd_msg_.Tsta<<"Trise"<<cmd_msg_.Trise<<"Tfall<"<<cmd_msg_.Tfall<<"fmax"<< cmd_msg_.Fmax);
+                }
+
 //                ROS_INFO_STREAM("=="<<name_<<"fight"<<ctrl_msg_.T<<"fmax"<< cmd_msg_.Fmax);
 
                 // 根据反馈的保护

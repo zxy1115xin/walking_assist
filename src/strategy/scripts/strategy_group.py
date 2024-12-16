@@ -40,7 +40,7 @@ class StrategyGroup:
         self.GRF_Ls = Fgrf()
         self.GRF_Rs = Fgrf()  # 减少数据量
 
-        if self.lat > 1 :
+        if self.lat > 1:
             self.human_data = self.load_human_data()
             self.equations = self.load_equations()
             self.prepare_functions()
