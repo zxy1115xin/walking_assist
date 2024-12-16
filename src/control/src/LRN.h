@@ -6,6 +6,7 @@
 #define SRC_LRN_H
 #include <math.h>
 #include <ros/ros.h>
+#include <ros/time.h>
 #include <cmath>
 
 class LRN
@@ -35,6 +36,7 @@ private:
     float lastlast_err_sum_ = 0;
     int SNum_= 0;
     int SNum_last = 0;
+    float t_last =0;
     int step_;
     float other_force_;  // 传参空位
     int index_new; //是否进入新步态

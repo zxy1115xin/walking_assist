@@ -52,7 +52,7 @@ void LRN::getForce(float other_force) {
 
 
 float LRN::update(float force_des, float force_real, float flag_step, float (&f_cmd)[500], float (&f_cmd_last)[500],
-                  float Tsta, float Trise, float Tfall, float Fmax, int Mode) {
+                  float Tsta, float Trise, float Tfall, float Fmax, int Mode , float touch_time) {
 
     // 参数预备
     int Num_=500;
@@ -60,13 +60,16 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     Trise=floor(Trise);
     Tfall=floor(Tfall);
 
+    ros::Time current_time = ros::Time::now();
+    double t = current_time.toSec(); // 获取秒数
+    t = t -touch_time;
 
     diff_err_=force_real-force_des-err_;
     err_=force_real-force_des;
     err_sum_ += err_;
     // 设计积分上下届
-    float err_sum_max = 4000;
-    float err_sum_min = -4000;
+    float err_sum_max = 400;
+    float err_sum_min = -400;
     if(err_sum_ > err_sum_max)err_sum_ = err_sum_max;
     if(err_sum_ < err_sum_min)err_sum_ = err_sum_min;
 
@@ -119,13 +122,13 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             case 1:  // 迭代学习
             {
 
-                int t1=5;  //提前激活时间
+                int t1=2;  //提前激活时间
                 int t2=2;
                 int t3=0;
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
                 float force_pre = 0.7*1000/30;
-                if(SNum_<=Tsta-t1 )
+                if(t<=Tsta-t1 )
                 {
 //                    float f_max = 0.5*1000/30;
 //                    float f_min = -0.5*1000/30;
@@ -136,41 +139,40 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 }
 
                 //上升阶段
-                else if (SNum_>Tsta-t1 && SNum_<=Trise-t2)
+                else if (t > Tsta-t1 && t<=  Trise-t2)
                 {
 
                     float f_min = -0*1000/30;
                     float fmax = ( 0.5*Fmax+errFmax)*0.03*1000/30;
-                    output_force= force_pre + sin(3.1415926/2*(SNum_-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
+                    output_force= force_pre + sin(3.1415926/2*(t-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
                     if(output_force < f_min)output_force = f_min;
                     //ROS_INFO_STREAM("Trise: " << SNum_<<"force"<<output_force<<"real"<<force_real);
                 }
 
                 //峰值阶段
-                  else if (SNum_>Trise-t2 && SNum_<= Trise+t3)
+                  else if (t >= Trise-t2 && t<=  Trise + t3)
                 {
 
-                    float fmin =( 12)*0.075*1000/30;
-                    float fmax = 3*1000/30;
-                    float f_min = ( 40)*0.075*1000/30;
-
-                    output_force=-fmin*(SNum_ - Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
+                    //float fmin =( 12)*0.075*1000/30;
+                    //output_force=-fmin*(t- Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
+                    float fmax = ( 0.5*Fmax+errFmax)*0.03*1000/30;
+                    output_force= fmax 
                 }
 
                 // 下降阶段
-                else if (SNum_>Trise+t3  && force_des>10)
+                else if (t >=  Trise + t3  && force_des>10)
                 {
 
                     float f_min =( 0.5*Fmax+0.5*errFmin)*0.075*1000/30;
-                    output_force=-f_min*(SNum_ - Trise - t3) / (Tfall - Trise - t3 -2); // 自下而上的斜线
+                    output_force=-f_min*(t- Trise - t3) / (Tfall - Trise - t3 -2); // 自下而上的斜线
                     float fmin =( -50)*0.075*1000/30;
                     float fmax = 0;
                     if(output_force > fmax) output_force = fmax;
                     if(output_force < fmin) output_force = fmin;
                 }
 
-                // 稳定阶段
-                else if (SNum_>Trise-t3 && force_des<=10)
+                // 下降到稳定阶段
+                else if (t >= Trise + t3  && force_des<=10)
                 {
                     output_force= 0.5*1000/30;
 
@@ -180,15 +182,15 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 if (force_real > Fmax_real)Fmax_real=force_real;
 
 
-                // 记录放绳阶段力误差,有金
-                if (SNum_>Tfall-2 && SNum_last<= Tfall-2 && !std::isnan(force_real))
+                // 记录放绳阶段力误差
+                if (t >= Tfall-2 && t_last<= Tfall-2 && !std::isnan(force_real))
                 {
                     if (force_real<0.2) force_real=-10;
 
                     F1err=force_real-force_des;
                 }
 
-                if (SNum_>Tfall+5 && SNum_last<=Tfall+5 && !std::isnan(force_real))
+                if (t>Tfall+5 && t_last<=Tfall+5 && !std::isnan(force_real))
                 {
                     if (force_real<0.2) force_real=-6;
                     F2err=force_real-force_des;
@@ -240,5 +242,6 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
     }
     SNum_last=SNum_;
+    t_last=t;
     return output_force;
 }

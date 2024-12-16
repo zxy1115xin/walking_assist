@@ -70,6 +70,9 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
     cmd_msg_.Trise = cmd_msg->Trise;
     cmd_msg_.Tfall = cmd_msg->Tfall;
     cmd_msg_.Fmax = cmd_msg->Fmax;
+    cmd_msg_.touch_time = cmd_msg->touch_time;
+
+
 
     // 估計周期長度
     if( cmd_msg_.flag<5 and flag_last_>5 ){
@@ -216,7 +219,7 @@ void MotorControl::update()
                 LRN_.setParam(0.5,0.8,0);
                 int Mode_=1;  // LRN 迭代学习进行模式 mode == 1
                 if (cmd_msg_.flag>400) cmd_msg_.flag=400;  // 防止超出数组大小
-                float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
+                float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_,cmd_msg_.touch_time);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
                 if (cmd_msg_.flag<5){

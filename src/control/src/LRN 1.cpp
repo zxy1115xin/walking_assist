@@ -52,13 +52,16 @@ void LRN::getForce(float other_force) {
 
 
 float LRN::update(float force_des, float force_real, float flag_step, float (&f_cmd)[500], float (&f_cmd_last)[500],
-                  float Tsta, float Trise, float Tfall, float Fmax, int Mode) {
+                  float Tsta, float Trise, float Tfall, float Fmax, int Mode , float touch_time) {
 
     // 参数预备
     int Num_=500;
     Tsta=floor(Tsta);
     Trise=floor(Trise);
     Tfall=floor(Tfall);
+
+    ros::Time current_time = ros::Time::now();
+    double t = current_time.toSec(); // 获取秒数
 
 
     diff_err_=force_real-force_des-err_;
