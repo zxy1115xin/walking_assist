@@ -8,7 +8,7 @@ import struct
 
 
 class Command(genpy.Message):
-  _md5sum = "a6a1adef66b901eb18da73880940852a"
+  _md5sum = "e6faae430874a340a970ebe0cee6bc1f"
   _type = "control/Command"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式
@@ -20,9 +20,10 @@ int32 flag    #标志触地
 float32 Tsta    #助力开始时刻
 float32 Trise    #助力结束时刻
 float32 Tfall    #助力开始时刻
-float32 Fmax    #助力结束时刻"""
-  __slots__ = ['mode','force','kp','ki','kd','flag','Tsta','Trise','Tfall','Fmax']
-  _slot_types = ['int32','float32','float32','float32','float32','int32','float32','float32','float32','float32']
+float32 Fmax    #助力结束时刻
+float32 touch_time"""
+  __slots__ = ['mode','force','kp','ki','kd','flag','Tsta','Trise','Tfall','Fmax','touch_time']
+  _slot_types = ['int32','float32','float32','float32','float32','int32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -32,7 +33,7 @@ float32 Fmax    #助力结束时刻"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       mode,force,kp,ki,kd,flag,Tsta,Trise,Tfall,Fmax
+       mode,force,kp,ki,kd,flag,Tsta,Trise,Tfall,Fmax,touch_time
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -61,6 +62,8 @@ float32 Fmax    #助力结束时刻"""
         self.Tfall = 0.
       if self.Fmax is None:
         self.Fmax = 0.
+      if self.touch_time is None:
+        self.touch_time = 0.
     else:
       self.mode = 0
       self.force = 0.
@@ -72,6 +75,7 @@ float32 Fmax    #助力结束时刻"""
       self.Trise = 0.
       self.Tfall = 0.
       self.Fmax = 0.
+      self.touch_time = 0.
 
   def _get_types(self):
     """
@@ -86,7 +90,7 @@ float32 Fmax    #助力结束时刻"""
     """
     try:
       _x = self
-      buff.write(_get_struct_i4fi4f().pack(_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax))
+      buff.write(_get_struct_i4fi5f().pack(_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax, _x.touch_time))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -101,8 +105,8 @@ float32 Fmax    #助力结束时刻"""
       end = 0
       _x = self
       start = end
-      end += 40
-      (_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax,) = _get_struct_i4fi4f().unpack(str[start:end])
+      end += 44
+      (_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax, _x.touch_time,) = _get_struct_i4fi5f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -116,7 +120,7 @@ float32 Fmax    #助力结束时刻"""
     """
     try:
       _x = self
-      buff.write(_get_struct_i4fi4f().pack(_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax))
+      buff.write(_get_struct_i4fi5f().pack(_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax, _x.touch_time))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -132,8 +136,8 @@ float32 Fmax    #助力结束时刻"""
       end = 0
       _x = self
       start = end
-      end += 40
-      (_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax,) = _get_struct_i4fi4f().unpack(str[start:end])
+      end += 44
+      (_x.mode, _x.force, _x.kp, _x.ki, _x.kd, _x.flag, _x.Tsta, _x.Trise, _x.Tfall, _x.Fmax, _x.touch_time,) = _get_struct_i4fi5f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -142,9 +146,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_i4fi4f = None
-def _get_struct_i4fi4f():
-    global _struct_i4fi4f
-    if _struct_i4fi4f is None:
-        _struct_i4fi4f = struct.Struct("<i4fi4f")
-    return _struct_i4fi4f
+_struct_i4fi5f = None
+def _get_struct_i4fi5f():
+    global _struct_i4fi5f
+    if _struct_i4fi5f is None:
+        _struct_i4fi5f = struct.Struct("<i4fi5f")
+    return _struct_i4fi5f

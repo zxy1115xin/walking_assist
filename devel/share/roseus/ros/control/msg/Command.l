@@ -14,7 +14,7 @@
 
 (defclass control::Command
   :super ros::object
-  :slots (_mode _force _kp _ki _kd _flag _Tsta _Trise _Tfall _Fmax ))
+  :slots (_mode _force _kp _ki _kd _flag _Tsta _Trise _Tfall _Fmax _touch_time ))
 
 (defmethod control::Command
   (:init
@@ -29,6 +29,7 @@
     ((:Trise __Trise) 0.0)
     ((:Tfall __Tfall) 0.0)
     ((:Fmax __Fmax) 0.0)
+    ((:touch_time __touch_time) 0.0)
     )
    (send-super :init)
    (setq _mode (round __mode))
@@ -41,6 +42,7 @@
    (setq _Trise (float __Trise))
    (setq _Tfall (float __Tfall))
    (setq _Fmax (float __Fmax))
+   (setq _touch_time (float __touch_time))
    self)
   (:mode
    (&optional __mode)
@@ -72,6 +74,9 @@
   (:Fmax
    (&optional __Fmax)
    (if __Fmax (setq _Fmax __Fmax)) _Fmax)
+  (:touch_time
+   (&optional __touch_time)
+   (if __touch_time (setq _touch_time __touch_time)) _touch_time)
   (:serialization-length
    ()
    (+
@@ -94,6 +99,8 @@
     ;; float32 _Tfall
     4
     ;; float32 _Fmax
+    4
+    ;; float32 _touch_time
     4
     ))
   (:serialize
@@ -120,6 +127,8 @@
        (sys::poke _Tfall (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _Fmax
        (sys::poke _Fmax (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _touch_time
+       (sys::poke _touch_time (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -144,11 +153,13 @@
      (setq _Tfall (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _Fmax
      (setq _Fmax (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _touch_time
+     (setq _touch_time (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get control::Command :md5sum-) "a6a1adef66b901eb18da73880940852a")
+(setf (get control::Command :md5sum-) "e6faae430874a340a970ebe0cee6bc1f")
 (setf (get control::Command :datatype-) "control/Command")
 (setf (get control::Command :definition-)
       "int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式
@@ -161,10 +172,11 @@ float32 Tsta    #助力开始时刻
 float32 Trise    #助力结束时刻
 float32 Tfall    #助力开始时刻
 float32 Fmax    #助力结束时刻
+float32 touch_time
 ")
 
 
 
-(provide :control/Command "a6a1adef66b901eb18da73880940852a")
+(provide :control/Command "e6faae430874a340a970ebe0cee6bc1f")
 
 

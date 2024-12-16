@@ -57,6 +57,8 @@ class RightLat_art(Strategy):
         Tfall = (start_time + rise_time + fall_time) * 100
         flag = self.Flag
         self.Flag = self.Flag + 1
+        touch_time = self.touch_time
+
 
         # 助力曲线设计
         if 1:
@@ -93,7 +95,7 @@ class RightLat_art(Strategy):
             force = force_pre
             mode = self.Mode_stance
 
-        return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax
+        return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax, touch_time
 
 
 

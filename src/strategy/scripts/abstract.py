@@ -47,6 +47,7 @@ class Strategy:
         self.touch_time = -10
         self.off_time = -10
         self.Last_flag = 0
+        self.Last_t = 0
 
         self.Pos = 0  # 腾空相放线
         self.upstart_time = 0
@@ -180,7 +181,7 @@ class Strategy:
         return
 
     def update(self, t):
-        force, flag,  mode, kp, Tsta, Trise, Tfall, Fmax = self.force_curve(t)
+        force, flag,  mode, kp, Tsta, Trise, Tfall, Fmax , touch_time= self.force_curve(t)
         self.cmd_msg.force = force
         self.cmd_msg.mode = mode
         self.cmd_msg.kp = kp
@@ -189,6 +190,7 @@ class Strategy:
         self.cmd_msg.Trise = Trise               
         self.cmd_msg.Tfall = Tfall
         self.cmd_msg.Fmax = Fmax
+        self.cmd_msg.touch_time = touch_time
         self.cmd_pub.publish(self.cmd_msg)
         return
 

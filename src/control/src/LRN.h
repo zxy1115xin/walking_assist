@@ -14,7 +14,7 @@ class LRN
 public:
     LRN();
     ~LRN();
-    float update(float force_des,float force_real,float flag_step,float (&f_cmd)[500],float (&f_cmd_last)[500],float Tsta,float Trise,float Tfall,float Fmax,int Mode);
+    float update(float force_des,float force_real,float flag_step,float (&f_cmd)[500],float (&f_cmd_last)[500],float Tsta,float Trise,float Tfall,float Fmax,int Mode , float touch_time);
 
     void setKp(float Kp);
     void setKd(float Kd);

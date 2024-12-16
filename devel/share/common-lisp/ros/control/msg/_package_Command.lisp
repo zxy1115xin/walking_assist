@@ -19,4 +19,6 @@
           TFALL
           FMAX-VAL
           FMAX
+          TOUCH_TIME-VAL
+          TOUCH_TIME
 ))

@@ -50,21 +50,25 @@ class StrategyGroup:
     def load_human_data(self):
         data = {}
         file_path = '/home/c208/walking_assist/src/strategy/scripts/data/human_data.txt'
-        with open(file_path, 'r') as file:
+        file_ = open(file_path, 'r')
+        with file_ as file:
             for line in file:
                 line = line.strip()
                 var_BQname, values = line.split(':')
                 arr = list(map(float, values.split()))
                 data[var_BQname] = arr
+        file_.close()
         return data
 
     def load_equations(self):
         file_path = '/home/c208/walking_assist/src/strategy/scripts/data/equation.txt'
         eqs = {}
-        with open(file_path, 'r') as f:
+        file_=open(file_path, 'r')
+        with file_ as f:
             for line in f:
                 name, expr_str = line.strip().split('=', 1)
                 eqs[name] = sympify(expr_str)
+        file_.close()
         return eqs
 
     def prepare_functions(self):
@@ -239,7 +243,8 @@ class StrategyGroup:
         return
 
     def timeCallback(self, event): # 是一个基于 ROS 定时器触发的回调函数，定时器可以按照设定的时间间隔周期性地触发回调函数执行
-        t = (event.current_real - self.time0).to_sec()
+        t = event.current_real.to_sec()
+        # t = (event.current_real - self.time0).to_sec()
         self.update(t)
         return
 

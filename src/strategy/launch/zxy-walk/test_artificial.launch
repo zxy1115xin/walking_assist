@@ -2,8 +2,10 @@
     <!--  右脚假肢 ，助力算法测试-->
 
 
+
     <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/artificial.bag -a" />
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
+
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
       <remap from="received_messages" to="can0_rx"/>
@@ -83,8 +85,8 @@
 
     <node pkg="strategy" type="strategy_group_artificial.py" name="strategy_group" output="screen">
          <param name = "force_pre" type = "double" value = "8.0" />
-         <param name = "lat" type = "double" value = "2" />
-         <param name = "med" type = "double" value = "2" />
+         <param name = "lat" type = "double" value = "1" />
+         <param name = "med" type = "double" value = "0" />
    </node>
 
 </launch>

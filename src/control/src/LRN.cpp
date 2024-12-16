@@ -61,8 +61,8 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     Tfall=floor(Tfall);
 
     ros::Time current_time = ros::Time::now();
-    double t = current_time.toSec(); // 获取秒数
-    t = t -touch_time;
+    double tt = current_time.toSec(); // 获取秒数
+    double t = tt -touch_time;
 
     diff_err_=force_real-force_des-err_;
     err_=force_real-force_des;
@@ -115,6 +115,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
     if(step_>-2)  //在第i步之后开始进行迭代学习
     {
+        ROS_INFO_STREAM("!!!!!!!!!!!!!!!!!!!!1 T " << t <<"touch_time"<<touch_time <<"SNum_"<<SNum_);
 
         switch (Mode)
         {
@@ -122,9 +123,9 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             case 1:  // 迭代学习
             {
 
-                int t1=2;  //提前激活时间
-                int t2=2;
-                int t3=0;
+                int t1=2/100;  //提前激活时间
+                int t2=2/100;
+                int t3=0/100;
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
                 float force_pre = 0.7*1000/30;
@@ -156,7 +157,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                     //float fmin =( 12)*0.075*1000/30;
                     //output_force=-fmin*(t- Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
                     float fmax = ( 0.5*Fmax+errFmax)*0.03*1000/30;
-                    output_force= fmax 
+                    output_force= force_pre + fmax;
                 }
 
                 // 下降阶段

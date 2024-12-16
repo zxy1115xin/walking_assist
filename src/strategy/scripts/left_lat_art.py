@@ -51,7 +51,7 @@ class LeftLat_art(Strategy):
             # 3.其他
 
             self.Flag = 1
-            self.num = self.num + 3
+            self.num = t + 3
             self.touch_time = t  # 触地时刻,,t 是窗口执行时间
 
         self.Last_t = t
@@ -62,14 +62,15 @@ class LeftLat_art(Strategy):
         force_pre = self.pre_force
         T_v = 0.05  # 助力结束后学习持续学习时间
         Fmax = self.upforce_max + force_pre
-        Tsta = self.upstart_time * 100
-        Trise = (self.upstart_time + self.uprise_time) * 100
-        Tfall = (self.upstart_time + self.uprise_time + self.upfall_time) * 100
+        Tsta = self.upstart_time
+        Trise = (self.upstart_time + self.uprise_time)
+        Tfall = (self.upstart_time + self.uprise_time + self.upfall_time)
+        touch_time = self.touch_time
         flag = self.Flag
         self.Flag = self.Flag + 1
 
-        if (self.Flag < 5):
-            print(["LeftLat_art   :  self.Flag",self.Flag, "Tsta", Tsta, "---Fmax ", Fmax , "Trise", Trise, "Tfall ",Tfall ])
+
+        print(["LeftLat_art :  t",t, "touch_time", touch_time,'t-touch ',t-touch_time ,"self.Flag", self.Flag ])
 
         # 助力曲线设计
         if 1:
@@ -118,7 +119,7 @@ class LeftLat_art(Strategy):
             force = force_pre
             mode = self.Mode_stance
 
-        return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax
+        return force, flag, mode, kp, Tsta, Trise, Tfall, Fmax,touch_time
 
 
 if __name__ == '__main__':

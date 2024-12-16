@@ -33,7 +33,8 @@ struct Command_
     , Tsta(0.0)
     , Trise(0.0)
     , Tfall(0.0)
-    , Fmax(0.0)  {
+    , Fmax(0.0)
+    , touch_time(0.0)  {
     }
   Command_(const ContainerAllocator& _alloc)
     : mode(0)
@@ -45,7 +46,8 @@ struct Command_
     , Tsta(0.0)
     , Trise(0.0)
     , Tfall(0.0)
-    , Fmax(0.0)  {
+    , Fmax(0.0)
+    , touch_time(0.0)  {
   (void)_alloc;
     }
 
@@ -80,6 +82,9 @@ struct Command_
 
    typedef float _Fmax_type;
   _Fmax_type Fmax;
+
+   typedef float _touch_time_type;
+  _touch_time_type touch_time;
 
 
 
@@ -119,7 +124,8 @@ bool operator==(const ::control::Command_<ContainerAllocator1> & lhs, const ::co
     lhs.Tsta == rhs.Tsta &&
     lhs.Trise == rhs.Trise &&
     lhs.Tfall == rhs.Tfall &&
-    lhs.Fmax == rhs.Fmax;
+    lhs.Fmax == rhs.Fmax &&
+    lhs.touch_time == rhs.touch_time;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -176,12 +182,12 @@ struct MD5Sum< ::control::Command_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "a6a1adef66b901eb18da73880940852a";
+    return "e6faae430874a340a970ebe0cee6bc1f";
   }
 
   static const char* value(const ::control::Command_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xa6a1adef66b901ebULL;
-  static const uint64_t static_value2 = 0x18da73880940852aULL;
+  static const uint64_t static_value1 = 0xe6faae430874a340ULL;
+  static const uint64_t static_value2 = 0xa970ebe0cee6bc1fULL;
 };
 
 template<class ContainerAllocator>
@@ -210,6 +216,7 @@ struct Definition< ::control::Command_<ContainerAllocator> >
 "float32 Trise    #助力结束时刻\n"
 "float32 Tfall    #助力开始时刻\n"
 "float32 Fmax    #助力结束时刻\n"
+"float32 touch_time\n"
 ;
   }
 
@@ -238,6 +245,7 @@ namespace serialization
       stream.next(m.Trise);
       stream.next(m.Tfall);
       stream.next(m.Fmax);
+      stream.next(m.touch_time);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -276,6 +284,8 @@ struct Printer< ::control::Command_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.Tfall);
     s << indent << "Fmax: ";
     Printer<float>::stream(s, indent + "  ", v.Fmax);
+    s << indent << "touch_time: ";
+    Printer<float>::stream(s, indent + "  ", v.touch_time);
   }
 };
 

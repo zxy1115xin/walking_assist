@@ -1,0 +1,8 @@
+<launch>
+    <!--  右脚假肢 ，助力算法测试-->
+
+    <param name="use_sim_time" value="ture" />
+
+
+
+</launch>

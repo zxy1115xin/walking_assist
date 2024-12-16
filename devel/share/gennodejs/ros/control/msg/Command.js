@@ -28,6 +28,7 @@ class Command {
       this.Trise = null;
       this.Tfall = null;
       this.Fmax = null;
+      this.touch_time = null;
     }
     else {
       if (initObj.hasOwnProperty('mode')) {
@@ -90,6 +91,12 @@ class Command {
       else {
         this.Fmax = 0.0;
       }
+      if (initObj.hasOwnProperty('touch_time')) {
+        this.touch_time = initObj.touch_time
+      }
+      else {
+        this.touch_time = 0.0;
+      }
     }
   }
 
@@ -115,6 +122,8 @@ class Command {
     bufferOffset = _serializer.float32(obj.Tfall, buffer, bufferOffset);
     // Serialize message field [Fmax]
     bufferOffset = _serializer.float32(obj.Fmax, buffer, bufferOffset);
+    // Serialize message field [touch_time]
+    bufferOffset = _serializer.float32(obj.touch_time, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -142,11 +151,13 @@ class Command {
     data.Tfall = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [Fmax]
     data.Fmax = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [touch_time]
+    data.touch_time = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 40;
+    return 44;
   }
 
   static datatype() {
@@ -156,7 +167,7 @@ class Command {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'a6a1adef66b901eb18da73880940852a';
+    return 'e6faae430874a340a970ebe0cee6bc1f';
   }
 
   static messageDefinition() {
@@ -172,6 +183,7 @@ class Command {
     float32 Trise    #助力结束时刻
     float32 Tfall    #助力开始时刻
     float32 Fmax    #助力结束时刻
+    float32 touch_time
     `;
   }
 
@@ -249,6 +261,13 @@ class Command {
     }
     else {
       resolved.Fmax = 0.0
+    }
+
+    if (msg.touch_time !== undefined) {
+      resolved.touch_time = msg.touch_time;
+    }
+    else {
+      resolved.touch_time = 0.0
     }
 
     return resolved;

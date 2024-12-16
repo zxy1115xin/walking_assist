@@ -280,7 +280,9 @@ void MotorControl::update()
                     LRN_.getForce(force_MFAC);
                 }
 
-                float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
+               // ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);
+
+                float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_,cmd_msg_.touch_time);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
                 // 根据反馈的保护
