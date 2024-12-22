@@ -1,7 +1,6 @@
 import numpy as np
 import joblib
 from tensorflow.keras.models import load_model
-
 import os
 
 print("当前工作目录:", os.getcwd())
@@ -41,3 +40,4 @@ if __name__ == "__main__":
     input_sample = [34, 50, 60, 150]  # 替换为实际的输入数据
     output = predict_output(input_sample)
     print(f"给定输入 {input_sample} 的预测输出: {output}")
+    print(f"给定输入 {input_sample} 的预测输出: {output[0][3]} ")
