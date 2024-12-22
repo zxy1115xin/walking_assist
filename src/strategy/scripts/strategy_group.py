@@ -11,6 +11,9 @@ from sympy import symbols, sympify, lambdify
 import sympy as sp
 import numpy as np
 
+import joblib
+from tensorflow.keras.models import load_model
+
 
 class StrategyGroup:
     def __init__(self, strategy_list):
@@ -46,6 +49,19 @@ class StrategyGroup:
             self.prepare_functions()
             self.out_data()
 
+        if  self.lat > 1:
+            self.prepare_model()
+
+    def prepare_model(self):
+
+        # 加载模型和缩放器
+        input_scaler = joblib.load('/home/c208/walking_assist/src/strategy/scripts/model/input_scaler.save')
+        output_scaler = joblib.load('/home/c208/walking_assist/src/strategy/scripts/model/output_scaler.save')
+        trained_model = load_model( '/home/c208/walking_assist/src/strategy/scripts/model/neural_network_model.keras')
+
+        for strategy in self.strategy_list:
+            strategy.get_model(input_scaler, output_scaler, trained_model)
+        return
 
     def load_human_data(self):
         data = {}
@@ -159,11 +175,11 @@ class StrategyGroup:
             self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,0)
         else: #当前是自适应控制
             # Left
-            self.strategy_list[0].ParamCallback(self.lat*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
-            self.strategy_list[1].ParamCallback(self.med*config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            self.strategy_list[0].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
+            self.strategy_list[1].ParamCallback(config.F_max,config.T_max_l,config.t_rise,config.t_fall,1)
             # Right
-            self.strategy_list[2].ParamCallback(self.med*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
-            self.strategy_list[3].ParamCallback(self.lat*config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
+            self.strategy_list[2].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
+            self.strategy_list[3].ParamCallback(config.F_max,config.T_max_r,config.t_rise,config.t_fall,1)
 
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新

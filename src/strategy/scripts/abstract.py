@@ -13,6 +13,9 @@ from sympy import symbols, sympify, lambdify
 import sympy as sp
 import numpy as np
 
+import joblib
+from tensorflow.keras.models import load_model
+
 
 class Strategy:
 
@@ -78,13 +81,42 @@ class Strategy:
         # self.F2_func = {}
 
 
+    def get_model(self, input_scaler, output_scaler, trained_model):
+
+        self.input_scaler = input_scaler
+        self.output_scaler = output_scaler
+        self.trained_model = trained_model
+        return
+
+    def predict_output(self, input_sample):
+        """
+        使用训练好的模型进行预测，并将输出四舍五入为整数。
+
+        参数：
+        input_sample (list): 输入数据，列表形式，长度与训练模型时一致。
+
+        返回：
+        np.ndarray: 预测输出，四舍五入为整数后的值。
+        """
+        # 对输入数据进行归一化
+        input_scaled = self.input_scaler.transform([input_sample])
+
+        # 使用模型预测
+        predicted_scaled_output = self.trained_model.predict(input_scaled, verbose=0)
+
+        # 将归一化的输出反归一化
+        predicted_output = self.output_scaler.inverse_transform(predicted_scaled_output)
+
+        # 对输出进行四舍五入
+        rounded_output = np.round(predicted_output).astype(int)
+
+        return rounded_output
+
     def get_data(self, human_data, F1_func ,F2_func):
 
         self.human_data = human_data
         self.F1_func = F1_func
         self.F2_func = F2_func
-
-
         return
 
     def calculate_f1(self, fmax, Tmax, t_rise, t_fall, T_gait):
@@ -248,22 +280,23 @@ class Strategy:
                 self.upfall_time = self.t_fall
                 self.upforce_max = self.F_max
             else:
-                # self.upstart_time = self.upstart_time_
-                # self.uprise_time = self.uprise_time_
-                # self.upfall_time = self.upfall_time_
-                # self.upforce_max = self.upforce_max_
-                if self.location == 2:
-                    # function 输出是百分比（0-100），self.uprise_time输出是小数（0-1）
-                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise # 辅助力开始相
-                    self.uprise_time = self.t_rise -0.02
-                    self.upfall_time = self.t_fall
-                    self.upforce_max = self.F_max/2.1
+                # input_sample = [34, 50, 60, 150]  # 替换为实际的输入数据
+                T_delay = 5
+                input_sample = [self.T_max *100 + T_delay - self.t_rise / self.gait_T * 100, self.T_max *100 + T_delay,
+                                self.T_max *100 + T_delay + self.t_fall / self.gait_T * 100, self.F_max]  # 替换为实际的输入数据
+                output = self.predict_output(input_sample)
+
+                if self.location == 2:  # 外侧
+                    self.upstart_time = output[0][4] * self.gait_T / 100 / 100
+                    self.uprise_time = output[0][5] * self.gait_T / 100 / 100 - self.upstart_time
+                    self.upfall_time = output[0][6] * self.gait_T / 100 / 100 - self.uprise_time
+                    self.upforce_max = output[0][7]
 
                 else:
-                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise -0.05  # 辅助力开始相
-                    self.uprise_time = self.t_rise -0.01
-                    self.upfall_time = self.t_fall
-                    self.upforce_max = self.F_max/6
+                    self.upstart_time = output[0][0] * self.gait_T / 100 / 100
+                    self.uprise_time = output[0][1] * self.gait_T / 100 / 100 - self.upstart_time
+                    self.upfall_time = output[0][2] * self.gait_T / 100 / 100 - self.uprise_time
+                    self.upforce_max = output[0][3]
 
 
             # 3.其他
@@ -274,22 +307,6 @@ class Strategy:
         if self.GRF.stance_flg == 0 and self.Last_flag == 1:
             self.off_time = t  # 记录支撑相结束时刻
 
-            # if self.adapt_ == 1:
-            #     T_delay = 11
-            #     if self.location == 2:
-            #         # function 输出是百分比（0-100），self.uprise_time输出是小数（0-1）
-            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.10, self.t_rise, self.t_fall, self.gait_T / 100)
-            #         self.upstart_time_ = (t_sta_1-T_delay) * self.gait_T / 100 / 100
-            #         self.uprise_time_ = t_rise_1 * self.gait_T / 100 / 100
-            #         self.upfall_time_ = t_fall_1 * self.gait_T / 100 / 100
-            #         self.upforce_max_ = f_max_1
-            #
-            #     else:
-            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.10, self.t_rise, self.t_fall, self.gait_T / 100)
-            #         self.upstart_time_ = (t_sta_1-T_delay) * self.gait_T / 100 / 100
-            #         self.uprise_time_ = t_rise_1 * self.gait_T / 100 / 100
-            #         self.upfall_time_ = t_fall_1 * self.gait_T / 100 / 100
-            #         self.upforce_max_ = f_max_1
 
         # 辅助力预备预备
         self.Last_flag = self.GRF.stance_flg
