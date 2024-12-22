@@ -212,6 +212,8 @@ void MotorControl::update()
                 // 力矩模式
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
+
+
                 // LRN 迭代学习 更新参数
                 LRN_.setParam(0.5,0.8,0);
                 int Mode_=1;  // LRN 迭代学习进行模式 mode == 1
@@ -219,9 +221,9 @@ void MotorControl::update()
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
-                if (cmd_msg_.flag<5){
-                ROS_INFO_STREAM("=="<<name_<<"flag"<<cmd_msg_.flag<<"Tsta"<<cmd_msg_.Tsta<<"Trise"<<cmd_msg_.Trise<<"Tfall<"<<cmd_msg_.Tfall<<"fmax"<< cmd_msg_.Fmax);
-                }
+
+//                ROS_INFO_STREAM("====="<<name_<<"flag"<<cmd_msg_.flag);
+
 
 //                ROS_INFO_STREAM("=="<<name_<<"fight"<<ctrl_msg_.T<<"fmax"<< cmd_msg_.Fmax);
 
@@ -246,8 +248,9 @@ void MotorControl::update()
                      pos_fight_=sensor_msg_.Pos;
                 }
                 flag_fight_=cmd_msg_.flag;
-
                 last_force_data = force_msg_.data;
+
+
 
                 break;
 
@@ -256,10 +259,16 @@ void MotorControl::update()
 
             case 9:{  //利用迭代学习的结果作为前馈（迭代学习结果+前馈2/闭环3/无模型自适应4）
 
+                // 力矩模式
                 ctrl_msg_.K_P = 0;
                 ctrl_msg_.K_W = 0;
-                int Mode_=2;  //开环模式
-                // int Mode_=3;  //闭环模式
+
+
+                //int Mode_=2;  //开环模式
+
+                LRN_.setParam(0.1,0.2,0);
+                int Mode_=3;  //闭环模式
+
                 // int Mode_=4;  //无模型自适应
 
                 if (Mode_==4){  //无模型自适应4，但是实用范围不行，延迟
@@ -287,10 +296,19 @@ void MotorControl::update()
                     ctrl_msg_.T = 0;
 
                 const float T_max = 50;
-                if (ctrl_msg_.T > 35) // 力矩限制保护
-                        ctrl_msg_.T = 35;
+                if (ctrl_msg_.T > 24) // 力矩限制保护
+                        ctrl_msg_.T = 24;
                 if (ctrl_msg_.T < -T_max)
                         ctrl_msg_.T = -T_max;
+
+
+                // mode10 防线参考位置参考
+                if (last_force_data < 5 && force_msg_.data >= 5){
+                     pos_fight_=sensor_msg_.Pos;
+                }
+                flag_fight_=cmd_msg_.flag;
+                last_force_data = force_msg_.data;
+
 
                 break;
             }
@@ -319,7 +337,7 @@ void MotorControl::update()
                         else
                         {
                         errsum1 = errsum1+force_err_max1_;
-                        pos_change1_=-0.2 +(force_err_max1_) * 0.007 + errsum1 * 0.002;
+                        pos_change1_=-0.2 +(force_err_max1_) * 0.003 + errsum1 * 0.001;
                         // pos_change1_ = -1;
 
                         }
@@ -332,7 +350,7 @@ void MotorControl::update()
                      }
 
 
-                    pos_change_=(force_err_max_) * 0.007 + errsum * 0.002;
+                    pos_change_=(force_err_max_) * 0.003 + errsum * 0.001;
 
 
                     //  ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);

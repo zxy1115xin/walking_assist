@@ -23,36 +23,57 @@ class LeftLat_art(Strategy):
             self.Pos = self.pos  # 这里把参数传给KP传出
 
             # 2. 更新力曲线
-            self.gait_T = 120
+            self.gait_T = 110
             if self.adapt_ == 0:
                 self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相
                 self.uprise_time = self.t_rise
                 self.upfall_time = self.t_fall
                 self.upforce_max = self.F_max
 
+            # else:
+            #     T_delay = 27
+            #     if self.location == 2:
+            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.26, self.t_rise, self.t_fall, self.gait_T / 100)
+            #         self.upstart_time =(t_sta_1-T_delay) * self.gait_T / 100 / 100
+            #         if self.upstart_time < 1 / 100:
+            #             self.upstart_time = 1 / 100
+            #         self.uprise_time = (t_rise_1-0) * self.gait_T / 100 /100
+            #         self.upfall_time = (t_fall_1-0) * self.gait_T / 100 /100
+            #         self.upforce_max = f_max_1
+            #
+            #r
+            #
+            #     else:
+            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.26, self.t_rise, self.t_fall, self.gait_T / 100)
+            #         self.upstart_time =(t_sta_1-T_delay) * self.gait_T / 100 / 100
+            #         if self.upstart_time < 1 / 100:
+            #             self.upstart_time = 1 / 100
+            #         self.uprise_time = (t_rise_1-0) * self.gait_T / 100 /100
+            #         self.upfall_time = (t_fall_1-0) * self.gait_T / 100 /100
+            #         self.upforce_max = f_max_1
+
             else:
+                T_delay = 27
                 if self.location == 2:
-                    f_max_1, t_sta_1, t_rise_1, t_fall_1 = self.calculate_f2(self.F_max / 2, self.T_max + 0.25,
-                                                                             self.t_rise, self.t_fall,
-                                                                             self.gait_T / 100)
-                    self.upstart_time = t_sta_1 * self.gait_T / 100 / 100 - t_rise_1 * self.gait_T / 100 / 100
-                    self.uprise_time = t_rise_1 * self.gait_T / 100 / 100
-                    self.upfall_time = t_fall_1 * self.gait_T / 100 / 100
-                    self.upforce_max = f_max_1
+                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相
+                    self.uprise_time = self.t_rise+0.2
+                    self.upfall_time = self.t_fall
+                    self.upforce_max = self.F_max/3
+
+
                 else:
-                    f_max_1, t_sta_1, t_rise_1, t_fall_1 = self.calculate_f1(self.F_max / 2, self.T_max + 0.25,
-                                                                             self.t_rise, self.t_fall,
-                                                                             self.gait_T / 100)
-                    self.upstart_time = t_sta_1 * self.gait_T / 100 / 100 - t_rise_1 * self.gait_T / 100 / 100
-                    self.uprise_time = t_rise_1 * self.gait_T / 100 / 100
-                    self.upfall_time = t_fall_1 * self.gait_T / 100 / 100
-                    self.upforce_max = f_max_1
+                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise  # 辅助力开始相
+                    self.uprise_time = self.t_rise
+                    self.upfall_time = self.t_fall
+                    self.upforce_max = self.F_max/2
+
 
             # 3.其他
 
             self.Flag = 1
-            self.num = self.num + 3
+            self.num = self.num + 1.1
             self.touch_time = t  # 触地时刻,,t 是窗口执行时间
+
 
         self.Last_t = t
 
@@ -68,8 +89,6 @@ class LeftLat_art(Strategy):
         flag = self.Flag
         self.Flag = self.Flag + 1
 
-        if (self.Flag < 5):
-            print(["LeftLat_art   :  self.Flag",self.Flag, "Tsta", Tsta, "---Fmax ", Fmax , "Trise", Trise, "Tfall ",Tfall ])
 
         # 助力曲线设计
         if 1:

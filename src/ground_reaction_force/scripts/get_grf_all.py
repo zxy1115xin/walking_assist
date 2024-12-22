@@ -67,7 +67,7 @@ class GRF_fit:
             else:
                 self.foot_upR = 0
 
-            if self.Last_flagR == 0 and self.foot_upR == 12:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
+            if self.Last_flagR == 0 and self.foot_upR == 8:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
                 self.grf.stance_flg = 1
 
             # 2. 判断支撑相阶段，保持处触地
@@ -80,7 +80,7 @@ class GRF_fit:
             else:
                 self.foot_downR = 0
 
-            if self.Last_flagR == 1 and self.foot_downR == 33:
+            if self.Last_flagR == 1 and self.foot_downR == 45:
                 self.grf.stance_flg = 0
 
             self.Last_flagR = self.grf.stance_flg
@@ -93,7 +93,7 @@ class GRF_fit:
             else:
                 self.foot_upL = 0
 
-            if self.Last_flagL == 0 and self.foot_upL == 12:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
+            if self.Last_flagL == 0 and self.foot_upL == 8:  # 地反力连续12个采样点大于阈值，则判定为支撑相开始
                 self.grf.stance_flg = 1
 
             # 2. 判断支撑相阶段，保持处触地
@@ -106,7 +106,7 @@ class GRF_fit:
             else:
                 self.foot_downL = 0
 
-            if self.Last_flagL == 1 and self.foot_downL == 33:
+            if self.Last_flagL == 1 and self.foot_downL == 45:
                 self.grf.stance_flg = 0
 
             self.Last_flagL = self.grf.stance_flg

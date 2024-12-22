@@ -43,6 +43,11 @@ class Strategy:
         self.t_fall = 0
         self.t_start = 0
 
+        self.upstart_time_ = 0
+        self.uprise_time_ = 0
+        self.upfall_time_ = 0
+        self.upforce_max_ = 0
+
         self.Flag = 0  # 周期计数
         self.touch_time = -10
         self.off_time = -10
@@ -58,6 +63,9 @@ class Strategy:
         self.gait_num_last = 0
         self.gait_num = 0
         self.gait_T = 100
+        self.gait_T_last = 100
+
+
 
 
         # 定义发布 “指令” command
@@ -239,28 +247,49 @@ class Strategy:
                 self.uprise_time = self.t_rise
                 self.upfall_time = self.t_fall
                 self.upforce_max = self.F_max
-
             else:
+                # self.upstart_time = self.upstart_time_
+                # self.uprise_time = self.uprise_time_
+                # self.upfall_time = self.upfall_time_
+                # self.upforce_max = self.upforce_max_
                 if self.location == 2:
-                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.25, self.t_rise, self.t_fall, self.gait_T / 100)
-                    self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
-                    self.uprise_time = t_rise_1 * self.gait_T / 100 /100
-                    self.upfall_time = t_fall_1 * self.gait_T / 100 /100
-                    self.upforce_max = f_max_1
+                    # function 输出是百分比（0-100），self.uprise_time输出是小数（0-1）
+                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise # 辅助力开始相
+                    self.uprise_time = self.t_rise -0.02
+                    self.upfall_time = self.t_fall
+                    self.upforce_max = self.F_max/2.1
+
                 else:
-                    f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.25, self.t_rise, self.t_fall, self.gait_T / 100)
-                    self.upstart_time = t_sta_1 * self.gait_T / 100 /100 -t_rise_1 * self.gait_T / 100 /100
-                    self.uprise_time = t_rise_1 * self.gait_T / 100 /100
-                    self.upfall_time = t_fall_1 * self.gait_T / 100 /100
-                    self.upforce_max = f_max_1
+                    self.upstart_time = self.T_max * self.gait_T / 100 - self.t_rise -0.05  # 辅助力开始相
+                    self.uprise_time = self.t_rise -0.01
+                    self.upfall_time = self.t_fall
+                    self.upforce_max = self.F_max/6
+
 
             # 3.其他
             self.stance_finsh = 0
             self.Flag = 1  # 计数更新
 
-            # 判断离地时刻
+        # 判断离地时刻
         if self.GRF.stance_flg == 0 and self.Last_flag == 1:
             self.off_time = t  # 记录支撑相结束时刻
+
+            # if self.adapt_ == 1:
+            #     T_delay = 11
+            #     if self.location == 2:
+            #         # function 输出是百分比（0-100），self.uprise_time输出是小数（0-1）
+            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f2( self.F_max/2, self.T_max+0.10, self.t_rise, self.t_fall, self.gait_T / 100)
+            #         self.upstart_time_ = (t_sta_1-T_delay) * self.gait_T / 100 / 100
+            #         self.uprise_time_ = t_rise_1 * self.gait_T / 100 / 100
+            #         self.upfall_time_ = t_fall_1 * self.gait_T / 100 / 100
+            #         self.upforce_max_ = f_max_1
+            #
+            #     else:
+            #         f_max_1,t_sta_1,t_rise_1,t_fall_1 = self.calculate_f1( self.F_max/2, self.T_max+0.10, self.t_rise, self.t_fall, self.gait_T / 100)
+            #         self.upstart_time_ = (t_sta_1-T_delay) * self.gait_T / 100 / 100
+            #         self.uprise_time_ = t_rise_1 * self.gait_T / 100 / 100
+            #         self.upfall_time_ = t_fall_1 * self.gait_T / 100 / 100
+            #         self.upforce_max_ = f_max_1
 
         # 辅助力预备预备
         self.Last_flag = self.GRF.stance_flg
@@ -273,7 +302,11 @@ class Strategy:
         Trise = (self.upstart_time + self.uprise_time) * 100
         Tfall = (self.upstart_time + self.uprise_time + self.upfall_time) * 100
         flag = self.Flag
+
+
         self.Flag = self.Flag + 1
+
+
         if self.Mode_fight == 11:
             kp = self.Pos  # 将位置参数传给kp
 

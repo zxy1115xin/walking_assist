@@ -65,8 +65,8 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     err_=force_real-force_des;
     err_sum_ += err_;
     // 设计积分上下届
-    float err_sum_max = 4000;
-    float err_sum_min = -4000;
+    float err_sum_max = 400;
+    float err_sum_min = -400;
     if(err_sum_ > err_sum_max)err_sum_ = err_sum_max;
     if(err_sum_ < err_sum_min)err_sum_ = err_sum_min;
 
@@ -113,18 +113,21 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     if(step_>-2)  //在第i步之后开始进行迭代学习
     {
 
+        int t1=5;  //提前激活时间
+        int t2=1;
+        int t3=0;
+
         switch (Mode)
+
         {
 
             case 1:  // 迭代学习
             {
 
-                int t1=5;  //提前激活时间
-                int t2=2;
-                int t3=0;
+
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
-                float force_pre = 0.7*1000/30;
+                float force_pre = 0.4*1000/30;
                 if(SNum_<=Tsta-t1 )
                 {
 //                    float f_max = 0.5*1000/30;
@@ -213,18 +216,19 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
             }
 
 
-            case 3: // 迭代学习前馈 + PID闭环模式
+            case 3: // 迭代学习前馈 +  峰值误差调整
             {
 
-                if (istep_index==1)
+                if ( SNum_>Tsta-t1 && SNum_<=Trise-3)
                 {
                     if (this_cmd >  0.75*1000/30) this_cmd=  0.75*1000/30;
                     if (this_cmd < -0.75*1000/30) this_cmd= -0.75*1000/30;
-                    output_force=f_cmd_last[SNum_]+this_cmd;
+
+                    output_force=f_cmd_last[SNum_]+this_cmd*100/30;
+
                 }
                 else output_force=f_cmd_last[SNum_];
-                istep_index++;
-                if (istep_index==5) istep_index=1;  // 每5步修正一次
+
 
 
                 break;
