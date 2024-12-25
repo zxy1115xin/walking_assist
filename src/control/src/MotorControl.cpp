@@ -223,8 +223,6 @@ void MotorControl::update()
 
 
 //                ROS_INFO_STREAM("====="<<name_<<"flag"<<cmd_msg_.flag);
-
-
 //                ROS_INFO_STREAM("=="<<name_<<"fight"<<ctrl_msg_.T<<"fmax"<< cmd_msg_.Fmax);
 
                 // 根据反馈的保护
@@ -249,7 +247,6 @@ void MotorControl::update()
                 }
                 flag_fight_=cmd_msg_.flag;
                 last_force_data = force_msg_.data;
-
 
 
                 break;
@@ -396,8 +393,6 @@ void MotorControl::update()
                  ctrl_msg_.Pos = pos_fight_ + pos_change_*(numf)/15;  //  + 是放线  -是收线
 
              }
-
-
 
                 break;
             }

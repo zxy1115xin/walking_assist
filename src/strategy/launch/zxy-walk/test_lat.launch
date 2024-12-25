@@ -2,7 +2,7 @@
     <!--   外侧单绳助力： F=100N/m -->
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/walk_lat.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/lat.bag -a" />
 <!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_lat.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
@@ -82,7 +82,7 @@
 
 
    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
-         <param name = "force_pre" type = "double" value = "8.0" />
+         <param name = "force_pre" type = "double" value = "5.0" />
          <param name = "lat" type = "double" value = "1.0" />
          <param name = "med" type = "double" value = "0.0" />
    </node>

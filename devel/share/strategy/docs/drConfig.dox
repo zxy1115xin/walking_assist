@@ -3,11 +3,11 @@
 Reads and maintains the following parameters on the ROS server
 
 - \b "~show" : \b [bool] 显示步态参数 min: False, default: False, max: True
-- \b "~F_max" : \b [double] A Double Parameter, min: 0.0, default: 140.0, max: 180.0
-- \b "~t_rise" : \b [double] A Double Parameter min: 0.0, default: 0.31, max: 0.5
-- \b "~t_fall" : \b [double] A Double Parameter min: 0.0, default: 0.13, max: 0.5
-- \b "~T_max_r" : \b [double] A Double Parameter min: 0.0, default: 0.47, max: 0.5
-- \b "~T_max_l" : \b [double] A Double Parameter min: 0.0, default: 0.47, max: 0.5
+- \b "~F_max" : \b [double] A Double Parameter, min: 0.0, default: 150.0, max: 180.0
+- \b "~t_rise" : \b [double] A Double Parameter min: 0.0, default: 0.35, max: 0.5
+- \b "~t_fall" : \b [double] A Double Parameter min: 0.0, default: 0.11, max: 0.5
+- \b "~T_max_r" : \b [double] A Double Parameter min: 0.0, default: 0.42, max: 0.5
+- \b "~T_max_l" : \b [double] A Double Parameter min: 0.0, default: 0.42, max: 0.5
 - \b "~update_Mode" : \b [bool] A Bool Parameter min: False, default: False, max: True
 - \b "~Stop_update" : \b [bool] 停止学习 min: False, default: False, max: True
 - \b "~Mode0" : \b [bool] 快速放松 min: False, default: False, max: True

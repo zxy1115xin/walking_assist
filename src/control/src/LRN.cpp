@@ -113,9 +113,9 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     if(step_>-2)  //在第i步之后开始进行迭代学习
     {
 
-        int t1=5;  //提前激活时间
-        int t2=1;
-        int t3=0;
+        int t1=1;  //提前激活时间
+        int t2=4;
+        int t3=3;
 
         switch (Mode)
 
@@ -150,7 +150,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 }
 
                 //峰值阶段
-                  else if (SNum_>Trise-t2 && SNum_<= Trise+t3)
+                  else if (SNum_>Trise-t2 && SNum_<= Trise-t3)
                 {
 
                     float fmin =( 12)*0.075*1000/30;
@@ -160,8 +160,8 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                     output_force=-fmin*(SNum_ - Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
                 }
 
-                // 下降阶段
-                else if (SNum_>Trise+t3  && force_des>10)
+                // 下降阶段  相对于峰值，要提前下降
+                else if (SNum_>Trise-t3  && force_des>10)
                 {
 
                     float f_min =( 0.5*Fmax+0.5*errFmin)*0.075*1000/30;

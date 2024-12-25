@@ -2,7 +2,7 @@
     <!--   单绳助力： F=0N/m -->
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/walk_free.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/free.bag -a" />
 <!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_free.bag -a" />-->
 <!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
 

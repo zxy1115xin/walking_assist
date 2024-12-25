@@ -10,9 +10,11 @@ import math
 from sympy import symbols, sympify, lambdify
 import sympy as sp
 import numpy as np
+import scipy.io
 
-import joblib
-from tensorflow.keras.models import load_model
+# import joblib
+# from tensorflow.keras.models import load_model
+
 
 
 class StrategyGroup:
@@ -49,8 +51,18 @@ class StrategyGroup:
             self.prepare_functions()
             self.out_data()
 
-        if  self.lat > 1:
-            self.prepare_model()
+        if self.lat > 1:
+            self.prepare_data()
+
+    def prepare_data(self):
+
+        data = scipy.io.loadmat('/home/c208/walking_assist/src/strategy/scripts/data/net_data.mat')
+        input_data = data.get('input_data')
+        output_data = data.get('output_data')
+
+        for strategy in self.strategy_list:
+            strategy.get_param(input_data, output_data)
+        return
 
     def prepare_model(self):
 

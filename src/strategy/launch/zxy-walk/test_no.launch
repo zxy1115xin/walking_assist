@@ -3,7 +3,7 @@
 
 
 
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_no.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/no.bag -a" />
 <!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
 
     <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
