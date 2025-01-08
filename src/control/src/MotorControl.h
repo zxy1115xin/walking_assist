@@ -20,6 +20,7 @@
 #include "FD_PID.h"
 #include "Feedforward.h"
 #include "ForwardPID.h"
+#include <cstring>
 
 
 #define MOTOR_OUT_RADIUS 27.7     //(mm) //可以考虑27（实验数据比例），有部分损耗  //30 是绕线轮半径
@@ -60,13 +61,15 @@ private:
     float flag_last_;
     float Ngait_= 10;
     float Nfight_= 10;
+    float delete_cmd = 0;
 
     // 放线
+    float pos_fight_last_ = 0;
     float last_force_data = 0.0;
     float pos_change_=0.2;
     float errsum=0;
     float force_err_max_=0;
-    float pos_change1_=0.2;
+    float pos_change1_=0;
     float errsum1=0;
     float force_err_max1_=0;
 

@@ -19,4 +19,6 @@
           TFALL
           FMAX-VAL
           FMAX
+          MEASURE-VAL
+          MEASURE
 ))

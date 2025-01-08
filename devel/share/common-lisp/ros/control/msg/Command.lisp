@@ -56,7 +56,12 @@
     :reader Fmax
     :initarg :Fmax
     :type cl:float
-    :initform 0.0))
+    :initform 0.0)
+   (measure
+    :reader measure
+    :initarg :measure
+    :type cl:integer
+    :initform 0))
 )
 
 (cl:defclass Command (<Command>)
@@ -116,6 +121,11 @@
 (cl:defmethod Fmax-val ((m <Command>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader control-msg:Fmax-val is deprecated.  Use control-msg:Fmax instead.")
   (Fmax m))
+
+(cl:ensure-generic-function 'measure-val :lambda-list '(m))
+(cl:defmethod measure-val ((m <Command>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader control-msg:measure-val is deprecated.  Use control-msg:measure instead.")
+  (measure m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Command>) ostream)
   "Serializes a message object of type '<Command>"
   (cl:let* ((signed (cl:slot-value msg 'mode)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
@@ -170,6 +180,12 @@
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let* ((signed (cl:slot-value msg 'measure)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Command>) istream)
   "Deserializes a message object of type '<Command>"
@@ -233,6 +249,12 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'Fmax) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'measure) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Command>)))
@@ -243,18 +265,19 @@
   "control/Command")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Command>)))
   "Returns md5sum for a message object of type '<Command>"
-  "a6a1adef66b901eb18da73880940852a")
+  "9b8e94fa3e1923da82a28a1fd42c0d6b")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Command)))
   "Returns md5sum for a message object of type 'Command"
-  "a6a1adef66b901eb18da73880940852a")
+  "9b8e94fa3e1923da82a28a1fd42c0d6b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Command>)))
   "Returns full string definition for message of type '<Command>"
-  (cl:format cl:nil "int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式~%float32 force~%float32 kp    #刚度 N/mm 或 PID的比例~%float32 ki    ~%float32 kd   ~%int32 flag    #标志触地~%float32 Tsta    #助力开始时刻~%float32 Trise    #助力结束时刻~%float32 Tfall    #助力开始时刻~%float32 Fmax    #助力结束时刻~%~%"))
+  (cl:format cl:nil "int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式~%float32 force~%float32 kp    #刚度 N/mm 或 PID的比例~%float32 ki    ~%float32 kd   ~%int32 flag    #标志触地~%float32 Tsta    #助力开始时刻~%float32 Trise    #助力结束时刻~%float32 Tfall    #助力开始时刻~%float32 Fmax    #助力结束时刻~%int32 measure  #开始测量~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Command)))
   "Returns full string definition for message of type 'Command"
-  (cl:format cl:nil "int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式~%float32 force~%float32 kp    #刚度 N/mm 或 PID的比例~%float32 ki    ~%float32 kd   ~%int32 flag    #标志触地~%float32 Tsta    #助力开始时刻~%float32 Trise    #助力结束时刻~%float32 Tfall    #助力开始时刻~%float32 Fmax    #助力结束时刻~%~%"))
+  (cl:format cl:nil "int32 mode  #mode 1 力位控制 mode 2  速度模式 mode 3 位置模式~%float32 force~%float32 kp    #刚度 N/mm 或 PID的比例~%float32 ki    ~%float32 kd   ~%int32 flag    #标志触地~%float32 Tsta    #助力开始时刻~%float32 Trise    #助力结束时刻~%float32 Tfall    #助力开始时刻~%float32 Fmax    #助力结束时刻~%int32 measure  #开始测量~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Command>))
   (cl:+ 0
+     4
      4
      4
      4
@@ -279,4 +302,5 @@
     (cl:cons ':Trise (Trise msg))
     (cl:cons ':Tfall (Tfall msg))
     (cl:cons ':Fmax (Fmax msg))
+    (cl:cons ':measure (measure msg))
 ))

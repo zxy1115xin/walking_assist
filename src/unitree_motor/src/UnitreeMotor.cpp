@@ -42,7 +42,7 @@ void UnitreeMotor::update()
     //发布电机传感器信息
     unitree_motor::Sensor sensor_msg;
     sensor_msg.motor_id = motor_r_.motor_id;
-//    sensor_msg.Temp = motor_r_.Temp;
+    sensor_msg.Temp = motor_r_.Temp;
     sensor_msg.Pos = motor_r_.Pos * POS_COEFF;    //POS_COEFF =1/9.1
 //    sensor_msg.W = motor_r_.W * W_COEFF;          //W_COEFF = 1/9.1
 //    sensor_msg.LW = motor_r_.LW;

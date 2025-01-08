@@ -196,17 +196,28 @@ class StrategyGroup:
 
         # 3.是否显示参数，位于 def force_curve(self, t): 中，选择是否显示参数更新
         for strategy in self.strategy_list:
-            strategy.show_index = config.show 
+            strategy.show_index = config.show
 
+        for strategy in self.strategy_list:
+                strategy.Start_index = config.Start_measure
 
         # 4.mode处理与更新
-        if config.Mode0 == 1:  # Mode0 是bool 选择是否快速防线
-            config.Mode_fight_All = 0
-            config.Mode_stance_All = 0
+
+        if config.Start_update == 1:  # Mode0 是bool 选择是否快速防线
+            config.Mode_fight_All = 10
+            config.Mode_stance_All = 8
 
         if config.Stop_update == 1:  # Mode0 是bool 选择是否快速防线
             config.Mode_fight_All = 12
             config.Mode_stance_All = 9
+
+        if config.Mode0 == 1:  # Mode0 是bool 选择是否快速防线
+            config.Mode_fight_All = 0
+            config.Mode_stance_All = 0
+            config.Start_measure = 0
+            config.Stop_update == 0
+            config.Start_update == 0
+
 
         if config.Mode_fight_All != self.Last_mode_fight:
             config.Mode_fight_left_lat = config.Mode_fight_All

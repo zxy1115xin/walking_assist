@@ -6,7 +6,7 @@
 <!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_one.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
-    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+<!--    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />-->
 
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
@@ -83,7 +83,7 @@
 
    <node pkg="strategy" type="strategy_group.py" name="strategy_group" output="screen">
          <param name = "force_pre" type = "double" value = "5.0" />
-         <param name = "lat" type = "double" value = "0.0" />
+         <param name = "lat" type = "double" value = "1.0" />
          <param name = "med" type = "double" value = "1.0" />
    </node>
 

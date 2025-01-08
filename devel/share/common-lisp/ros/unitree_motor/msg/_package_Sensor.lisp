@@ -5,4 +5,6 @@
           T
           POS-VAL
           POS
+          TEMP-VAL
+          TEMP
 ))

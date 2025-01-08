@@ -8,16 +8,16 @@ import struct
 
 
 class Sensor(genpy.Message):
-  _md5sum = "e3d4272807bb587a139f63f0a6c3443d"
+  _md5sum = "beee0c2c439c8763e3016584e8002537"
   _type = "unitree_motor/Sensor"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """char        motor_id    #Motor ID【电机ID】
 float32     T           #The output torque of motor【当前实际电机输出力矩】
 float32     Pos         #The motor shaft position(control board zero fixed)【当前电机位置（主控0点修正，电机关节还是以编码器0点为准）】
-
+float32     Temp         # 温度
 """
-  __slots__ = ['motor_id','T','Pos']
-  _slot_types = ['char','float32','float32']
+  __slots__ = ['motor_id','T','Pos','Temp']
+  _slot_types = ['char','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -27,7 +27,7 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       motor_id,T,Pos
+       motor_id,T,Pos,Temp
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -42,10 +42,13 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
         self.T = 0.
       if self.Pos is None:
         self.Pos = 0.
+      if self.Temp is None:
+        self.Temp = 0.
     else:
       self.motor_id = 0
       self.T = 0.
       self.Pos = 0.
+      self.Temp = 0.
 
   def _get_types(self):
     """
@@ -60,7 +63,7 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
     """
     try:
       _x = self
-      buff.write(_get_struct_B2f().pack(_x.motor_id, _x.T, _x.Pos))
+      buff.write(_get_struct_B3f().pack(_x.motor_id, _x.T, _x.Pos, _x.Temp))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -75,8 +78,8 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
       end = 0
       _x = self
       start = end
-      end += 9
-      (_x.motor_id, _x.T, _x.Pos,) = _get_struct_B2f().unpack(str[start:end])
+      end += 13
+      (_x.motor_id, _x.T, _x.Pos, _x.Temp,) = _get_struct_B3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -90,7 +93,7 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
     """
     try:
       _x = self
-      buff.write(_get_struct_B2f().pack(_x.motor_id, _x.T, _x.Pos))
+      buff.write(_get_struct_B3f().pack(_x.motor_id, _x.T, _x.Pos, _x.Temp))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -106,8 +109,8 @@ float32     Pos         #The motor shaft position(control board zero fixed)【�
       end = 0
       _x = self
       start = end
-      end += 9
-      (_x.motor_id, _x.T, _x.Pos,) = _get_struct_B2f().unpack(str[start:end])
+      end += 13
+      (_x.motor_id, _x.T, _x.Pos, _x.Temp,) = _get_struct_B3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -116,9 +119,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_B2f = None
-def _get_struct_B2f():
-    global _struct_B2f
-    if _struct_B2f is None:
-        _struct_B2f = struct.Struct("<B2f")
-    return _struct_B2f
+_struct_B3f = None
+def _get_struct_B3f():
+    global _struct_B3f
+    if _struct_B3f is None:
+        _struct_B3f = struct.Struct("<B3f")
+    return _struct_B3f

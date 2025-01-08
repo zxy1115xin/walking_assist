@@ -21,6 +21,7 @@ class Sensor {
       this.motor_id = null;
       this.T = null;
       this.Pos = null;
+      this.Temp = null;
     }
     else {
       if (initObj.hasOwnProperty('motor_id')) {
@@ -41,6 +42,12 @@ class Sensor {
       else {
         this.Pos = 0.0;
       }
+      if (initObj.hasOwnProperty('Temp')) {
+        this.Temp = initObj.Temp
+      }
+      else {
+        this.Temp = 0.0;
+      }
     }
   }
 
@@ -52,6 +59,8 @@ class Sensor {
     bufferOffset = _serializer.float32(obj.T, buffer, bufferOffset);
     // Serialize message field [Pos]
     bufferOffset = _serializer.float32(obj.Pos, buffer, bufferOffset);
+    // Serialize message field [Temp]
+    bufferOffset = _serializer.float32(obj.Temp, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -65,11 +74,13 @@ class Sensor {
     data.T = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [Pos]
     data.Pos = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [Temp]
+    data.Temp = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 9;
+    return 13;
   }
 
   static datatype() {
@@ -79,7 +90,7 @@ class Sensor {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'e3d4272807bb587a139f63f0a6c3443d';
+    return 'beee0c2c439c8763e3016584e8002537';
   }
 
   static messageDefinition() {
@@ -88,7 +99,7 @@ class Sensor {
     char        motor_id    #Motor ID【电机ID】
     float32     T           #The output torque of motor【当前实际电机输出力矩】
     float32     Pos         #The motor shaft position(control board zero fixed)【当前电机位置（主控0点修正，电机关节还是以编码器0点为准）】
-    
+    float32     Temp         # 温度
     
     `;
   }
@@ -118,6 +129,13 @@ class Sensor {
     }
     else {
       resolved.Pos = 0.0
+    }
+
+    if (msg.Temp !== undefined) {
+      resolved.Temp = msg.Temp;
+    }
+    else {
+      resolved.Temp = 0.0
     }
 
     return resolved;

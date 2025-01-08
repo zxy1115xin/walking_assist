@@ -92,6 +92,14 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 K_ind = 1;
                 // ROS_INFO_STREAM(" motify the K !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
+
+              if (Fmax-Fmax_real > 20  &&  Fmax-Fmax_real < 20 &&  step_>10 && K_ind==1 )
+            {
+                Kerrf = 1;  //误差较大时，增加修正比例
+                K_ind = 0;
+                // ROS_INFO_STREAM(" motify the K !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+
         }
         err_sum_=0;  //积分清零
         errFmax=errFmax+Kerrf*(Fmax-Fmax_real);
@@ -113,9 +121,11 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
     if(step_>-2)  //在第i步之后开始进行迭代学习
     {
 
-        int t1=1;  //提前激活时间
-        int t2=4;
-        int t3=3;
+        int t1=3;  //提前激活时间
+        if (Fmax <80){  t1=2; }
+
+        int t2=3;
+        int t3=1;
 
         switch (Mode)
 
@@ -127,7 +137,7 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
 
                 output_force=f_cmd_last[SNum_]+this_cmd;
-                float force_pre = 0.4*1000/30;
+                float force_pre = 0.1*1000/30;
                 if(SNum_<=Tsta-t1 )
                 {
 //                    float f_max = 0.5*1000/30;
@@ -144,7 +154,15 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
 
                     float f_min = -0*1000/30;
                     float fmax = ( 0.5*Fmax+errFmax)*0.03*1000/30;
+
+                    // 三角函数
                     output_force= force_pre + sin(3.1415926/2*(SNum_-Tsta+t1)/(Trise-Tsta+t1-t2))*fmax;
+
+                    // 指数
+                   //float x = SNum_-(Tsta-t1);
+                   //float t1 = Trise-t2 - (Tsta-t1);
+                   //output_force = fmax * (4 * pow(x, 3)/ pow(t1, 3) - 3 * pow(x, 4) / pow(t1,4));
+
                     if(output_force < f_min)output_force = f_min;
                     //ROS_INFO_STREAM("Trise: " << SNum_<<"force"<<output_force<<"real"<<force_real);
                 }
@@ -157,7 +175,10 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                     float fmax = 3*1000/30;
                     float f_min = ( 40)*0.075*1000/30;
 
-                    output_force=-fmin*(SNum_ - Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
+                    //output_force=-fmin*(SNum_ - Trise + t2) / (Tfall - Trise +t2); // 自下而上的斜线
+
+                    output_force= fmax*(SNum_ - Trise + t2) / ( t2-t3 ); // 自下而上的斜线
+
                 }
 
                 // 下降阶段  相对于峰值，要提前下降
@@ -165,11 +186,20 @@ float LRN::update(float force_des, float force_real, float flag_step, float (&f_
                 {
 
                     float f_min =( 0.5*Fmax+0.5*errFmin)*0.075*1000/30;
-                    output_force=-f_min*(SNum_ - Trise - t3) / (Tfall - Trise - t3 -2); // 自下而上的斜线
+
+                   // 自下而上的斜线
+                   output_force=-f_min*(SNum_ - Trise - t3) / (Tfall - Trise - t3 -2);
+
+                   // 指数
+                   // float x = SNum_-Trise-t3;
+                   // float t1 = Tfall - (Trise-t3);
+                   // output_force = -f_min *( 1-  4 * pow(x, 3) / pow(t1, 3) + ( 3 * pow(x, 4)) / pow(t1, 4));
+
                     float fmin =( -50)*0.075*1000/30;
                     float fmax = 0;
                     if(output_force > fmax) output_force = fmax;
                     if(output_force < fmin) output_force = fmin;
+
                 }
 
                 // 稳定阶段

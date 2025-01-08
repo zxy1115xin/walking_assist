@@ -6,7 +6,7 @@
 <!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/walk_med.bag -a" />-->
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>
 
-    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+<!--    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />-->
 
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">

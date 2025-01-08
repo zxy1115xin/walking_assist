@@ -26,12 +26,14 @@ struct Sensor_
   Sensor_()
     : motor_id(0)
     , T(0.0)
-    , Pos(0.0)  {
+    , Pos(0.0)
+    , Temp(0.0)  {
     }
   Sensor_(const ContainerAllocator& _alloc)
     : motor_id(0)
     , T(0.0)
-    , Pos(0.0)  {
+    , Pos(0.0)
+    , Temp(0.0)  {
   (void)_alloc;
     }
 
@@ -45,6 +47,9 @@ struct Sensor_
 
    typedef float _Pos_type;
   _Pos_type Pos;
+
+   typedef float _Temp_type;
+  _Temp_type Temp;
 
 
 
@@ -77,7 +82,8 @@ bool operator==(const ::unitree_motor::Sensor_<ContainerAllocator1> & lhs, const
 {
   return lhs.motor_id == rhs.motor_id &&
     lhs.T == rhs.T &&
-    lhs.Pos == rhs.Pos;
+    lhs.Pos == rhs.Pos &&
+    lhs.Temp == rhs.Temp;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +140,12 @@ struct MD5Sum< ::unitree_motor::Sensor_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "e3d4272807bb587a139f63f0a6c3443d";
+    return "beee0c2c439c8763e3016584e8002537";
   }
 
   static const char* value(const ::unitree_motor::Sensor_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xe3d4272807bb587aULL;
-  static const uint64_t static_value2 = 0x139f63f0a6c3443dULL;
+  static const uint64_t static_value1 = 0xbeee0c2c439c8763ULL;
+  static const uint64_t static_value2 = 0xe3016584e8002537ULL;
 };
 
 template<class ContainerAllocator>
@@ -161,7 +167,7 @@ struct Definition< ::unitree_motor::Sensor_<ContainerAllocator> >
     return "char        motor_id    #Motor ID【电机ID】\n"
 "float32     T           #The output torque of motor【当前实际电机输出力矩】\n"
 "float32     Pos         #The motor shaft position(control board zero fixed)【当前电机位置（主控0点修正，电机关节还是以编码器0点为准）】\n"
-"\n"
+"float32     Temp         # 温度\n"
 ;
   }
 
@@ -183,6 +189,7 @@ namespace serialization
       stream.next(m.motor_id);
       stream.next(m.T);
       stream.next(m.Pos);
+      stream.next(m.Temp);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -207,6 +214,8 @@ struct Printer< ::unitree_motor::Sensor_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.T);
     s << indent << "Pos: ";
     Printer<float>::stream(s, indent + "  ", v.Pos);
+    s << indent << "Temp: ";
+    Printer<float>::stream(s, indent + "  ", v.Temp);
   }
 };
 

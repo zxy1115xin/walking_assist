@@ -82,6 +82,10 @@ void MotorControl::cmdCallback(const control::Command::ConstPtr& cmd_msg)
         pos_now=sensor_msg_.Pos ;
     }
 
+    if ( cmd_msg_.mode == 0){
+        delete_cmd = 1;
+    }
+
 
 }
 
@@ -214,6 +218,16 @@ void MotorControl::update()
                 ctrl_msg_.K_W = 0;
 
 
+                // 重新学习
+                if (delete_cmd ==1){
+                  memset(F_cmd , 0, sizeof(F_cmd )); // 清零
+                  delete_cmd = 0;
+                  pos_change_ = 0.2;
+                  pos_change1_=0;
+                  ROS_INFO_STREAM("==  delete_cmd   ===");
+
+                }
+
                 // LRN 迭代学习 更新参数
                 LRN_.setParam(0.5,0.8,0);
                 int Mode_=1;  // LRN 迭代学习进行模式 mode == 1
@@ -221,12 +235,14 @@ void MotorControl::update()
                 float force_ctrl = LRN_.update(cmd_msg_.force,force_msg_.data,cmd_msg_.flag,F_cmd,F_cmd_last,cmd_msg_.Tsta,cmd_msg_.Trise,cmd_msg_.Tfall,cmd_msg_.Fmax,Mode_);
                 ctrl_msg_.T =-force_ctrl*MOTOR_OUT_RADIUS/1000;
 
-
+//                if (cmd_msg_.flag<5){
+//                   ROS_INFO_STREAM("=="<<name_<<"Tsta"<<cmd_msg_.Tsta<<"cmd_msg_.Trise"<< cmd_msg_.Trise<<"cmd_msg_.fla"<< cmd_msg_.flag);
+//                }
 //                ROS_INFO_STREAM("====="<<name_<<"flag"<<cmd_msg_.flag);
-//                ROS_INFO_STREAM("=="<<name_<<"fight"<<ctrl_msg_.T<<"fmax"<< cmd_msg_.Fmax);
+                //ROS_INFO_STREAM("=="<<name_<<"Tsta"<<cmd_msg_.Tsta<<"cmd_msg_.Trise"<< cmd_msg_.Trise<<"cmd_msg_.fla"<< cmd_msg_.flag);
 
                 // 根据反馈的保护
-                if (force_msg_.data > 180)
+                if (force_msg_.data > 250)
                     ctrl_msg_.T = 0;
                 if (force_msg_.data <= 2 && ctrl_msg_.T > 0)  //防止过渡放线
                     ctrl_msg_.T = 0;
@@ -238,6 +254,8 @@ void MotorControl::update()
                 if (ctrl_msg_.T < -T_max)
                         ctrl_msg_.T = -T_max;
 
+
+                // 其他模式需要
                 // 记录当前时刻电机位置，--一般只在迭代学习中更新
                 Pos_cmd[cmd_msg_.flag]= sensor_msg_.Pos;
                 
@@ -316,6 +334,12 @@ void MotorControl::update()
                 ctrl_msg_.K_P = 0.2;
                 ctrl_msg_.K_W = 3;
 
+            // 如果变化过大
+            if (abs(pos_fight_last_-pos_fight_)>0.4)
+            {
+            pos_fight_ = 0.1*pos_fight_+0.9*pos_fight_last_;
+            }
+
              // 新周期開始，参数更新。  在腾空下前3/4 放线  后1/4 收线
             if( mode_last_!=10 ){
 
@@ -333,9 +357,13 @@ void MotorControl::update()
                         if (force_err_max1_<3 && force_err_max1_>-1 ){}
                         else
                         {
+
+                        if (cmd_msg_.Fmax>80){
                         errsum1 = errsum1+force_err_max1_;
-                        pos_change1_=-0.2 +(force_err_max1_) * 0.003 + errsum1 * 0.001;
-                        // pos_change1_ = -1;
+                        pos_change1_= (force_err_max1_) * 0.003 + errsum1 * 0.001;
+                        }
+
+                        //pos_change1_ = -0.2;
 
                         }
 
@@ -347,7 +375,12 @@ void MotorControl::update()
                      }
 
 
-                    pos_change_=(force_err_max_) * 0.003 + errsum * 0.001;
+
+                    pos_change_= (force_err_max_) * 0.003 + errsum * 0.001;
+                    if (cmd_msg_.Fmax<80){
+                    pos_change_= (force_err_max_) * 0.003 + errsum * 0.001;
+                    }
+
 
 
                     //  ROS_INFO_STREAM("errsum_=="<<errsum<<name_<<"---pos_chang"<< pos_change_<<"  force_err_max_=="<<force_err_max_);
@@ -520,6 +553,7 @@ void MotorControl::update()
        ctrl_pub.publish(ctrl_msg_);
        mode_last_=cmd_msg_.mode;
        flag_last_=cmd_msg_.flag;
+       pos_fight_last_ = pos_fight_;
 
     }
 }

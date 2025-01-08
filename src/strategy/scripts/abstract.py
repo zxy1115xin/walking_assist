@@ -29,7 +29,8 @@ class Strategy:
 
         # 参数设计
         self.pre_force = rospy.get_param("~force_pre")  # 获取参数
-        self.show_index = 1
+        self.show_index = 0
+        self.Start_index = 0
         self.server_flag = 0
 
         self.mode_stance = 0
@@ -46,6 +47,7 @@ class Strategy:
         self.t_rise = 0
         self.t_fall = 0
         self.t_start = 0
+        self.update_f = 0
 
         self.upstart_time_ = 0
         self.uprise_time_ = 0
@@ -82,7 +84,6 @@ class Strategy:
         # self.F2_func = {}
 
     def get_param(self, input_data, output_data):
-
         self.input_data = input_data
         self.output_data = output_data
 
@@ -229,6 +230,7 @@ class Strategy:
         self.t_rise = t_rise
         self.t_fall = t_fall
         self.adapt_ = adapt_
+        self.update_f = 1
         return
 
     def update(self, t):
@@ -241,6 +243,7 @@ class Strategy:
         self.cmd_msg.Trise = Trise
         self.cmd_msg.Tfall = Tfall
         self.cmd_msg.Fmax = Fmax
+        self.cmd_msg.measure = self.Start_index
         self.cmd_pub.publish(self.cmd_msg)
         return
 
@@ -290,9 +293,11 @@ class Strategy:
                 self.uprise_time = self.t_rise
                 self.upfall_time = self.t_fall
                 self.upforce_max = self.F_max
+
             else:
 
-                if self.update_n == 1:
+                if self.update_n == 1 or self.update_f == 1 or self.gait_num_last2 - self.gait_num > 5:
+                    self.update_f = 0
                     self.update_n = self.update_n + 1
                     T_delay = 5
                     # input_sample = [34, 50, 60, 150]  # 替换为实际的输入数据
@@ -301,20 +306,20 @@ class Strategy:
                                     self.T_max * 100 + T_delay + self.t_fall / self.gait_T * 100 * 100,
                                     self.F_max]  # 替换为实际的输入数据
                     output = self.find_closest_row(input_sample)
-                    T_delay = 10
+                    T_delay = 6
                     if self.location == 2:  # 外侧
-                        self.upstart_time = (output[4] - T_delay) * self.gait_T / 100 / 100
+                        self.upstart_time = (output[4] - T_delay ) * self.gait_T / 100 / 100
                         self.uprise_time = output[5] * self.gait_T / 100 / 100 - self.upstart_time
                         self.upfall_time = output[6] * self.gait_T / 100 / 100 - self.uprise_time - self.upstart_time
-                        self.upforce_max = output[7]
+                        self.upforce_max = output[7] / 150 * self.F_max
 
                     else:
                         self.upstart_time = (output[0] - T_delay) * self.gait_T / 100 / 100
                         self.uprise_time = output[1] * self.gait_T / 100 / 100 - self.upstart_time
                         self.upfall_time = output[2] * self.gait_T / 100 / 100 - self.uprise_time - self.upstart_time
-                        self.upforce_max = output[3]
+                        self.upforce_max = output[3] / 150 * self.F_max
 
-                elif 1 < self.update_n < 10:
+                elif 1 < self.update_n < 7:
                     self.update_n = self.update_n + 1
 
                 else:
@@ -335,11 +340,14 @@ class Strategy:
         force_pre = self.pre_force
         # 传参
         T_v = 0.05  # 助力结束后学习持续学习时间
-        Fmax = self.upforce_max + force_pre
+        Fmax = self.upforce_max
         Tsta = self.upstart_time * 100
         Trise = (self.upstart_time + self.uprise_time) * 100
         Tfall = (self.upstart_time + self.uprise_time + self.upfall_time) * 100
         flag = self.Flag
+
+        # if flag < 5:
+        #     print(['flag:', flag, 'Tsta:', Tsta, 'Trise:', Trise])
 
         self.Flag = self.Flag + 1
 
@@ -361,8 +369,11 @@ class Strategy:
                 x = (t - self.touch_time - self.upstart_time)
 
                 t1 = self.uprise_time
-                force1 = (4 * self.upforce_max * pow(x, 3)) / pow(t1, 3) - (3 * self.upforce_max * pow(x, 4)) / pow(t1,
-                                                                                                                    4)
+                # force1 = (4 * self.upforce_max * pow(x, 3)) / pow(t1, 3) - (3 * self.upforce_max * pow(x, 4)) / pow(t1,4)
+
+                force1 = self.upforce_max * math.sin(3.1415926 / 2 * x / t1)
+
+
                 # self.force_p = self.set_P(t - self.touch_time, self.upstart_time + self.uprise_time,
                 #                           self.upstart_time + self.uprise_time + self.upfall_time)
                 force = force1

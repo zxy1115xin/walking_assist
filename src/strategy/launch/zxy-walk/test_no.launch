@@ -2,11 +2,11 @@
     <!--   外侧单绳助力： F=100N/m -->
 
 
-
-    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/no.bag -a" />
+    <node pkg="rosbag" type="record" name="record" args="-o /mnt/NanoDisk/Adata_xy/241109/no.bag -a" />
+<!--    <node pkg="rosbag" type="record" name="record" args="-o /home/c208/zxy/subject/no.bag -a" />-->
 <!--    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="Dynamic_param"/>-->
 
-    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />
+<!--    <node pkg="strategy" type="remote_start_stop" name="nexus_trigger" output="screen" />-->
 
 
     <node pkg="socketcan_bridge" type="socketcan_bridge_node" name="can0_node" output="screen">
@@ -54,14 +54,14 @@
            motor0: "right_med"
            motor1: "left_med"
            motor2: "right_lat"
-           enable: "111"
+           enable: "000"
        </rosparam>
    </node>
 
     <node pkg="unitree_motor" type="motor_node" name="USB1_group" output="screen">
         <rosparam>
             usb_device: "USB1"
-            enable: "001"
+            enable: "000"
             motor0: "disturb"
             motor2: "left_lat"
 
